@@ -12,36 +12,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=Orbitron:wght@400;500;600&display=swap" rel="stylesheet">
     
-    <!-- Firebase SDK -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-        import { getDatabase, ref, set, get, update, remove, onValue } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
-        
-        const firebaseConfig = {
-            apiKey: "AIzaSyDcFLrmoKuyiFpm48gWrOQRcC8nd6sUWio",
-            authDomain: "smvip2-8d131.firebaseapp.com",
-            databaseURL: "https://smvip2-8d131-default-rtdb.firebaseio.com",
-            projectId: "smvip2-8d131",
-            storageBucket: "smvip2-8d131.firebasestorage.app",
-            messagingSenderId: "113699989330",
-            appId: "1:113699989330:web:5e68b8160362eae509fc8b",
-            measurementId: "G-B023JGDMGJ"
-        };
-
-        const app = initializeApp(firebaseConfig);
-        const database = getDatabase(app);
-        
-        window.firebaseDatabase = database;
-        window.firebaseRef = ref;
-        window.firebaseSet = set;
-        window.firebaseGet = get;
-        window.firebaseUpdate = update;
-        window.firebaseRemove = remove;
-        window.firebaseOnValue = onValue;
-        
-        console.log('Firebase initialized successfully');
-    </script>
-    
     <style>
         /* Font Assignments */
         :root {
@@ -71,57 +41,477 @@
             font-weight: 700;
         }
 
-        /* Simple Navigation */
-        .simple-nav {
-            background: #ffffff;
-            border-bottom: 1px solid #e5e7eb;
+        /* Modern Navigation Bar */
+        .modern-nav {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(229, 231, 235, 0.8);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            padding: 0 1.5rem;
-        }
-
-        /* Simple Button */
-        .btn-simple {
-            background: #e3342f;
-            color: white;
-            font-weight: 600;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
-            border: 1px solid #c53030;
         }
 
-        .btn-simple:hover {
-            background: #c53030;
-            transform: translateY(-1px);
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
 
-        /* Simple Card */
-        .simple-card {
-            background: #ffffff;
-            border: 1px solid #e5e7eb;
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #e3342f, #f56565);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .logo-text {
+            font-family: var(--font-heading);
+            font-weight: 800;
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, #e3342f, #8b0000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-center {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            font-family: var(--font-body);
+            font-weight: 500;
+            color: #4b5563;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
             border-radius: 8px;
             transition: all 0.3s ease;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: relative;
         }
 
-        .simple-card:hover {
-            border-color: #d1d5db;
+        .nav-link:hover {
+            color: #e3342f;
+            background: rgba(227, 52, 47, 0.05);
+        }
+
+        .nav-link.active {
+            color: #e3342f;
+            font-weight: 600;
+            background: rgba(227, 52, 47, 0.1);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 1rem;
+            right: 1rem;
+            height: 3px;
+            background: #e3342f;
+            border-radius: 3px;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        /* Modern Button */
+        .btn-modern {
+            background: linear-gradient(135deg, #e3342f, #c53030);
+            color: white;
+            font-weight: 600;
+            padding: 0.6rem 1.5rem;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(227, 52, 47, 0.2);
+            font-size: 0.9rem;
+        }
+
+        .btn-modern:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 6px 20px rgba(227, 52, 47, 0.3);
         }
 
-        /* Welcome Screen */
-        #welcome-screen {
-            position: fixed;
-            inset: 0;
-            background: #ffffff;
+        .btn-modern-outline {
+            background: transparent;
+            color: #e3342f;
+            border: 2px solid #e3342f;
+            font-weight: 600;
+            padding: 0.6rem 1.5rem;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .btn-modern-outline:hover {
+            background: rgba(227, 52, 47, 0.1);
+        }
+
+        /* Notification Badge */
+        .notification-badge {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .badge-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #e3342f;
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+
+        /* Profile Dropdown */
+        .profile-dropdown-modern {
+            position: relative;
+        }
+
+        .profile-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .profile-toggle:hover {
+            background: rgba(229, 231, 235, 0.5);
+        }
+
+        .profile-avatar {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #e3342f, #f56565);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .profile-info {
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .profile-name {
+            font-weight: 600;
+            color: #1f2937;
+            font-size: 0.9rem;
+        }
+
+        .vip-badge {
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #7c2d12;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            display: flex;
             align-items: center;
-            z-index: 9999;
+            gap: 0.25rem;
+        }
+
+        /* Dropdown Menu */
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 10px);
+            right: 0;
+            width: 280px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e5e7eb;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .dropdown-menu.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #e5e7eb;
+            background: linear-gradient(135deg, #fef2f2, #fff5f5);
+            border-radius: 12px 12px 0 0;
+        }
+
+        .dropdown-body {
+            padding: 1rem;
+        }
+
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            color: #4b5563;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            background: none;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+
+        .dropdown-item:hover {
+            background: #f9fafb;
+            color: #e3342f;
+        }
+
+        .dropdown-item i {
+            width: 20px;
+            text-align: center;
+        }
+
+        .dropdown-footer {
+            padding: 1rem;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #4b5563;
+            font-size: 1.5rem;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mobile-menu-btn:hover {
+            background: rgba(229, 231, 235, 0.5);
+        }
+
+        /* Mobile Navigation */
+        .mobile-nav {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(-100%);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            max-height: calc(100vh - 70px);
+            overflow-y: auto;
+        }
+
+        .mobile-nav.active {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .mobile-nav-link {
+            padding: 1rem;
+            border-radius: 8px;
+            color: #4b5563;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .mobile-nav-link:hover,
+        .mobile-nav-link.active {
+            background: #fef2f2;
+            color: #e3342f;
+        }
+
+        .mobile-nav-actions {
+            padding-top: 1.5rem;
+            border-top: 1px solid #e5e7eb;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .mobile-profile-dropdown {
+            background: #f9fafb;
+            padding: 1rem;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+        }
+
+        .mobile-profile-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .mobile-profile-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .nav-center {
+                display: none;
+            }
+            
+            .nav-right .profile-dropdown-modern:not(.mobile-profile),
+            .nav-right .notification-badge:not(.mobile-notification) {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: flex;
+            }
+            
+            .nav-container {
+                padding: 0 1.5rem;
+            }
+        }
+
+        @media (min-width: 1025px) {
+            .mobile-nav {
+                display: none;
+            }
+        }
+
+        /* Notification Dropdown */
+        .notification-dropdown {
+            position: absolute;
+            top: calc(100% + 10px);
+            right: 0;
+            width: 320px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e5e7eb;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .notification-dropdown.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .notification-header {
+            padding: 1.25rem;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .notification-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .notification-item {
+            padding: 1rem 1.25rem;
+            border-bottom: 1px solid #f3f4f6;
+            transition: background 0.2s ease;
+            cursor: pointer;
+        }
+
+        .notification-item:hover {
+            background: #f9fafb;
+        }
+
+        .notification-item.unread {
+            background: #fef2f2;
+        }
+
+        .notification-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.75rem;
+        }
+
+        /* Main Website Content */
+        #main-website {
+            margin-top: 70px;
+            transition: opacity 0.3s ease;
         }
 
         /* Loading Screen */
@@ -133,10 +523,10 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            z-index: 9998;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
         }
 
-        /* Progress Bar */
         .progress-bar {
             width: 300px;
             height: 6px;
@@ -148,10 +538,348 @@
 
         .progress-fill {
             height: 100%;
-            background: #e3342f;
+            background: linear-gradient(90deg, #e3342f, #f56565);
             width: 0%;
             transition: width 0.3s ease;
             border-radius: 3px;
+        }
+
+        .loading-spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #e3342f;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Login Modal - Improved */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1002;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 0;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 450px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+            animation: slideUp 0.4s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #e3342f, #c53030);
+            padding: 1.75rem;
+            text-align: center;
+        }
+
+        .modal-header h3 {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #374151;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 1.5px solid #d1d5db;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #f9fafb;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #e3342f;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(227, 52, 47, 0.1);
+        }
+
+        .modal-footer {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .modal-footer .btn-modern {
+            flex: 1;
+            justify-content: center;
+            padding: 0.875rem;
+        }
+
+        .modal-footer .btn-modern-outline {
+            flex: 1;
+            justify-content: center;
+            padding: 0.875rem;
+        }
+
+        .modal-links {
+            text-align: center;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .modal-links a {
+            color: #6b7280;
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.2s ease;
+        }
+
+        .modal-links a:hover {
+            color: #e3342f;
+        }
+
+        .modal-links .admin-link {
+            color: #3b82f6;
+            font-weight: 500;
+        }
+
+        .modal-links .admin-link:hover {
+            color: #1d4ed8;
+        }
+
+        /* Register Modal */
+        .register-tab, .login-tab {
+            padding: 1rem;
+            background: none;
+            border: none;
+            font-weight: 600;
+            color: #6b7280;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .register-tab.active, .login-tab.active {
+            color: #e3342f;
+            border-bottom-color: #e3342f;
+        }
+
+        .modal-tabs {
+            display: flex;
+            justify-content: center;
+            border-bottom: 1px solid #e5e7eb;
+            background: #f9fafb;
+        }
+
+        /* WhatsApp Field */
+        .whatsapp-field {
+            position: relative;
+        }
+
+        .whatsapp-field .form-input {
+            padding-left: 3rem;
+        }
+
+        .whatsapp-prefix {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+            font-weight: 500;
+        }
+
+        /* Results Locked */
+        .results-locked {
+            position: relative;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #fafafa, #f0f0f0);
+            border-radius: 12px;
+            border: 2px dashed #e5e7eb;
+        }
+
+        .locked-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.95);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 3rem;
+            border-radius: 12px;
+        }
+
+        .lock-icon {
+            font-size: 3rem;
+            color: #e3342f;
+            margin-bottom: 1rem;
+        }
+
+        /* Logout Button */
+        .logout-btn {
+            background: #f3f4f6;
+            color: #6b7280;
+            border: 1.5px solid #d1d5db;
+            padding: 0.875rem 1.5rem;
+            border-radius: 10px;
+            font-weight: 500;
+            transition: all 0.3s;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .logout-btn:hover {
+            background: #ef4444;
+            color: white;
+            border-color: #dc2626;
+        }
+
+        /* Simple Card */
+        .simple-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .simple-card:hover {
+            border-color: #d1d5db;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .btn-simple {
+            background: linear-gradient(135deg, #e3342f, #c53030);
+            color: white;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .btn-simple:hover {
+            background: linear-gradient(135deg, #c53030, #a51c1c);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(227, 52, 47, 0.2);
+        }
+
+        /* Section Background */
+        .section-bg {
+            background: linear-gradient(135deg, #f9fafb, #f3f4f6);
+            border-top: 1px solid #e5e7eb;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        /* Stats Counter Style */
+        .stat-number {
+            font-family: var(--font-tech);
+            font-weight: 700;
+            color: #e3342f;
+        }
+
+        /* Footer Style */
+        .footer-simple {
+            background: linear-gradient(135deg, #111827, #1f2937);
+            color: #f9fafb;
+            border-top: 2px solid #e3342f;
+        }
+
+        /* Dark Red Text */
+        .dark-red-text {
+            color: #8b0000;
+            font-weight: 800;
+        }
+
+        /* VIP Timer Badge */
+        .vip-timer {
+            background: linear-gradient(135deg, #e3342f, #ff6b6b);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(37, 211, 102, 0.6);
         }
 
         /* Fade In Animation */
@@ -164,233 +892,57 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Remove gradient text effects */
-        .premium-red-text,
-        .red-gold-mix,
-        .dark-red-text {
-            background: none;
-            -webkit-background-clip: initial;
-            -webkit-text-fill-color: initial;
-            color: #e3342f;
+        .hidden {
+            display: none !important;
         }
-        
-        /* Red Accent Border */
+
         .red-accent {
             border-left: 3px solid #e3342f;
         }
-        
-        /* Section Background */
-        .section-bg {
-            background: #f9fafb;
-            border-top: 1px solid #e5e7eb;
+
+        /* Signal Results Table */
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .results-table th {
+            background: #f3f4f6;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .results-table td {
+            padding: 1rem;
             border-bottom: 1px solid #e5e7eb;
         }
-        
-        /* Stats Counter Style */
-        .stat-number {
-            font-family: var(--font-tech);
-            font-weight: 700;
-            color: #e3342f;
-        }
-        
-        /* Footer Style */
-        .footer-simple {
-            background: #111827;
-            color: #f9fafb;
-            border-top: 2px solid #e3342f;
-        }
-        
-        /* Dark Red Text */
-        .dark-red-text {
-            color: #8b0000;
-            font-weight: 800;
-        }
-        
-        /* Countdown Style */
-        .countdown-text {
-            font-size: 0.9rem;
-            color: #666;
-            margin-top: 10px;
-        }
-        
-        /* VIP Timer Badge */
-        .vip-timer {
-            background: linear-gradient(135deg, #e3342f, #ff6b6b);
-            color: white;
-            padding: 5px 12px;
+
+        .profit-badge {
+            padding: 0.25rem 0.75rem;
             border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-        }
-        
-        /* Profile Dropdown */
-        .profile-dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            right: 0;
-            background-color: white;
-            min-width: 250px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1001;
-            border-radius: 8px;
-            border: 1px solid #e5e7eb;
-            margin-top: 10px;
-        }
-        
-        .profile-dropdown:hover .dropdown-content {
-            display: block;
-        }
-        
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1002;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.5);
-        }
-        
-        .modal-content {
-            background-color: white;
-            margin: 10% auto;
-            padding: 0;
-            border-radius: 12px;
-            width: 90%;
-            max-width: 500px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            overflow: hidden;
-        }
-        
-        /* Admin Badge */
-        .admin-badge {
-            background: linear-gradient(135deg, #1e40af, #3b82f6);
-            color: white;
-            padding: 3px 10px;
-            border-radius: 12px;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             font-weight: 600;
         }
-        
-        /* Logout Button */
-        .logout-btn {
-            background: #f3f4f6;
-            color: #6b7280;
-            border: 1px solid #d1d5db;
-            padding: 8px 16px;
-            border-radius: 6px;
-            font-weight: 500;
-            transition: all 0.3s;
+
+        .profit-positive {
+            background: #d1fae5;
+            color: #065f46;
         }
-        
-        .logout-btn:hover {
-            background: #ef4444;
-            color: white;
-            border-color: #dc2626;
-        }
-        
-        /* Navigation Links */
-        .nav-btn {
-            padding: 8px 16px;
-            border-radius: 6px;
-            font-weight: 500;
-            color: #4b5563;
-            transition: all 0.3s;
-            text-decoration: none;
-        }
-        
-        .nav-btn:hover {
-            color: #e3342f;
-            background: #fef2f2;
-        }
-        
-        .nav-btn.active {
-            color: #e3342f;
-            background: #fef2f2;
-            font-weight: 600;
-        }
-        
-        /* Mobile Menu Button */
-        .mobile-menu-btn {
-            display: none;
-        }
-        
-        @media (max-width: 768px) {
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: white;
-                padding: 1rem;
-                border-bottom: 1px solid #e5e7eb;
-                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            }
-            
-            .nav-links.active {
-                display: flex;
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-        }
-        
-        /* Admin Link */
-        .admin-link {
-            color: #3b82f6;
-            font-weight: 500;
-        }
-        
-        .admin-link:hover {
-            color: #1d4ed8;
-            text-decoration: underline;
+
+        .profit-negative {
+            background: #fee2e2;
+            color: #991b1b;
         }
     </style>
 </head>
 <body>
 
-    <!-- Welcome Screen -->
-    <div id="welcome-screen">
-        <!-- Initial Logo Display -->
-        <div id="logo-display" class="text-center">
-            <h1 class="animate__animated animate__zoomIn text-4xl md:text-6xl tracking-widest tech-font mb-4 red-text">
-                SM VIP SIGNALS
-            </h1>
-            <p class="animate__animated animate__fadeIn text-gray-600 text-lg mb-8 max-w-md mx-auto">
-                Premium Cryptocurrency Trading Signals
-            </p>
-            <p class="text-gray-500 mb-8 max-w-lg mx-auto">
-                Get accurate Crypto Signals every day. Maximize your profits with our VIP community.
-            </p>
-            <button id="enter-btn" class="btn-simple px-8 py-4 rounded-lg text-lg font-bold heading-font animate__animated animate__pulse mb-4">
-                ENTER TRADING HUB
-            </button>
-            <p class="text-gray-400 text-sm mt-4">
-                Auto-entering in <span id="countdown">3</span> seconds...
-            </p>
-            <p class="text-gray-400 text-xs mt-2">
-                Click above to enter immediately
-            </p>
-        </div>
-    </div>
-
     <!-- Loading Screen -->
-    <div id="loading-screen" class="hidden">
+    <div id="loading-screen">
         <div class="text-center">
+            <div class="loading-spinner"></div>
             <h2 class="text-3xl font-bold mb-6 heading-font dark-red-text">VIP SIGNALS HUB</h2>
             <p class="text-gray-600 mb-8 max-w-md mx-auto">
                 Loading main trading platform... Please wait
@@ -402,118 +954,313 @@
         </div>
     </div>
 
+    <!-- Modern Navigation Bar -->
+    <nav class="modern-nav">
+        <div class="nav-container">
+            <div class="nav-content">
+                <!-- Logo -->
+                <a href="#home" class="nav-logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="logo-text">SM VIP SIGNALS</div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <div class="nav-center">
+                    <a href="#home" class="nav-link active" data-section="home">
+                        <i class="fas fa-home mr-2"></i>
+                        Home
+                    </a>
+                    <a href="#signals" class="nav-link" data-section="signals">
+                        <i class="fas fa-signal mr-2"></i>
+                        Free Signals
+                    </a>
+                    <a href="#results" class="nav-link" data-section="results">
+                        <i class="fas fa-trophy mr-2"></i>
+                        VIP Results
+                    </a>
+                    <a href="#pricing" class="nav-link" data-section="pricing">
+                        <i class="fas fa-crown mr-2"></i>
+                        Pricing
+                    </a>
+                    <a href="#about" class="nav-link" data-section="about">
+                        <i class="fas fa-info-circle mr-2"></i>
+                        About
+                    </a>
+                </div>
+
+                <!-- Right Side Actions -->
+                <div class="nav-right">
+                    <!-- Notification -->
+                    <div class="notification-badge" id="notification-container">
+                        <button class="btn-modern-outline" id="notification-btn">
+                            <i class="fas fa-bell"></i>
+                        </button>
+                        <span class="badge-count" id="notification-count">3</span>
+                        
+                        <!-- Notification Dropdown -->
+                        <div class="notification-dropdown" id="notification-dropdown">
+                            <div class="notification-header">
+                                <h4 class="font-bold text-lg">Notifications</h4>
+                                <button class="text-sm text-red-600 font-medium" id="mark-all-read">Mark all as read</button>
+                            </div>
+                            <div class="notification-list" id="notification-list">
+                                <!-- Notifications will be populated by JavaScript -->
+                            </div>
+                            <div class="notification-header">
+                                <a href="#" class="text-sm text-red-600 font-medium">View all notifications</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Join VIP Button -->
+                    <button class="btn-modern" id="join-vip-btn">
+                        <i class="fas fa-lock-open"></i>
+                        JOIN VIP
+                    </button>
+
+                    <!-- Profile Dropdown -->
+                    <div class="profile-dropdown-modern" id="desktop-profile">
+                        <div class="profile-toggle" id="profile-toggle">
+                            <div class="profile-avatar" id="profile-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="profile-info">
+                                <div class="profile-name" id="profile-name">Guest</div>
+                                <div class="vip-badge" id="vip-badge">
+                                    <i class="fas fa-crown"></i>
+                                    <span id="vip-status">Login</span>
+                                </div>
+                            </div>
+                            <i class="fas fa-chevron-down text-gray-500"></i>
+                        </div>
+                        
+                        <div class="dropdown-menu" id="profile-dropdown">
+                            <div class="dropdown-header">
+                                <div class="profile-avatar" id="dropdown-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <h3 class="font-bold text-lg mt-2" id="dropdown-name">Guest User</h3>
+                                <p class="text-gray-600 text-sm" id="dropdown-email">Login to access VIP features</p>
+                                <div class="vip-timer mt-2 hidden" id="dropdown-vip-timer">
+                                    <i class="fas fa-clock"></i>
+                                    <span id="vip-days">0</span> days remaining
+                                </div>
+                            </div>
+                            <div class="dropdown-body">
+                                <button class="dropdown-item" id="dropdown-login-btn">
+                                    <i class="fas fa-sign-in-alt"></i>
+                                    <span>Login</span>
+                                </button>
+                                <button class="dropdown-item" id="dropdown-renew-vip">
+                                    <i class="fas fa-crown"></i>
+                                    <span>Renew VIP</span>
+                                </button>
+                                <button class="dropdown-item">
+                                    <i class="fas fa-headset"></i>
+                                    <span>Support</span>
+                                </button>
+                                <button class="dropdown-item">
+                                    <i class="fas fa-cog"></i>
+                                    <span>Settings</span>
+                                </button>
+                            </div>
+                            <div class="dropdown-footer">
+                                <button class="logout-btn hidden" id="dropdown-logout-btn">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    Logout
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <button class="mobile-menu-btn" id="mobile-menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div class="mobile-nav" id="mobile-nav">
+            <div class="mobile-nav-links">
+                <a href="#home" class="mobile-nav-link active" data-section="home">
+                    <i class="fas fa-home"></i>
+                    Home
+                </a>
+                <a href="#signals" class="mobile-nav-link" data-section="signals">
+                    <i class="fas fa-signal"></i>
+                    Free Signals
+                </a>
+                <a href="#results" class="mobile-nav-link" data-section="results">
+                    <i class="fas fa-trophy"></i>
+                    VIP Results
+                </a>
+                <a href="#pricing" class="mobile-nav-link" data-section="pricing">
+                    <i class="fas fa-crown"></i>
+                    Pricing
+                </a>
+                <a href="#about" class="mobile-nav-link" data-section="about">
+                    <i class="fas fa-info-circle"></i>
+                    About
+                </a>
+            </div>
+            
+            <div class="mobile-nav-actions">
+                <!-- Mobile Notification -->
+                <div class="notification-badge mobile-notification">
+                    <button class="btn-modern-outline w-full" id="mobile-notification-btn">
+                        <i class="fas fa-bell"></i>
+                        Notifications
+                        <span class="badge-count">3</span>
+                    </button>
+                </div>
+                
+                <!-- Mobile Join VIP Button -->
+                <button class="btn-modern w-full" id="mobile-join-vip-btn">
+                    <i class="fas fa-lock-open"></i>
+                    JOIN VIP NOW
+                </button>
+                
+                <!-- Mobile Profile Section -->
+                <div class="mobile-profile-dropdown">
+                    <div class="mobile-profile-header">
+                        <div class="profile-avatar" id="mobile-profile-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold" id="mobile-profile-name">Guest</h4>
+                            <p class="text-gray-600 text-sm" id="mobile-vip-status">Login to continue</p>
+                            <div class="vip-timer mt-1 hidden" id="mobile-vip-timer">
+                                <i class="fas fa-clock"></i>
+                                <span id="mobile-vip-days">0</span> days remaining
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mobile-profile-actions">
+                        <button class="btn-simple w-full" id="mobile-login-btn">
+                            <i class="fas fa-sign-in-alt"></i>
+                            Login
+                        </button>
+                        <button class="logout-btn w-full hidden" id="mobile-logout-btn">
+                            <i class="fas fa-sign-out-alt"></i>
+                            Logout
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
     <!-- Login Modal -->
     <div id="loginModal" class="modal">
         <div class="modal-content">
-            <div class="bg-red-600 p-6">
-                <h3 class="text-2xl font-bold text-white heading-font">VIP MEMBER LOGIN</h3>
+            <div class="modal-header">
+                <h3>ACCOUNT LOGIN</h3>
             </div>
-            <div class="p-8">
-                <div id="loginForm">
-                    <div class="space-y-5">
-                        <div>
-                            <label class="block text-gray-700 mb-2 font-medium">Username</label>
+            <div class="modal-body">
+                <div class="modal-tabs">
+                    <button class="login-tab active" id="loginTabBtn">LOGIN</button>
+                    <button class="register-tab" id="registerTabBtn">REGISTER</button>
+                </div>
+                
+                <!-- Login Form -->
+                <div id="loginForm" class="pt-4">
+                    <div class="space-y-6">
+                        <div class="form-group">
+                            <label class="form-label">Username</label>
                             <input type="text" id="loginUsername" 
-                                   class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-200"
+                                   class="form-input"
                                    placeholder="Enter your username">
                         </div>
-                        <div>
-                            <label class="block text-gray-700 mb-2 font-medium">Password</label>
+                        <div class="form-group">
+                            <label class="form-label">Password</label>
                             <input type="password" id="loginPassword" 
-                                   class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-200"
+                                   class="form-input"
                                    placeholder="Enter your password">
                         </div>
                     </div>
-                    <div class="mt-8 flex gap-4">
-                        <button id="loginSubmit" class="btn-simple flex-1 py-3 rounded-lg font-bold">LOGIN</button>
-                        <button id="closeLogin" class="logout-btn flex-1 py-3 rounded-lg font-bold">CANCEL</button>
+                    <div class="modal-footer">
+                        <button id="loginSubmit" class="btn-modern">
+                            <i class="fas fa-sign-in-alt"></i>
+                            LOGIN
+                        </button>
+                        <button id="closeLogin" class="btn-modern-outline">
+                            CANCEL
+                        </button>
                     </div>
-                    <div class="mt-6 text-center">
-                        <p class="text-gray-500 text-sm">Don't have an account? <a href="#pricing" class="text-red-600 font-medium hover:underline">Join VIP</a></p>
-                        <p class="text-gray-500 text-sm mt-2">
+                    <div class="modal-links">
+                        <p class="text-gray-500 text-sm mb-2">Don't have an account? <a href="#" class="text-red-600 font-medium" id="switchToRegister">Register Now</a></p>
+                        <p class="text-gray-500 text-sm">
                             <a href="admin.html" class="admin-link">Admin Login</a>
                         </p>
+                    </div>
+                </div>
+
+                <!-- Register Form -->
+                <div id="registerForm" class="pt-4 hidden">
+                    <div class="space-y-6">
+                        <div class="form-group">
+                            <label class="form-label">Username</label>
+                            <input type="text" id="registerUsername" 
+                                   class="form-input"
+                                   placeholder="Choose a username">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Email Address</label>
+                            <input type="email" id="registerEmail" 
+                                   class="form-input"
+                                   placeholder="Enter your email">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Password</label>
+                            <input type="password" id="registerPassword" 
+                                   class="form-input"
+                                   placeholder="Create a password">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Confirm Password</label>
+                            <input type="password" id="registerConfirmPassword" 
+                                   class="form-input"
+                                   placeholder="Confirm your password">
+                        </div>
+                        <div class="form-group whatsapp-field">
+                            <label class="form-label">WhatsApp Number</label>
+                            <div class="whatsapp-prefix">+94</div>
+                            <input type="tel" id="registerWhatsApp" 
+                                   class="form-input"
+                                   placeholder="77 123 4567"
+                                   maxlength="9">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="registerSubmit" class="btn-modern">
+                            <i class="fas fa-user-plus"></i>
+                            REGISTER
+                        </button>
+                        <button id="closeRegister" class="btn-modern-outline">
+                            CANCEL
+                        </button>
+                    </div>
+                    <div class="modal-links">
+                        <p class="text-gray-500 text-sm mb-2">Already have an account? <a href="#" class="text-red-600 font-medium" id="switchToLogin">Login Here</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Main Website Content (Hidden until welcome screen completes) -->
-    <div id="main-website" class="hidden">
-        <!-- Navigation Bar -->
-        <nav class="simple-nav py-4 flex justify-between items-center">
-            <div class="flex items-center gap-4">
-                <div class="red-text text-2xl font-bold tracking-wider heading-font">SM VIP SIGNALS</div>
-            </div>
-            
-            <!-- Mobile Menu Button -->
-            <button id="mobileMenuBtn" class="mobile-menu-btn md:hidden text-gray-700">
-                <i class="fas fa-bars text-xl"></i>
-            </button>
-            
-            <!-- Navigation Links -->
-            <div id="navLinks" class="nav-links md:flex md:items-center md:gap-3">
-                <a href="#home" class="nav-btn active" data-section="home">Home</a>
-                <a href="#signals" class="nav-btn" data-section="signals">Free Signals</a>
-                <a href="#results" class="nav-btn" data-section="results">VIP Results</a>
-                <a href="#about" class="nav-btn" data-section="about">About Us</a>
-                <a href="#pricing" class="nav-btn" data-section="pricing">Pricing</a>
-                <a href="#contact" class="nav-btn" data-section="contact">Contact</a>
-                
-                <!-- Login/Profile Section -->
-                <div class="flex items-center gap-3 mt-2 md:mt-0">
-                    <div id="login-section">
-                        <button id="login-btn" class="btn-simple px-5 py-2 rounded-lg text-sm font-bold">
-                            <i class="fas fa-user mr-2"></i>LOGIN
-                        </button>
-                    </div>
-                    
-                    <div id="profile-section" class="hidden profile-dropdown">
-                        <div class="flex items-center gap-3 cursor-pointer p-2 rounded-lg hover:bg-gray-50">
-                            <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center">
-                                <i class="fas fa-user text-red-600"></i>
-                            </div>
-                            <div class="text-left">
-                                <div class="text-sm font-bold" id="profile-username">Username</div>
-                                <div class="vip-timer" id="vip-timer">
-                                    <i class="fas fa-crown"></i>
-                                    <span id="vip-days">0</span> days
-                                </div>
-                            </div>
-                            <i class="fas fa-chevron-down text-gray-500"></i>
-                        </div>
-                        
-                        <div class="dropdown-content p-4">
-                            <div class="mb-4">
-                                <div class="font-bold text-lg" id="dropdown-username">Username</div>
-                                <div class="flex items-center gap-2 mt-2">
-                                    <div class="vip-timer">
-                                        <i class="fas fa-crown"></i>
-                                        <span id="dropdown-vip-days">0</span> days remaining
-                                    </div>
-                                </div>
-                                <div class="text-gray-500 text-sm mt-2" id="dropdown-email">VIP Member</div>
-                            </div>
-                            
-                            <div class="space-y-3">
-                                <a href="#pricing" class="block p-3 rounded-lg bg-gray-50 hover:bg-red-50 text-center font-medium text-red-600">
-                                    <i class="fas fa-crown mr-2"></i>Renew VIP
-                                </a>
-                                <button id="logout-btn" class="w-full logout-btn py-3 rounded-lg font-medium">
-                                    <i class="fas fa-sign-out-alt mr-2"></i>Logout
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <a href="#pricing" class="btn-simple px-5 py-2 rounded-lg font-bold text-sm md:text-base heading-font">JOIN VIP</a>
-                </div>
-            </div>
-        </nav>
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/94771234567" target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
-        <!-- Rest of the website content -->
-        <section id="home" class="pt-32 pb-20 px-6 text-center">
+    <!-- Main Website Content -->
+    <div id="main-website" class="hidden">
+        <!-- Home Section -->
+        <section id="home" class="pt-24 pb-20 px-6 text-center">
             <h2 class="animate__animated animate__fadeInDown text-5xl md:text-7xl font-bold mb-6 heading-font">
                 Trade Like <span class="red-text">ELITE</span>
             </h2>
@@ -526,10 +1273,11 @@
             </div>
         </section>
 
+        <!-- Free Signals Section -->
         <section id="signals" class="px-6 py-16 max-w-6xl mx-auto">
             <h3 class="text-4xl font-bold mb-10 flex items-center gap-3 heading-font">
                 <span class="w-4 h-10 bg-red-600 rounded-full"></span> 
-                <span class="red-text">LIVE TRADING SIGNALS</span>
+                <span class="red-text">FREE TRADING SIGNALS</span>
             </h3>
             
             <div class="grid md:grid-cols-2 gap-8">
@@ -558,20 +1306,49 @@
                     </div>
                 </div>
 
-                <div class="simple-card p-7 border-red-200 flex flex-col justify-center items-center relative overflow-hidden">
-                    <div class="blur-sm w-full opacity-10">
-                        <div class="h-8 bg-red-100 rounded mb-3"></div>
-                        <div class="h-6 bg-red-100 rounded"></div>
+                <div class="simple-card p-7 animate__animated animate__fadeInRight">
+                    <div class="flex justify-between items-center mb-5">
+                        <span class="text-2xl font-bold tech-font">ETH/USDT</span>
+                        <span class="bg-red-500 text-white px-4 py-2 rounded-lg text-sm font-bold heading-font">SHORT POSITION</span>
                     </div>
-                    <div class="absolute inset-0 flex flex-col justify-center items-center">
-                        <p class="red-text text-2xl font-bold mb-3 heading-font">VIP SIGNAL LOCKED</p>
-                        <a href="#pricing" class="btn-simple px-6 py-3 rounded-lg text-base font-bold">UNLOCK VIP ACCESS</a>
+                    <div class="grid grid-cols-2 gap-5 text-gray-600">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <div class="text-gray-500 text-sm">Entry Price</div>
+                            <div class="text-gray-900 text-xl font-bold tech-font">$3,250</div>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <div class="text-gray-500 text-sm">Leverage</div>
+                            <div class="text-gray-900 text-xl font-bold tech-font">15x (Cross)</div>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg red-accent">
+                            <div class="text-gray-500 text-sm">Stop Loss</div>
+                            <div class="text-gray-900 text-xl font-bold tech-font">$3,400</div>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg border-l-3 border-yellow-500">
+                            <div class="text-gray-500 text-sm">Take Profit</div>
+                            <div class="text-gray-900 text-xl font-bold tech-font">$3,000</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="pricing" class="section-bg px-6 py-16">
+        <!-- VIP Results Section -->
+        <section id="results" class="section-bg px-6 py-16">
+            <div class="max-w-6xl mx-auto">
+                <h3 class="text-4xl font-bold mb-10 flex items-center gap-3 heading-font">
+                    <span class="w-4 h-10 bg-red-600 rounded-full"></span> 
+                    <span class="red-text">VIP MEMBERS RESULTS</span>
+                </h3>
+                
+                <div id="results-content">
+                    <!-- This will show locked message or results based on login status -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="px-6 py-16">
             <div class="max-w-6xl mx-auto">
                 <h3 class="text-4xl font-bold mb-12 text-center heading-font">
                     <span class="red-text">VIP MEMBERSHIP</span> PLANS
@@ -618,267 +1395,30 @@
             </div>
         </section>
 
-        <section id="results" class="px-6 py-16 max-w-6xl mx-auto">
-            <h3 class="text-4xl font-bold mb-12 text-center heading-font">
-                <span class="red-text">PROVEN</span> PERFORMANCE
-            </h3>
-            
-            <div class="grid md:grid-cols-4 gap-6 mb-12">
-                <div class="simple-card p-8 text-center">
-                    <div class="stat-number text-5xl mb-2">+247%</div>
-                    <div class="text-gray-600 font-medium">Monthly Average Profit</div>
-                </div>
-                <div class="simple-card p-8 text-center">
-                    <div class="stat-number text-5xl mb-2">94.7%</div>
-                    <div class="text-gray-600 font-medium">Win Rate</div>
-                </div>
-                <div class="simple-card p-8 text-center">
-                    <div class="stat-number text-5xl mb-2">1,280+</div>
-                    <div class="text-gray-600 font-medium">Successful Signals</div>
-                </div>
-                <div class="simple-card p-8 text-center">
-                    <div class="stat-number text-5xl mb-2">24/7</div>
-                    <div class="text-gray-600 font-medium">Support & Updates</div>
-                </div>
-            </div>
-
-            <!-- Performance Chart -->
-            <div class="simple-card p-8 mb-12">
-                <h4 class="text-2xl font-bold mb-6 red-text heading-font text-center">PERFORMANCE TRACK RECORD</h4>
-                
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div>
-                        <h5 class="font-bold text-lg mb-4 text-gray-900">Monthly Performance (Last 6 Months)</h5>
-                        <div class="space-y-4">
-                            <div>
-                                <div class="flex justify-between mb-1">
-                                    <span class="text-gray-600">January 2024</span>
-                                    <span class="font-bold text-green-600">+312%</span>
-                                </div>
-                                <div class="h-3 bg-gray-200 rounded-full overflow-hidden">
-                                    <div class="h-full bg-green-500" style="width: 90%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between mb-1">
-                                    <span class="text-gray-600">February 2024</span>
-                                    <span class="font-bold text-green-600">+287%</span>
-                                </div>
-                                <div class="h-3 bg-gray-200 rounded-full overflow-hidden">
-                                    <div class="h-full bg-green-500" style="width: 85%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between mb-1">
-                                    <span class="text-gray-600">March 2024</span>
-                                    <span class="font-bold text-green-600">+265%</span>
-                                </div>
-                                <div class="h-3 bg-gray-200 rounded-full overflow-hidden">
-                                    <div class="h-full bg-green-500" style="width: 80%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between mb-1">
-                                    <span class="text-gray-600">April 2024</span>
-                                    <span class="font-bold text-green-600">+298%</span>
-                                </div>
-                                <div class="h-3 bg-gray-200 rounded-full overflow-hidden">
-                                    <div class="h-full bg-green-500" style="width: 88%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between mb-1">
-                                    <span class="text-gray-600">May 2024</span>
-                                    <span class="font-bold text-green-600">+247%</span>
-                                </div>
-                                <div class="h-3 bg-gray-200 rounded-full overflow-hidden">
-                                    <div class="h-full bg-green-500" style="width: 75%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between mb-1">
-                                    <span class="text-gray-600">June 2024</span>
-                                    <span class="font-bold text-green-600">+274%</span>
-                                </div>
-                                <div class="h-3 bg-gray-200 rounded-full overflow-hidden">
-                                    <div class="h-full bg-green-500" style="width: 82%"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <h5 class="font-bold text-lg mb-4 text-gray-900">Signal Success Rate</h5>
-                        <div class="flex flex-col items-center justify-center h-full">
-                            <div class="relative w-48 h-48 mb-6">
-                                <!-- Circular Progress -->
-                                <svg class="w-full h-full" viewBox="0 0 100 100">
-                                    <!-- Background Circle -->
-                                    <circle cx="50" cy="50" r="45" fill="none" stroke="#e5e7eb" stroke-width="10"/>
-                                    <!-- Progress Circle -->
-                                    <circle cx="50" cy="50" r="45" fill="none" stroke="#10b981" stroke-width="10"
-                                            stroke-linecap="round"
-                                            stroke-dasharray="283"
-                                            stroke-dashoffset="283"
-                                            style="stroke-dashoffset: 15;">
-                                        <animate attributeName="stroke-dashoffset"
-                                                 from="283"
-                                                 to="15"
-                                                 dur="2s"
-                                                 fill="freeze" />
-                                    </circle>
-                                </svg>
-                                <div class="absolute inset-0 flex flex-col items-center justify-center">
-                                    <span class="text-4xl font-bold text-gray-900">94.7%</span>
-                                    <span class="text-gray-600">Success Rate</span>
-                                </div>
-                            </div>
-                            <p class="text-gray-600 text-center">
-                                Consistent high accuracy signals across all market conditions
+        <!-- About Section -->
+        <section id="about" class="section-bg px-6 py-16">
+            <div class="max-w-6xl mx-auto">
+                <h3 class="text-4xl font-bold mb-10 text-center heading-font">
+                    <span class="red-text">ABOUT</span> US
+                </h3>
+                <div class="simple-card p-8">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-2xl font-bold mb-4 heading-font">Who We Are</h4>
+                            <p class="text-gray-600 mb-4">
+                                SM VIP SIGNALS is a premium crypto trading signals provider with over 5 years of experience in the cryptocurrency markets.
                             </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Trading Pair Performance -->
-            <div class="simple-card p-8">
-                <h4 class="text-2xl font-bold mb-6 red-text heading-font text-center">TOP PERFORMING TRADING PAIRS</h4>
-                
-                <div class="overflow-x-auto">
-                    <table class="w-full">
-                        <thead>
-                            <tr class="bg-gray-50">
-                                <th class="p-4 text-left font-bold text-gray-900">Trading Pair</th>
-                                <th class="p-4 text-left font-bold text-gray-900">Win Rate</th>
-                                <th class="p-4 text-left font-bold text-gray-900">Avg Profit</th>
-                                <th class="p-4 text-left font-bold text-gray-900">Signals</th>
-                                <th class="p-4 text-left font-bold text-gray-900">Performance</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-gray-200">
-                            <tr>
-                                <td class="p-4 font-medium text-gray-900">
-                                    <div class="flex items-center gap-3">
-                                        <div class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">
-                                            <span class="font-bold text-orange-600">B</span>
-                                        </div>
-                                        <span>BTC/USDT</span>
-                                    </div>
-                                </td>
-                                <td class="p-4">
-                                    <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full font-bold">96.2%</span>
-                                </td>
-                                <td class="p-4 font-bold text-green-600">+315%</td>
-                                <td class="p-4 font-medium">342</td>
-                                <td class="p-4">
-                                    <div class="flex items-center">
-                                        <span class="mr-2">Excellent</span>
-                                        <div class="flex">
-                                            <i class="fas fa-star text-yellow-500"></i>
-                                            <i class="fas fa-star text-yellow-500"></i>
-                                            <i class="fas fa-star text-yellow-500"></i>
-                                            <i class="fas fa-star text-yellow-500"></i>
-                                            <i class="fas fa-star text-yellow-500"></i>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="p-4 font-medium text-gray-900">
-                                    <div class="flex items-center gap-3">
-                                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
-                                            <span class="font-bold text-blue-600">E</span>
-                                        </div>
-                                        <span>ETH/USDT</span>
-                                    </div>
-                                </td>
-                                <td class="p-4">
-                                    <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full font-bold">93.8%</span>
-                                </td>
-                                <td class="p-4 font-bold text-green-600">+287%</td>
-                                <td class="p-4 font-medium">298</td>
-                                <td class="p-4">
-                                    <div class="flex items-center">
-                                        <span class="mr-2">Excellent</span>
-                                        <div class="flex">
-                                            <i class="fas fa-star text-yellow-500"></i>
-                                            <i class="fas fa-star text-yellow-500"></i>
-                                            <i class="fas fa-star text-yellow-500"></i>
-                                            <i class="fas fa-star text-yellow-500"></i>
-                                            <i class="fas fa-star-half-alt text-yellow-500"></i>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="p-4 font-medium text-gray-900">
-                                    <div class="flex items-center gap-3">
-                                        <div class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center">
-                                            <span class="font-bold text-red-600">S</span>
-                                        </div>
-                                        <span>SOL/USDT</span>
-                                    </div>
-                                </td>
-                                <td class="p-4">
-                                    <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full font-bold">95.1%</span>
-                                </td>
-                                <td class="p-4 font-bold text-green-600">+412%</td>
-                                <td class="p-4 font-medium">187</td>
-                                <td class="p-4">
-                                    <div class="flex items-center">
-                                        <span class="mr-2">Outstanding</span>
-                                        <div class="flex">
-                                            <i class="fas fa-star text-yellow-500"></i>
-                                            <i class="fas fa-star text-yellow-500"></i>
-                                            <i class="fas fa-star text-yellow-500"></i>
-                                            <i class="fas fa-star text-yellow-500"></i>
-                                            <i class="fas fa-star text-yellow-500"></i>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="p-4 font-medium text-gray-900">
-                                    <div class="flex items-center gap-3">
-                                        <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
-                                            <span class="font-bold text-purple-600">D</span>
-                                        </div>
-                                        <span>DOGE/USDT</span>
-                                    </div>
-                                </td>
-                                <td class="p-4">
-                                    <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full font-bold">91.5%</span>
-                                </td>
-                                <td class="p-4 font-bold text-green-600">+356%</td>
-                                <td class="p-4 font-medium">156</td>
-                                <td class="p-4">
-                                    <div class="flex items-center">
-                                        <span class="mr-2">Very Good</span>
-                                        <div class="flex">
-                                            <i class="fas fa-star text-yellow-500"></i>
-                                            <i class="fas fa-star text-yellow-500"></i>
-                                            <i class="fas fa-star text-yellow-500"></i>
-                                            <i class="fas fa-star text-yellow-500"></i>
-                                            <i class="far fa-star text-yellow-500"></i>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                
-                <div class="mt-8 p-4 bg-red-50 rounded-lg border border-red-200">
-                    <div class="flex items-start gap-3">
-                        <div class="text-red-600 text-xl mt-1">
-                            <i class="fas fa-exclamation-circle"></i>
+                            <p class="text-gray-600 mb-4">
+                                Our team consists of professional traders and analysts who provide accurate trading signals for Bitcoin, Ethereum, and other major cryptocurrencies.
+                            </p>
                         </div>
                         <div>
-                            <h5 class="font-bold text-lg mb-1 text-gray-900">Disclaimer</h5>
-                            <p class="text-gray-600 text-sm">
-                                Past performance is not indicative of future results. Trading cryptocurrencies carries significant risk.
-                                These results are based on backtesting and actual trading by our VIP members. Individual results may vary.
+                            <h4 class="text-2xl font-bold mb-4 heading-font">Our Mission</h4>
+                            <p class="text-gray-600 mb-4">
+                                To help traders maximize their profits with high-quality, accurate trading signals and comprehensive market analysis.
+                            </p>
+                            <p class="text-gray-600">
+                                We provide real-time signals, risk management strategies, and 24/7 support to our VIP members.
                             </p>
                         </div>
                     </div>
@@ -886,648 +1426,1003 @@
             </div>
         </section>
 
-        <!-- Contact Form Section -->
-        <section id="contact" class="section-bg px-6 py-16">
-            <div class="max-w-4xl mx-auto">
-                <h3 class="text-4xl font-bold mb-12 text-center heading-font">
-                    <span class="red-text">CONTACT</span> OUR TEAM
-                </h3>
-                <div class="grid md:grid-cols-2 gap-10">
-                    <div class="simple-card p-8">
-                        <h4 class="text-2xl font-bold mb-6 red-text heading-font">GET IN TOUCH</h4>
-                        <div class="space-y-6">
-                            <div>
-                                <h5 class="font-bold text-lg mb-3 text-gray-900">Customer Support</h5>
-                                <p class="text-gray-600">
-                                    We're available 24/7 to answer your questions and help you get started with VIP signals.
-                                </p>
-                            </div>
-                            <div>
-                                <h5 class="font-bold text-lg mb-3 text-gray-900">Response Time</h5>
-                                <p class="text-gray-600">
-                                    Typically respond within 15 minutes during business hours (9 AM - 11 PM GMT+5:30).
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="simple-card p-8">
-                        <h4 class="text-2xl font-bold mb-6 red-text heading-font">SEND MESSAGE</h4>
-                        <form id="contact-form">
-                            <div class="space-y-5">
-                                <div>
-                                    <label class="block text-gray-700 mb-2">Your Name</label>
-                                    <input type="text" required 
-                                           class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-200"
-                                           placeholder="Enter your name">
-                                </div>
-                                <div>
-                                    <label class="block text-gray-700 mb-2">Email Address</label>
-                                    <input type="email" required 
-                                           class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-200"
-                                           placeholder="Enter your email">
-                                </div>
-                                <div>
-                                    <label class="block text-gray-700 mb-2">Message</label>
-                                    <textarea rows="4" required 
-                                              class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-200"
-                                              placeholder="How can we help you?"></textarea>
-                                </div>
-                            </div>
-                            <button type="submit" class="btn-simple w-full py-4 rounded-lg mt-6 font-bold">
-                                SEND MESSAGE
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="about" class="px-6 py-16 max-w-6xl mx-auto">
-            <div class="max-w-6xl mx-auto">
-                <h3 class="text-4xl font-bold mb-12 text-center heading-font">
-                    WHY <span class="red-text">CHOOSE US</span>
-                </h3>
-                <div class="grid md:grid-cols-2 gap-10">
-                    <div class="simple-card p-8">
-                        <h4 class="text-2xl font-bold mb-6 red-text heading-font">OUR EXPERTISE</h4>
-                        <p class="text-gray-600 mb-6 leading-relaxed">
-                            Our mission is to provide professional-level trading signals and experiences to everyone. 
-                            As a team of professional traders with 5+ years of experience, we are committed to making your trading journey successful.
-                        </p>
-                        <div class="space-y-4">
-                            <div class="flex items-start gap-3">
-                                <div class="text-red-600 text-xl mt-1">✓</div>
-                                <div>
-                                    <h5 class="font-bold text-lg mb-1 text-gray-900">Advanced Algorithm</h5>
-                                    <p class="text-gray-500 text-sm">AI-powered signal analysis for maximum accuracy</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <div class="text-red-600 text-xl mt-1">✓</div>
-                                <div>
-                                    <h5 class="font-bold text-lg mb-1 text-gray-900">Risk Management</h5>
-                                    <p class="text-gray-500 text-sm">Professional risk assessment for every trade</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="simple-card p-8">
-                        <h4 class="text-2xl font-bold mb-6 red-text heading-font">COMMUNITY BENEFITS</h4>
-                        <div class="space-y-6">
-                            <div>
-                                <div class="flex items-center gap-3 mb-3">
-                                    <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center">
-                                        <span class="text-red-600 font-bold">T</span>
-                                    </div>
-                                    <h5 class="font-bold text-xl red-text">Telegram Community</h5>
-                                </div>
-                                <p class="text-gray-500">24/7 active trading community with real-time discussions</p>
-                            </div>
-                            <div>
-                                <div class="flex items-center gap-3 mb-3">
-                                    <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center">
-                                        <span class="text-red-600 font-bold">E</span>
-                                    </div>
-                                    <h5 class="font-bold text-xl red-text">Educational Resources</h5>
-                                </div>
-                                <p class="text-gray-500">Weekly webinars, trading guides, and market analysis</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+        <!-- Footer -->
         <footer class="footer-simple px-6 py-12">
             <div class="max-w-6xl mx-auto">
-                <div class="grid md:grid-cols-4 gap-10 mb-10">
+                <div class="grid md:grid-cols-4 gap-8">
                     <div>
-                        <h4 class="red-text text-2xl font-bold mb-6 heading-font">SM VIP SIGNALS</h4>
-                        <p class="text-gray-300 text-sm leading-relaxed">
-                            Premium cryptocurrency trading signals and education for serious traders who demand results.
-                        </p>
+                        <h4 class="text-xl font-bold mb-4 heading-font text-white">SM VIP SIGNALS</h4>
+                        <p class="text-gray-300">Premium crypto trading signals and analysis for serious traders.</p>
                     </div>
                     <div>
-                        <h5 class="font-bold mb-6 text-lg heading-font text-white">QUICK LINKS</h5>
-                        <ul class="space-y-3 text-gray-300">
-                            <li><a href="#home" class="hover:text-red-300 transition font-medium">Home</a></li>
-                            <li><a href="#signals" class="hover:text-red-300 transition font-medium">Free Signals</a></li>
-                            <li><a href="#pricing" class="hover:text-red-300 transition font-medium">VIP Pricing</a></li>
-                            <li><a href="#results" class="hover:text-red-300 transition font-medium">Performance</a></li>
+                        <h4 class="text-xl font-bold mb-4 heading-font text-white">Quick Links</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#home" class="text-gray-300 hover:text-white">Home</a></li>
+                            <li><a href="#signals" class="text-gray-300 hover:text-white">Free Signals</a></li>
+                            <li><a href="#results" class="text-gray-300 hover:text-white">VIP Results</a></li>
+                            <li><a href="#pricing" class="text-gray-300 hover:text-white">Pricing</a></li>
                         </ul>
                     </div>
                     <div>
-                        <h5 class="font-bold mb-6 text-lg heading-font text-white">CONTACT US</h5>
-                        <ul class="space-y-3 text-gray-300">
-                            <li class="flex items-center gap-2">
-                                <span class="text-red-300">✉</span>
-                                support@smvipsignals.com
-                            </li>
-                            <li class="flex items-center gap-2">
-                                <span class="text-red-300">📱</span>
-                                Telegram: @smvipsignals
-                            </li>
-                            <li class="flex items-center gap-2">
-                                <span class="text-red-300">☎</span>
-                                WhatsApp: +94 77 123 4567
-                            </li>
+                        <h4 class="text-xl font-bold mb-4 heading-font text-white">Contact</h4>
+                        <ul class="space-y-2">
+                            <li class="text-gray-300">Email: support@smvipsignals.com</li>
+                            <li class="text-gray-300">WhatsApp: +94 77 123 4567</li>
+                            <li class="text-gray-300">Telegram: @smvipsignals</li>
                         </ul>
                     </div>
                     <div>
-                        <h5 class="font-bold mb-6 text-lg heading-font text-white">REGISTRATION</h5>
-                        <p class="text-gray-300 text-sm mb-4">
-                            Want to become a VIP member? Contact us for registration details and premium access.
-                        </p>
-                        <a href="#contact" class="btn-simple px-4 py-2 rounded-lg text-sm font-bold inline-block">CONTACT FOR VIP</a>
+                        <h4 class="text-xl font-bold mb-4 heading-font text-white">Legal</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-300 hover:text-white">Terms of Service</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-white">Privacy Policy</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-white">Disclaimer</a></li>
+                        </ul>
                     </div>
                 </div>
-                <div class="pt-8 border-t border-gray-700 text-center">
-                    <p class="text-gray-400 text-sm">
-                        &copy; 2023 SM VIP SIGNALS. All trading involves risk. Past performance is not indicative of future results.
-                    </p>
+                <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                    <p>&copy; 2024 SM VIP SIGNALS. All rights reserved.</p>
                 </div>
             </div>
         </footer>
     </div>
 
     <script>
-        // DOM Elements
-        const welcomeScreen = document.getElementById('welcome-screen');
-        const loadingScreen = document.getElementById('loading-screen');
-        const mainWebsite = document.getElementById('main-website');
-        const enterBtn = document.getElementById('enter-btn');
-        const progressFill = document.getElementById('progress-fill');
-        const loadingText = document.getElementById('loading-text');
-        const countdownElement = document.getElementById('countdown');
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navLinks = document.getElementById('navLinks');
-
-        // Login System Elements
-        const loginBtn = document.getElementById('login-btn');
-        const logoutBtn = document.getElementById('logout-btn');
-        const loginModal = document.getElementById('loginModal');
-        const closeLogin = document.getElementById('closeLogin');
-        const loginSubmit = document.getElementById('loginSubmit');
-
-        // Loading messages in English
-        const loadingMessages = [
-            "Preparing premium signals...",
-            "Connecting to VIP community...",
-            "Loading trading data...",
-            "Securing your access...",
-            "Entering main trading hub..."
-        ];
-
-        // VIP Members Database (Using Firebase)
-        const VIP_DB_KEY = 'vip_members';
-
-        // Firebase Database Reference
-        const vipMembersRef = window.firebaseRef(window.firebaseDatabase, VIP_DB_KEY);
-
-        // Initialize database
-        async function initDatabase() {
-            try {
-                console.log('Initializing Firebase database...');
-                const snapshot = await window.firebaseGet(vipMembersRef);
-                if (!snapshot.exists()) {
-                    const defaultMembers = {
-                        'vipuser1': { 
-                            password: 'pass123', 
-                            daysRemaining: 30, 
-                            createdAt: new Date().toISOString(),
-                            email: 'vipuser1@example.com',
-                            plan: 'Pro Trader'
-                        },
-                        'vipuser2': { 
-                            password: 'pass123', 
-                            daysRemaining: 15, 
-                            createdAt: new Date().toISOString(),
-                            email: 'vipuser2@example.com',
-                            plan: 'Basic'
-                        },
-                        'premiumuser': { 
-                            password: 'premium123', 
-                            daysRemaining: 7, 
-                            createdAt: new Date().toISOString(),
-                            email: 'premium@example.com',
-                            plan: 'Elite'
-                        }
-                    };
-                    await window.firebaseSet(vipMembersRef, defaultMembers);
-                    console.log('Default members created in Firebase');
-                    return defaultMembers;
-                }
-                console.log('Database already exists');
-                return snapshot.val();
-            } catch (error) {
-                console.error('Error initializing database:', error);
-                // Fallback to localStorage
-                const backupKey = 'vip_members_backup';
-                if (!localStorage.getItem(backupKey)) {
-                    const defaultBackup = {
-                        'vipuser1': { password: 'pass123', daysRemaining: 30 },
-                        'vipuser2': { password: 'pass123', daysRemaining: 15 },
-                        'premiumuser': { password: 'premium123', daysRemaining: 7 }
-                    };
-                    localStorage.setItem(backupKey, JSON.stringify(defaultBackup));
-                }
-                return JSON.parse(localStorage.getItem(backupKey) || '{}');
-            }
-        }
-
-        // Get all VIP members
-        async function getVIPMembers() {
-            try {
-                const snapshot = await window.firebaseGet(vipMembersRef);
-                if (snapshot.exists()) {
-                    return snapshot.val();
-                }
-                // Fallback to localStorage
-                const backup = localStorage.getItem('vip_members_backup');
-                return backup ? JSON.parse(backup) : {};
-            } catch (error) {
-                console.error('Error getting members from Firebase:', error);
-                // Fallback to localStorage
-                const backup = localStorage.getItem('vip_members_backup');
-                return backup ? JSON.parse(backup) : {};
-            }
-        }
-
-        // Save VIP members
-        async function saveVIPMembers(members) {
-            try {
-                await window.firebaseSet(vipMembersRef, members);
-                // Also save backup to localStorage
-                localStorage.setItem('vip_members_backup', JSON.stringify(members));
-                console.log('Saved to Firebase and local backup');
-                return true;
-            } catch (error) {
-                console.error('Error saving to Firebase:', error);
-                // Save to localStorage as fallback
-                localStorage.setItem('vip_members_backup', JSON.stringify(members));
-                console.log('Saved to local backup only');
-                return false;
-            }
-        }
-
-        // Update VIP days (decrease by 1 each day)
-        async function updateVIPDays() {
-            try {
-                const members = await getVIPMembers();
-                const today = new Date().toDateString();
-                const lastUpdate = localStorage.getItem('last_vip_update');
-                
-                if (lastUpdate !== today) {
-                    let hasChanges = false;
-                    for (const username in members) {
-                        if (members[username].daysRemaining > 0) {
-                            members[username].daysRemaining -= 1;
-                            hasChanges = true;
-                        }
-                    }
-                    
-                    if (hasChanges) {
-                        await saveVIPMembers(members);
-                        localStorage.setItem('last_vip_update', today);
-                        console.log('VIP days updated for all members');
-                    }
-                }
-            } catch (error) {
-                console.error('Error updating VIP days:', error);
-            }
-        }
-
-        // Get current user from session
-        function getCurrentUser() {
-            return JSON.parse(sessionStorage.getItem('current_user') || 'null');
-        }
-
-        // Set current user
-        function setCurrentUser(user) {
-            sessionStorage.setItem('current_user', JSON.stringify(user));
-        }
-
-        // Clear current user
-        function clearCurrentUser() {
-            sessionStorage.removeItem('current_user');
-        }
-
-        // Update UI based on login status
-        function updateLoginUI() {
-            const user = getCurrentUser();
-            const loginSection = document.getElementById('login-section');
-            const profileSection = document.getElementById('profile-section');
+        // Main Application JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // DOM Elements
+            const loadingScreen = document.getElementById('loading-screen');
+            const mainWebsite = document.getElementById('main-website');
+            const progressFill = document.getElementById('progress-fill');
+            const loadingText = document.getElementById('loading-text');
             
-            if (user) {
-                // User is logged in
-                loginSection.classList.add('hidden');
-                profileSection.classList.remove('hidden');
-                
-                // Update profile info
-                document.getElementById('profile-username').textContent = user.username;
-                document.getElementById('dropdown-username').textContent = user.username;
-                document.getElementById('vip-days').textContent = user.daysRemaining;
-                document.getElementById('dropdown-vip-days').textContent = user.daysRemaining;
-                document.getElementById('dropdown-email').textContent = user.email || 'VIP Member';
-                
-                // Update VIP timer color based on days remaining
-                const vipTimer = document.getElementById('vip-timer');
-                if (user.daysRemaining <= 3) {
-                    vipTimer.style.background = 'linear-gradient(135deg, #ef4444, #f87171)';
-                } else if (user.daysRemaining <= 7) {
-                    vipTimer.style.background = 'linear-gradient(135deg, #f59e0b, #fbbf24)';
-                }
-            } else {
-                // User is not logged in
-                loginSection.classList.remove('hidden');
-                profileSection.classList.add('hidden');
-            }
-        }
+            // Navigation Elements
+            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+            const mobileNav = document.getElementById('mobile-nav');
+            const notificationBtn = document.getElementById('notification-btn');
+            const notificationDropdown = document.getElementById('notification-dropdown');
+            const profileToggle = document.getElementById('profile-toggle');
+            const profileDropdown = document.getElementById('profile-dropdown');
+            
+            // Modal Elements
+            const loginModal = document.getElementById('loginModal');
+            const loginTabBtn = document.getElementById('loginTabBtn');
+            const registerTabBtn = document.getElementById('registerTabBtn');
+            const loginForm = document.getElementById('loginForm');
+            const registerForm = document.getElementById('registerForm');
+            const switchToRegister = document.getElementById('switchToRegister');
+            const switchToLogin = document.getElementById('switchToLogin');
+            const closeLoginBtn = document.getElementById('closeLogin');
+            const closeRegisterBtn = document.getElementById('closeRegister');
+            
+            // Login Form Elements
+            const loginSubmitBtn = document.getElementById('loginSubmit');
+            const loginUsernameInput = document.getElementById('loginUsername');
+            const loginPasswordInput = document.getElementById('loginPassword');
+            
+            // Register Form Elements
+            const registerSubmitBtn = document.getElementById('registerSubmit');
+            const registerUsernameInput = document.getElementById('registerUsername');
+            const registerEmailInput = document.getElementById('registerEmail');
+            const registerPasswordInput = document.getElementById('registerPassword');
+            const registerConfirmPasswordInput = document.getElementById('registerConfirmPassword');
+            const registerWhatsAppInput = document.getElementById('registerWhatsApp');
+            
+            // Buttons
+            const joinVipBtn = document.getElementById('join-vip-btn');
+            const mobileJoinVipBtn = document.getElementById('mobile-join-vip-btn');
+            const dropdownLoginBtn = document.getElementById('dropdown-login-btn');
+            const mobileLoginBtn = document.getElementById('mobile-login-btn');
+            const dropdownLogoutBtn = document.getElementById('dropdown-logout-btn');
+            const mobileLogoutBtn = document.getElementById('mobile-logout-btn');
+            const dropdownRenewVip = document.getElementById('dropdown-renew-vip');
+            
+            // Results Content
+            const resultsContent = document.getElementById('results-content');
+            
+            // Loading messages
+            const loadingMessages = [
+                "Preparing premium signals...",
+                "Connecting to VIP community...",
+                "Loading trading data...",
+                "Securing your access...",
+                "Entering main trading hub..."
+            ];
 
-        // Login function
-        async function login(username, password) {
-            try {
-                const members = await getVIPMembers();
+            // Firebase Database Reference
+            const USERS_DB_REF = 'users';
+            const RESULTS_DB_REF = 'monthly_results';
+            
+            // Test VIP Users (will be replaced with Firebase)
+            const TEST_VIP_USERS = {
+                'vipuser1': { 
+                    password: 'pass123', 
+                    email: 'vipuser1@example.com',
+                    whatsapp: '+94771234567',
+                    isVIP: true,
+                    vipExpiry: '2024-12-31'
+                },
+                'vipuser2': { 
+                    password: 'pass123', 
+                    email: 'vipuser2@example.com',
+                    whatsapp: '+94777654321',
+                    isVIP: true,
+                    vipExpiry: '2024-11-30'
+                }
+            };
+
+            // Monthly Results Data
+            const MONTHLY_RESULTS = [
+                {
+                    month: 'January 2024',
+                    totalSignals: 45,
+                    winRate: '89%',
+                    totalProfit: '+$12,450',
+                    bestTrade: 'BTC/USDT +320%',
+                    status: 'profit-positive'
+                },
+                {
+                    month: 'December 2023',
+                    totalSignals: 42,
+                    winRate: '86%',
+                    totalProfit: '+$9,800',
+                    bestTrade: 'ETH/USDT +280%',
+                    status: 'profit-positive'
+                },
+                {
+                    month: 'November 2023',
+                    totalSignals: 38,
+                    winRate: '84%',
+                    totalProfit: '+$7,200',
+                    bestTrade: 'SOL/USDT +410%',
+                    status: 'profit-positive'
+                },
+                {
+                    month: 'October 2023',
+                    totalSignals: 40,
+                    winRate: '82%',
+                    totalProfit: '+$6,500',
+                    bestTrade: 'ADA/USDT +190%',
+                    status: 'profit-positive'
+                },
+                {
+                    month: 'September 2023',
+                    totalSignals: 35,
+                    winRate: '80%',
+                    totalProfit: '+$5,200',
+                    bestTrade: 'BNB/USDT +180%',
+                    status: 'profit-positive'
+                }
+            ];
+
+            // Notifications Data
+            const notifications = [
+                {
+                    id: 1,
+                    title: 'New BTC Signal Released',
+                    message: 'Bitcoin buy signal with 20x leverage',
+                    time: '5 minutes ago',
+                    icon: 'fa-chart-line',
+                    iconColor: 'bg-green-100 text-green-600',
+                    unread: true
+                },
+                {
+                    id: 2,
+                    title: 'New VIP Member Joined',
+                    message: 'Welcome John Doe to Pro Trader plan',
+                    time: '1 hour ago',
+                    icon: 'fa-user-plus',
+                    iconColor: 'bg-blue-100 text-blue-600',
+                    unread: true
+                },
+                {
+                    id: 3,
+                    title: 'Market Alert: High Volatility',
+                    message: 'Increased volatility expected in BTC market',
+                    time: '3 hours ago',
+                    icon: 'fa-exclamation-triangle',
+                    iconColor: 'bg-yellow-100 text-yellow-600',
+                    unread: true
+                }
+            ];
+
+            // Application State
+            let currentUser = null;
+            let unreadNotifications = 3;
+
+            // Initialize Notifications
+            function initNotifications() {
+                const notificationList = document.getElementById('notification-list');
+                notificationList.innerHTML = '';
                 
-                if (members[username] && members[username].password === password) {
-                    const user = {
+                notifications.forEach(notification => {
+                    const notificationItem = document.createElement('div');
+                    notificationItem.className = `notification-item ${notification.unread ? 'unread' : ''}`;
+                    notificationItem.innerHTML = `
+                        <div class="flex items-start gap-3">
+                            <div class="notification-icon ${notification.iconColor}">
+                                <i class="fas ${notification.icon}"></i>
+                            </div>
+                            <div class="flex-1">
+                                <p class="font-medium text-gray-800">${notification.title}</p>
+                                <p class="text-sm text-gray-600 mt-1">${notification.message}</p>
+                                <p class="text-xs text-gray-500 mt-2">${notification.time}</p>
+                            </div>
+                            ${notification.unread ? '<div class="w-2 h-2 bg-red-500 rounded-full mt-2"></div>' : ''}
+                        </div>
+                    `;
+                    
+                    notificationItem.addEventListener('click', () => {
+                        notification.unread = false;
+                        updateNotificationBadge();
+                        notificationDropdown.classList.remove('active');
+                    });
+                    
+                    notificationList.appendChild(notificationItem);
+                });
+            }
+
+            // Update Notification Badge
+            function updateNotificationBadge() {
+                unreadNotifications = notifications.filter(n => n.unread).length;
+                document.getElementById('notification-count').textContent = unreadNotifications;
+                document.querySelectorAll('.badge-count').forEach(badge => {
+                    badge.textContent = unreadNotifications;
+                });
+            }
+
+            // Check if user is logged in
+            function checkLoginStatus() {
+                const userData = localStorage.getItem('current_user');
+                if (userData) {
+                    currentUser = JSON.parse(userData);
+                    updateUIForLoggedInUser();
+                    loadResultsContent();
+                } else {
+                    loadResultsContent();
+                }
+            }
+
+            // Login Function
+            function login(username, password) {
+                // First check test users
+                if (TEST_VIP_USERS[username] && TEST_VIP_USERS[username].password === password) {
+                    currentUser = {
                         username: username,
-                        daysRemaining: members[username].daysRemaining,
-                        email: members[username].email || `${username}@vipmember.com`,
-                        plan: members[username].plan || 'VIP Member'
+                        ...TEST_VIP_USERS[username]
                     };
                     
-                    setCurrentUser(user);
-                    updateLoginUI();
-                    closeModal(loginModal);
-                    alert(`✅ Welcome back, ${username}!`);
+                    // Save to localStorage
+                    localStorage.setItem('current_user', JSON.stringify(currentUser));
+                    
+                    // Update UI
+                    updateUIForLoggedInUser();
+                    loadResultsContent();
+                    
+                    // Close modal
+                    closeLoginModal();
+                    
+                    // Show success message
+                    showToast(`Welcome back, ${username}!`, 'success');
+                    
                     return true;
                 }
                 
-                return false;
-            } catch (error) {
-                console.error('Error during login:', error);
-                alert('❌ Error connecting to server. Please try again.');
-                return false;
-            }
-        }
-
-        // Logout function
-        function logout() {
-            clearCurrentUser();
-            updateLoginUI();
-            alert('✅ Logged out successfully!');
-        }
-
-        // Modal functions
-        function openModal(modal) {
-            modal.style.display = 'block';
-        }
-
-        function closeModal(modal) {
-            modal.style.display = 'none';
-        }
-
-        // Function to enter the trading hub
-        function enterTradingHub() {
-            // Fade out welcome screen
-            welcomeScreen.style.transition = 'opacity 0.5s ease';
-            welcomeScreen.style.opacity = '0';
-            
-            // Show loading screen after fade out
-            setTimeout(() => {
-                welcomeScreen.style.display = 'none';
-                loadingScreen.classList.remove('hidden');
-                loadingScreen.style.display = 'flex';
-                
-                // Start loading progress
-                startLoading();
-            }, 500);
-        }
-
-        // Countdown timer for auto-entry
-        let countdown = 3;
-        const countdownTimer = setInterval(() => {
-            countdownElement.textContent = countdown;
-            countdown--;
-            
-            if (countdown < 0) {
-                clearInterval(countdownTimer);
-                enterTradingHub(); // Auto-enter after countdown
-            }
-        }, 1000);
-
-        // Step 1: Enter button click - show loading screen (manual entry)
-        enterBtn.addEventListener('click', () => {
-            clearInterval(countdownTimer); // Stop auto countdown
-            enterTradingHub();
-        });
-
-        // Loading progress function
-        function startLoading() {
-            let progress = 0;
-            let messageIndex = 0;
-            
-            // Update progress bar
-            const interval = setInterval(() => {
-                progress += 2;
-                progressFill.style.width = `${progress}%`;
-                
-                // Change loading message every 20%
-                if (progress % 20 === 0 && messageIndex < loadingMessages.length) {
-                    loadingText.textContent = loadingMessages[messageIndex];
-                    messageIndex++;
+                // Try Firebase
+                try {
+                    if (window.firebaseDatabase) {
+                        const userRef = window.firebaseRef(window.firebaseDatabase, `${USERS_DB_REF}/${username}`);
+                        window.firebaseGet(userRef).then((snapshot) => {
+                            if (snapshot.exists()) {
+                                const userData = snapshot.val();
+                                if (userData.password === password) {
+                                    currentUser = {
+                                        username: username,
+                                        ...userData
+                                    };
+                                    
+                                    localStorage.setItem('current_user', JSON.stringify(currentUser));
+                                    updateUIForLoggedInUser();
+                                    loadResultsContent();
+                                    closeLoginModal();
+                                    showToast(`Welcome back, ${username}!`, 'success');
+                                    return true;
+                                }
+                            }
+                            showToast('Invalid username or password', 'error');
+                            return false;
+                        }).catch((error) => {
+                            console.error('Firebase login error:', error);
+                            showToast('Invalid username or password', 'error');
+                            return false;
+                        });
+                    }
+                } catch (error) {
+                    console.error('Login error:', error);
+                    showToast('Invalid username or password', 'error');
+                    return false;
                 }
                 
-                // When loading is complete
-                if (progress >= 100) {
-                    clearInterval(interval);
+                return false;
+            }
+
+            // Register Function
+            function register(username, email, password, whatsapp) {
+                // Validate inputs
+                if (!username || !email || !password || !whatsapp) {
+                    showToast('Please fill all fields', 'error');
+                    return false;
+                }
+                
+                if (password.length < 6) {
+                    showToast('Password must be at least 6 characters', 'error');
+                    return false;
+                }
+                
+                // Format WhatsApp number
+                const formattedWhatsApp = '+94' + whatsapp.replace(/\D/g, '');
+                
+                // Check if user already exists in test users
+                if (TEST_VIP_USERS[username]) {
+                    showToast('Username already exists', 'error');
+                    return false;
+                }
+                
+                const newUser = {
+                    username: username,
+                    email: email,
+                    password: password,
+                    whatsapp: formattedWhatsApp,
+                    isVIP: false,
+                    registeredDate: new Date().toISOString().split('T')[0]
+                };
+                
+                // Save to localStorage (temporary)
+                currentUser = newUser;
+                localStorage.setItem('current_user', JSON.stringify(currentUser));
+                
+                // Try to save to Firebase
+                try {
+                    if (window.firebaseDatabase) {
+                        const userRef = window.firebaseRef(window.firebaseDatabase, `${USERS_DB_REF}/${username}`);
+                        window.firebaseSet(userRef, newUser).then(() => {
+                            showToast('Registration successful!', 'success');
+                            updateUIForLoggedInUser();
+                            loadResultsContent();
+                            closeLoginModal();
+                            return true;
+                        }).catch((error) => {
+                            console.error('Firebase registration error:', error);
+                            showToast('Registration successful (offline mode)', 'success');
+                            updateUIForLoggedInUser();
+                            loadResultsContent();
+                            closeLoginModal();
+                            return true;
+                        });
+                    } else {
+                        showToast('Registration successful!', 'success');
+                        updateUIForLoggedInUser();
+                        loadResultsContent();
+                        closeLoginModal();
+                        return true;
+                    }
+                } catch (error) {
+                    console.error('Registration error:', error);
+                    showToast('Registration successful (offline mode)', 'success');
+                    updateUIForLoggedInUser();
+                    loadResultsContent();
+                    closeLoginModal();
+                    return true;
+                }
+            }
+
+            // Logout Function
+            function logout() {
+                currentUser = null;
+                localStorage.removeItem('current_user');
+                updateUIForLoggedOutUser();
+                loadResultsContent();
+                showToast('Logged out successfully!', 'info');
+            }
+
+            // Update UI for logged in user
+            function updateUIForLoggedInUser() {
+                if (!currentUser) return;
+                
+                // Update profile info
+                document.getElementById('profile-name').textContent = currentUser.username;
+                document.getElementById('dropdown-name').textContent = currentUser.username;
+                document.getElementById('dropdown-email').textContent = currentUser.email;
+                document.getElementById('vip-status').textContent = currentUser.isVIP ? 'VIP Member' : 'Free Member';
+                document.getElementById('mobile-profile-name').textContent = currentUser.username;
+                document.getElementById('mobile-vip-status').textContent = currentUser.isVIP ? 'VIP Member' : 'Free Member';
+                
+                // Update avatar with first letter
+                const firstLetter = currentUser.username.charAt(0).toUpperCase();
+                document.getElementById('profile-avatar').innerHTML = firstLetter;
+                document.getElementById('dropdown-avatar').innerHTML = firstLetter;
+                document.getElementById('mobile-profile-avatar').innerHTML = firstLetter;
+                
+                // Show VIP timer if VIP
+                if (currentUser.isVIP && currentUser.vipExpiry) {
+                    const daysRemaining = calculateDaysRemaining(currentUser.vipExpiry);
+                    document.getElementById('dropdown-vip-timer').classList.remove('hidden');
+                    document.getElementById('vip-days').textContent = daysRemaining;
+                    document.getElementById('mobile-vip-timer').classList.remove('hidden');
+                    document.getElementById('mobile-vip-days').textContent = daysRemaining;
+                } else {
+                    document.getElementById('dropdown-vip-timer').classList.add('hidden');
+                    document.getElementById('mobile-vip-timer').classList.add('hidden');
+                }
+                
+                // Show logout buttons
+                document.getElementById('dropdown-logout-btn').classList.remove('hidden');
+                document.getElementById('mobile-logout-btn').classList.remove('hidden');
+                
+                // Hide login buttons
+                document.getElementById('dropdown-login-btn').style.display = 'none';
+                document.getElementById('mobile-login-btn').classList.add('hidden');
+                
+                // Update VIP badge
+                const vipBadge = document.getElementById('vip-badge');
+                if (currentUser.isVIP) {
+                    vipBadge.innerHTML = `<i class="fas fa-crown"></i><span>VIP Member</span>`;
+                } else {
+                    vipBadge.innerHTML = `<i class="fas fa-user"></i><span>Free Member</span>`;
+                }
+            }
+
+            // Calculate days remaining
+            function calculateDaysRemaining(expiryDate) {
+                const now = new Date();
+                const expiry = new Date(expiryDate);
+                const diffTime = expiry - now;
+                const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                return diffDays > 0 ? diffDays : 0;
+            }
+
+            // Update UI for logged out user
+            function updateUIForLoggedOutUser() {
+                // Reset profile info
+                document.getElementById('profile-name').textContent = 'Guest';
+                document.getElementById('dropdown-name').textContent = 'Guest User';
+                document.getElementById('dropdown-email').textContent = 'Login to access VIP features';
+                document.getElementById('vip-status').textContent = 'Login';
+                document.getElementById('mobile-profile-name').textContent = 'Guest';
+                document.getElementById('mobile-vip-status').textContent = 'Login to continue';
+                
+                // Reset avatar
+                document.getElementById('profile-avatar').innerHTML = '<i class="fas fa-user"></i>';
+                document.getElementById('dropdown-avatar').innerHTML = '<i class="fas fa-user"></i>';
+                document.getElementById('mobile-profile-avatar').innerHTML = '<i class="fas fa-user"></i>';
+                
+                // Hide VIP timer
+                document.getElementById('dropdown-vip-timer').classList.add('hidden');
+                document.getElementById('mobile-vip-timer').classList.add('hidden');
+                
+                // Show login buttons
+                document.getElementById('dropdown-login-btn').style.display = 'flex';
+                document.getElementById('mobile-login-btn').classList.remove('hidden');
+                
+                // Hide logout buttons
+                document.getElementById('dropdown-logout-btn').classList.add('hidden');
+                document.getElementById('mobile-logout-btn').classList.add('hidden');
+            }
+
+            // Load Results Content
+            function loadResultsContent() {
+                if (!currentUser) {
+                    // Show locked results for non-logged in users
+                    resultsContent.innerHTML = `
+                        <div class="results-locked">
+                            <div class="locked-overlay">
+                                <div class="lock-icon">
+                                    <i class="fas fa-lock"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold mb-3 heading-font">VIP Results Locked</h3>
+                                <p class="text-gray-600 mb-6 max-w-md">
+                                    You need to login or register to view our monthly VIP trading results and performance statistics.
+                                </p>
+                                <div class="flex gap-3">
+                                    <button class="btn-simple" id="results-login-btn">
+                                        <i class="fas fa-sign-in-alt"></i>
+                                        Login to View
+                                    </button>
+                                    <button class="btn-modern-outline" id="results-register-btn">
+                                        <i class="fas fa-user-plus"></i>
+                                        Register Free
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
                     
-                    // Fade out loading screen
-                    loadingScreen.style.transition = 'opacity 0.5s ease';
-                    loadingScreen.style.opacity = '0';
+                    // Add event listeners to buttons
+                    document.getElementById('results-login-btn')?.addEventListener('click', () => {
+                        openLoginModal('login');
+                    });
                     
-                    // Show main website after fade out
+                    document.getElementById('results-register-btn')?.addEventListener('click', () => {
+                        openLoginModal('register');
+                    });
+                    
+                } else if (!currentUser.isVIP) {
+                    // Show locked results for free users
+                    resultsContent.innerHTML = `
+                        <div class="results-locked">
+                            <div class="locked-overlay">
+                                <div class="lock-icon">
+                                    <i class="fas fa-crown"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold mb-3 heading-font">VIP Results Restricted</h3>
+                                <p class="text-gray-600 mb-6 max-w-md">
+                                    You need to upgrade to VIP membership to view our monthly trading results and performance statistics.
+                                </p>
+                                <div class="flex gap-3">
+                                    <a href="#pricing" class="btn-simple">
+                                        <i class="fas fa-crown"></i>
+                                        Upgrade to VIP
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    
+                } else {
+                    // Show results for VIP users
+                    resultsContent.innerHTML = `
+                        <div class="simple-card p-8">
+                            <div class="flex justify-between items-center mb-6">
+                                <h4 class="text-xl font-bold heading-font">Monthly Performance Results</h4>
+                                <div class="vip-timer">
+                                    <i class="fas fa-crown"></i>
+                                    <span>VIP ACCESS</span>
+                                </div>
+                            </div>
+                            
+                            <div class="overflow-x-auto">
+                                <table class="results-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Month</th>
+                                            <th>Total Signals</th>
+                                            <th>Win Rate</th>
+                                            <th>Total Profit</th>
+                                            <th>Best Trade</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        ${MONTHLY_RESULTS.map(result => `
+                                            <tr>
+                                                <td class="font-medium">${result.month}</td>
+                                                <td>${result.totalSignals}</td>
+                                                <td><span class="profit-positive profit-badge">${result.winRate}</span></td>
+                                                <td><span class="${result.status} profit-badge">${result.totalProfit}</span></td>
+                                                <td class="font-medium">${result.bestTrade}</td>
+                                            </tr>
+                                        `).join('')}
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <div class="mt-8 p-4 bg-green-50 border border-green-200 rounded-lg">
+                                <div class="flex items-center">
+                                    <i class="fas fa-chart-line text-green-600 mr-3"></i>
+                                    <div>
+                                        <p class="font-medium text-green-800">Average Monthly Performance</p>
+                                        <p class="text-sm text-green-600">85% Win Rate | +$8,230 Average Profit</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+            }
+
+            // Show Toast Message
+            function showToast(message, type = 'info') {
+                // Create toast element
+                const toast = document.createElement('div');
+                toast.className = `fixed top-24 right-6 z-50 px-6 py-3 rounded-lg shadow-lg text-white font-medium animate__animated animate__fadeInRight ${
+                    type === 'success' ? 'bg-green-500' : 
+                    type === 'error' ? 'bg-red-500' : 
+                    type === 'warning' ? 'bg-yellow-500' : 'bg-blue-500'
+                }`;
+                toast.textContent = message;
+                
+                document.body.appendChild(toast);
+                
+                // Remove toast after 3 seconds
+                setTimeout(() => {
+                    toast.classList.add('animate__fadeOutRight');
                     setTimeout(() => {
-                        loadingScreen.style.display = 'none';
-                        mainWebsite.classList.remove('hidden');
-                        mainWebsite.style.display = 'block';
+                        document.body.removeChild(toast);
+                    }, 300);
+                }, 3000);
+            }
+
+            // Loading Screen Functionality
+            function startLoading() {
+                let progress = 0;
+                let messageIndex = 0;
+                
+                const interval = setInterval(() => {
+                    progress += 2;
+                    progressFill.style.width = `${progress}%`;
+                    
+                    if (progress % 20 === 0 && messageIndex < loadingMessages.length) {
+                        loadingText.textContent = loadingMessages[messageIndex];
+                        messageIndex++;
+                    }
+                    
+                    if (progress >= 100) {
+                        clearInterval(interval);
                         
-                        // Add fade-in effect
-                        mainWebsite.style.opacity = '0';
-                        mainWebsite.style.transition = 'opacity 0.8s ease';
+                        // Fade out loading screen
+                        loadingScreen.style.opacity = '0';
                         
                         setTimeout(() => {
-                            mainWebsite.style.opacity = '1';
-                        }, 50);
-                        
-                        // Scroll to top
-                        window.scrollTo(0, 0);
-                        
-                        // Initialize database and update VIP days
-                        initDatabase();
-                        updateVIPDays();
-                        updateLoginUI();
-                    }, 500);
+                            loadingScreen.style.display = 'none';
+                            mainWebsite.classList.remove('hidden');
+                            
+                            // Initialize app
+                            initNotifications();
+                            checkLoginStatus();
+                            updateNotificationBadge();
+                            
+                            // Scroll to top
+                            window.scrollTo(0, 0);
+                            
+                            console.log('App loaded successfully');
+                        }, 500);
+                    }
+                }, 50);
+            }
+
+            // Modal Functions
+            function openLoginModal(tab = 'login') {
+                loginModal.style.display = 'block';
+                // Close other dropdowns
+                profileDropdown.classList.remove('active');
+                notificationDropdown.classList.remove('active');
+                mobileNav.classList.remove('active');
+                mobileMenuToggle.querySelector('i').className = 'fas fa-bars';
+                
+                // Set active tab
+                if (tab === 'login') {
+                    loginTabBtn.classList.add('active');
+                    registerTabBtn.classList.remove('active');
+                    loginForm.classList.remove('hidden');
+                    registerForm.classList.add('hidden');
+                } else {
+                    registerTabBtn.classList.add('active');
+                    loginTabBtn.classList.remove('active');
+                    registerForm.classList.remove('hidden');
+                    loginForm.classList.add('hidden');
                 }
-            }, 50); // Update every 50ms
-        }
+                
+                // Clear forms
+                loginUsernameInput.value = '';
+                loginPasswordInput.value = '';
+                registerUsernameInput.value = '';
+                registerEmailInput.value = '';
+                registerPasswordInput.value = '';
+                registerConfirmPasswordInput.value = '';
+                registerWhatsAppInput.value = '';
+                
+                // Focus on first input
+                if (tab === 'login') {
+                    loginUsernameInput.focus();
+                } else {
+                    registerUsernameInput.focus();
+                }
+            }
 
-        // Mobile menu toggle
-        mobileMenuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
+            function closeLoginModal() {
+                loginModal.style.display = 'none';
+            }
 
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-btn').forEach(link => {
-            link.addEventListener('click', () => {
-                if (window.innerWidth <= 768) {
-                    navLinks.classList.remove('active');
+            // Mobile Menu Toggle
+            mobileMenuToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                mobileNav.classList.toggle('active');
+                const icon = this.querySelector('i');
+                icon.className = mobileNav.classList.contains('active') ? 'fas fa-times' : 'fas fa-bars';
+                
+                // Close other dropdowns
+                profileDropdown.classList.remove('active');
+                notificationDropdown.classList.remove('active');
+            });
+
+            // Notification Toggle
+            notificationBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                notificationDropdown.classList.toggle('active');
+                profileDropdown.classList.remove('active');
+            });
+
+            // Profile Dropdown Toggle
+            profileToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                profileDropdown.classList.toggle('active');
+                notificationDropdown.classList.remove('active');
+            });
+
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!notificationBtn.contains(e.target) && !notificationDropdown.contains(e.target)) {
+                    notificationDropdown.classList.remove('active');
+                }
+                
+                if (!profileToggle.contains(e.target) && !profileDropdown.contains(e.target)) {
+                    profileDropdown.classList.remove('active');
+                }
+                
+                if (!mobileMenuToggle.contains(e.target) && !mobileNav.contains(e.target)) {
+                    mobileNav.classList.remove('active');
+                    mobileMenuToggle.querySelector('i').className = 'fas fa-bars';
                 }
             });
-        });
 
-        // Login System Event Listeners
-        loginBtn.addEventListener('click', () => {
-            openModal(loginModal);
-        });
+            // Event Listeners
+            joinVipBtn.addEventListener('click', () => {
+                window.location.href = '#pricing';
+                mobileNav.classList.remove('active');
+                mobileMenuToggle.querySelector('i').className = 'fas fa-bars';
+            });
 
-        closeLogin.addEventListener('click', () => closeModal(loginModal));
+            mobileJoinVipBtn.addEventListener('click', () => {
+                window.location.href = '#pricing';
+                mobileNav.classList.remove('active');
+                mobileMenuToggle.querySelector('i').className = 'fas fa-bars';
+            });
 
-        loginSubmit.addEventListener('click', async () => {
-            const username = document.getElementById('loginUsername').value;
-            const password = document.getElementById('loginPassword').value;
+            dropdownLoginBtn.addEventListener('click', () => openLoginModal('login'));
+            mobileLoginBtn.addEventListener('click', () => openLoginModal('login'));
             
-            if (!username || !password) {
-                alert('Please enter both username and password');
-                return;
-            }
+            dropdownLogoutBtn.addEventListener('click', logout);
+            mobileLogoutBtn.addEventListener('click', logout);
             
-            loginSubmit.disabled = true;
-            loginSubmit.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Logging in...';
-            
-            if (!await login(username, password)) {
-                alert('❌ Invalid username or password');
-            }
-            
-            loginSubmit.disabled = false;
-            loginSubmit.innerHTML = 'LOGIN';
-        });
+            dropdownRenewVip.addEventListener('click', () => {
+                window.location.href = '#pricing';
+                profileDropdown.classList.remove('active');
+            });
 
-        logoutBtn.addEventListener('click', logout);
+            // Tab Switching
+            loginTabBtn.addEventListener('click', () => {
+                loginTabBtn.classList.add('active');
+                registerTabBtn.classList.remove('active');
+                loginForm.classList.remove('hidden');
+                registerForm.classList.add('hidden');
+            });
 
-        // Allow Enter key in login form
-        document.getElementById('loginPassword').addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                loginSubmit.click();
-            }
-        });
+            registerTabBtn.addEventListener('click', () => {
+                registerTabBtn.classList.add('active');
+                loginTabBtn.classList.remove('active');
+                registerForm.classList.remove('hidden');
+                loginForm.classList.add('hidden');
+            });
 
-        // Close modal when clicking outside
-        window.addEventListener('click', (event) => {
-            if (event.target === loginModal) {
-                closeModal(loginModal);
-            }
-        });
+            switchToRegister.addEventListener('click', (e) => {
+                e.preventDefault();
+                registerTabBtn.click();
+            });
 
-        // Main website navigation functionality
-        document.addEventListener('DOMContentLoaded', () => {
-            // Navigation Button Active State
-            document.querySelectorAll('.nav-btn').forEach(button => {
-                button.addEventListener('click', function(e) {
+            switchToLogin.addEventListener('click', (e) => {
+                e.preventDefault();
+                loginTabBtn.click();
+            });
+
+            // Login Form Submission
+            loginSubmitBtn.addEventListener('click', function() {
+                const username = loginUsernameInput.value.trim();
+                const password = loginPasswordInput.value.trim();
+                
+                if (!username || !password) {
+                    showToast('Please enter both username and password', 'error');
+                    return;
+                }
+                
+                // Save button state
+                const originalText = this.innerHTML;
+                this.disabled = true;
+                this.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Logging in...';
+                
+                // Simulate API call
+                setTimeout(() => {
+                    if (login(username, password)) {
+                        // Success - handled in login function
+                    } else {
+                        showToast('Invalid username or password', 'error');
+                    }
+                    
+                    // Restore button state
+                    this.disabled = false;
+                    this.innerHTML = originalText;
+                }, 1000);
+            });
+
+            // Register Form Submission
+            registerSubmitBtn.addEventListener('click', function() {
+                const username = registerUsernameInput.value.trim();
+                const email = registerEmailInput.value.trim();
+                const password = registerPasswordInput.value.trim();
+                const confirmPassword = registerConfirmPasswordInput.value.trim();
+                const whatsapp = registerWhatsAppInput.value.trim();
+                
+                if (!username || !email || !password || !confirmPassword || !whatsapp) {
+                    showToast('Please fill all fields', 'error');
+                    return;
+                }
+                
+                if (password.length < 6) {
+                    showToast('Password must be at least 6 characters', 'error');
+                    return;
+                }
+                
+                if (password !== confirmPassword) {
+                    showToast('Passwords do not match', 'error');
+                    return;
+                }
+                
+                if (!/^\d{9}$/.test(whatsapp.replace(/\D/g, ''))) {
+                    showToast('Please enter a valid WhatsApp number (9 digits)', 'error');
+                    return;
+                }
+                
+                // Save button state
+                const originalText = this.innerHTML;
+                this.disabled = true;
+                this.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Registering...';
+                
+                // Simulate API call
+                setTimeout(() => {
+                    if (register(username, email, password, whatsapp)) {
+                        // Success - handled in register function
+                    }
+                    
+                    // Restore button state
+                    this.disabled = false;
+                    this.innerHTML = originalText;
+                }, 1000);
+            });
+
+            // Allow Enter key in forms
+            loginPasswordInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    loginSubmitBtn.click();
+                }
+            });
+
+            registerConfirmPasswordInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    registerSubmitBtn.click();
+                }
+            });
+
+            // Close modals with buttons
+            closeLoginBtn.addEventListener('click', closeLoginModal);
+            closeRegisterBtn.addEventListener('click', closeLoginModal);
+
+            // Close modal when clicking outside
+            window.addEventListener('click', (event) => {
+                if (event.target === loginModal) {
+                    closeLoginModal();
+                }
+            });
+
+            // Mark all notifications as read
+            document.getElementById('mark-all-read')?.addEventListener('click', function(e) {
+                e.stopPropagation();
+                notifications.forEach(notification => {
+                    notification.unread = false;
+                });
+                updateNotificationBadge();
+                initNotifications();
+                showToast('All notifications marked as read', 'success');
+            });
+
+            // Navigation Smooth Scrolling
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href === '#' || href === '#!') return;
+                    
                     e.preventDefault();
                     
-                    // Remove active class from all buttons
-                    document.querySelectorAll('.nav-btn').forEach(btn => {
-                        btn.classList.remove('active');
-                    });
-                    // Add active class to clicked button
-                    this.classList.add('active');
+                    const targetId = href.substring(1);
+                    const targetElement = document.getElementById(targetId);
                     
-                    // Smooth scroll to section
-                    const targetId = this.getAttribute('href').substring(1);
-                    const targetSection = document.getElementById(targetId);
-                    if (targetSection) {
+                    if (targetElement) {
+                        // Update active nav link
+                        document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        this.classList.add('active');
+                        
+                        // Smooth scroll to target
                         window.scrollTo({
-                            top: targetSection.offsetTop - 80,
+                            top: targetElement.offsetTop - 80,
                             behavior: 'smooth'
                         });
+                        
+                        // Close mobile menu if open
+                        mobileNav.classList.remove('active');
+                        mobileMenuToggle.querySelector('i').className = 'fas fa-bars';
                     }
                 });
             });
 
-            // Highlight active section on scroll
-            window.addEventListener('scroll', () => {
+            // Update active nav link on scroll
+            window.addEventListener('scroll', function() {
+                const scrollPosition = window.scrollY;
                 const sections = document.querySelectorAll('section[id]');
-                const navButtons = document.querySelectorAll('.nav-btn');
-                
-                let currentSection = '';
                 
                 sections.forEach(section => {
                     const sectionTop = section.offsetTop - 100;
                     const sectionHeight = section.clientHeight;
-                    if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-                        currentSection = section.getAttribute('id');
-                    }
-                });
-                
-                navButtons.forEach(button => {
-                    button.classList.remove('active');
-                    if (button.getAttribute('href').substring(1) === currentSection) {
-                        button.classList.add('active');
+                    const sectionId = section.getAttribute('id');
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === '#' + sectionId) {
+                                link.classList.add('active');
+                            }
+                        });
                     }
                 });
             });
 
-            // Animate stats on scroll
-            const observerOptions = {
-                threshold: 0.5
-            };
+            // WhatsApp number formatting
+            registerWhatsAppInput.addEventListener('input', function(e) {
+                let value = this.value.replace(/\D/g, '');
+                if (value.length > 9) value = value.substring(0, 9);
+                
+                // Format as XXX XXX XXX
+                if (value.length > 3) {
+                    value = value.substring(0, 3) + ' ' + value.substring(3);
+                }
+                if (value.length > 7) {
+                    value = value.substring(0, 7) + ' ' + value.substring(7);
+                }
+                
+                this.value = value;
+            });
 
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const statNumbers = entry.target.querySelectorAll('.stat-number');
-                        statNumbers.forEach(stat => {
-                            const originalText = stat.textContent;
-                            stat.textContent = '0';
-                            
-                            let target = parseInt(originalText.replace(/[^0-9]/g, ''));
-                            let current = 0;
-                            const increment = target / 50;
-                            
-                            const timer = setInterval(() => {
-                                current += increment;
-                                if (current >= target) {
-                                    current = target;
-                                    clearInterval(timer);
-                                }
-                                stat.textContent = originalText.replace(/\d+/g, Math.floor(current).toLocaleString());
-                            }, 30);
-                        });
-                    }
-                });
-            }, observerOptions);
-
-            const resultsSection = document.getElementById('results');
-            if (resultsSection) {
-                observer.observe(resultsSection);
-            }
-
-            // Handle contact form submission
-            const contactForm = document.getElementById('contact-form');
-            if (contactForm) {
-                contactForm.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    alert('Thank you! Your message has been sent. We will respond within 24 hours.');
-                    contactForm.reset();
-                });
-            }
-
-            // Check Firebase connection status
-            console.log('Firebase connection status:', window.firebaseDatabase ? 'Connected' : 'Not connected');
+            // Start loading animation
+            startLoading();
         });
+    </script>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getDatabase, ref, set, get, update, remove, onValue } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+        
+        const firebaseConfig = {
+            apiKey: "AIzaSyDcFLrmoKuyiFpm48gWrOQRcC8nd6sUWio",
+            authDomain: "smvip2-8d131.firebaseapp.com",
+            databaseURL: "https://smvip2-8d131-default-rtdb.firebaseio.com",
+            projectId: "smvip2-8d131",
+            storageBucket: "smvip2-8d131.firebasestorage.app",
+            messagingSenderId: "113699989330",
+            appId: "1:113699989330:web:5e68b8160362eae509fc8b",
+            measurementId: "G-B023JGDMGJ"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+        
+        window.firebaseDatabase = database;
+        window.firebaseRef = ref;
+        window.firebaseSet = set;
+        window.firebaseGet = get;
+        window.firebaseUpdate = update;
+        window.firebaseRemove = remove;
+        window.firebaseOnValue = onValue;
+        
+        console.log('Firebase initialized successfully');
     </script>
 </body>
 </html>
