@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>SM VIP SIGNALS | Premium Trading Hub</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
@@ -25,6 +25,7 @@
             background: #ffffff;
             color: #333333;
             overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
         }
 
         h1, h2, h3, h4, h5, h6, .heading-font {
@@ -559,7 +560,268 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* Login Modal - Improved */
+        /* Phone Confirmation Modal - Full Screen */
+        .phone-confirm-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .phone-confirm-content {
+            background: white;
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 0;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .phone-confirm-header {
+            background: linear-gradient(135deg, #e3342f, #c53030);
+            padding: 1.5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .phone-confirm-header h3 {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .close-confirm-btn {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .close-confirm-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .phone-confirm-body {
+            flex: 1;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow-y: auto;
+        }
+
+        .phone-confirm-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #e3342f, #f56565);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(227, 52, 47, 0.3);
+        }
+
+        .phone-confirm-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-align: center;
+            color: #1f2937;
+        }
+
+        .phone-confirm-subtitle {
+            color: #6b7280;
+            text-align: center;
+            margin-bottom: 2rem;
+            max-width: 400px;
+        }
+
+        .phone-number-display {
+            background: #f9fafb;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .phone-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1f2937;
+            font-family: var(--font-tech);
+            letter-spacing: 1px;
+        }
+
+        .phone-label {
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .otp-input-container {
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 2rem;
+        }
+
+        .otp-input-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #374151;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .otp-inputs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .otp-input {
+            width: 50px;
+            height: 60px;
+            border: 2px solid #d1d5db;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            font-family: var(--font-tech);
+            background: #f9fafb;
+            transition: all 0.3s ease;
+            touch-action: manipulation;
+            -webkit-appearance: none;
+        }
+
+        .otp-input:focus {
+            outline: none;
+            border-color: #e3342f;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(227, 52, 47, 0.1);
+        }
+
+        .otp-input.filled {
+            border-color: #10b981;
+            background: #f0fdf4;
+        }
+
+        .otp-timer {
+            text-align: center;
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .otp-timer span {
+            color: #e3342f;
+            font-weight: 600;
+        }
+
+        .resend-otp {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .resend-btn {
+            background: none;
+            border: none;
+            color: #3b82f6;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        .resend-btn:hover {
+            color: #1d4ed8;
+            text-decoration: underline;
+        }
+
+        .resend-btn.disabled {
+            color: #9ca3af;
+            cursor: not-allowed;
+        }
+
+        .phone-confirm-footer {
+            padding: 1.5rem;
+            background: #f9fafb;
+            border-top: 1px solid #e5e7eb;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            width: 100%;
+        }
+
+        .confirm-btn {
+            background: linear-gradient(135deg, #e3342f, #c53030);
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .confirm-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(227, 52, 47, 0.3);
+        }
+
+        .confirm-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .back-btn {
+            background: #f3f4f6;
+            color: #4b5563;
+            border: none;
+            padding: 1rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: #e5e7eb;
+        }
+
+        /* Login Modal - IMPROVED FOR MOBILE */
         .modal {
             display: none;
             position: fixed;
@@ -582,6 +844,9 @@
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
             overflow: hidden;
             animation: slideUp 0.4s ease;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
         }
 
         @keyframes slideUp {
@@ -599,6 +864,7 @@
             background: linear-gradient(135deg, #e3342f, #c53030);
             padding: 1.75rem;
             text-align: center;
+            flex-shrink: 0;
         }
 
         .modal-header h3 {
@@ -610,6 +876,9 @@
 
         .modal-body {
             padding: 2rem;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            flex: 1;
         }
 
         .form-group {
@@ -632,6 +901,8 @@
             font-size: 1rem;
             transition: all 0.3s ease;
             background: #f9fafb;
+            box-sizing: border-box;
+            -webkit-appearance: none;
         }
 
         .form-input:focus {
@@ -645,18 +916,21 @@
             display: flex;
             gap: 1rem;
             margin-top: 2rem;
+            flex-shrink: 0;
         }
 
         .modal-footer .btn-modern {
             flex: 1;
             justify-content: center;
             padding: 0.875rem;
+            font-size: 1rem;
         }
 
         .modal-footer .btn-modern-outline {
             flex: 1;
             justify-content: center;
             padding: 0.875rem;
+            font-size: 1rem;
         }
 
         .modal-links {
@@ -664,6 +938,7 @@
             margin-top: 1.5rem;
             padding-top: 1.5rem;
             border-top: 1px solid #e5e7eb;
+            flex-shrink: 0;
         }
 
         .modal-links a {
@@ -696,6 +971,8 @@
             cursor: pointer;
             border-bottom: 3px solid transparent;
             transition: all 0.3s ease;
+            flex: 1;
+            font-size: 1rem;
         }
 
         .register-tab.active, .login-tab.active {
@@ -708,6 +985,141 @@
             justify-content: center;
             border-bottom: 1px solid #e5e7eb;
             background: #f9fafb;
+        }
+
+        /* MOBILE SPECIFIC FIXES */
+        @media (max-width: 768px) {
+            body.modal-open {
+                overflow: hidden;
+                position: fixed;
+                width: 100%;
+                height: 100%;
+            }
+            
+            .modal {
+                padding: 0;
+                margin: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: rgba(0,0,0,0.8);
+            }
+            
+            .modal-content {
+                margin: 0;
+                width: 100%;
+                height: 100%;
+                max-width: 100%;
+                max-height: 100%;
+                border-radius: 0;
+                animation: mobileSlideUp 0.3s ease;
+                position: relative;
+            }
+            
+            @keyframes mobileSlideUp {
+                from {
+                    transform: translateY(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+            }
+            
+            .modal-header {
+                padding: 1.5rem;
+                position: relative;
+            }
+            
+            .modal-header h3 {
+                font-size: 1.3rem;
+            }
+            
+            .modal-body {
+                padding: 1.5rem;
+                padding-bottom: 100px; /* Extra space for keyboard */
+            }
+            
+            .form-input {
+                font-size: 16px; /* Prevents iOS zoom */
+                padding: 1rem;
+            }
+            
+            .modal-footer {
+                flex-direction: column;
+                gap: 0.75rem;
+                margin-top: 1.5rem;
+            }
+            
+            .modal-footer .btn-modern,
+            .modal-footer .btn-modern-outline {
+                padding: 1rem;
+                font-size: 1.1rem;
+            }
+            
+            .otp-input {
+                width: 45px;
+                height: 55px;
+                font-size: 1.5rem;
+            }
+            
+            /* Fix for iPhone notch/safe areas */
+            @supports (padding: max(0px)) {
+                .modal-body {
+                    padding-left: max(1.5rem, env(safe-area-inset-left));
+                    padding-right: max(1.5rem, env(safe-area-inset-right));
+                    padding-bottom: max(100px, env(safe-area-inset-bottom) + 80px);
+                }
+                
+                .modal-footer {
+                    padding-bottom: env(safe-area-inset-bottom);
+                }
+            }
+        }
+
+        /* Small Mobile Devices */
+        @media (max-width: 480px) {
+            .otp-inputs {
+                gap: 8px;
+            }
+            
+            .otp-input {
+                width: 40px;
+                height: 50px;
+                font-size: 1.3rem;
+            }
+            
+            .modal-body {
+                padding: 1.25rem;
+            }
+            
+            .phone-confirm-body {
+                padding: 1.5rem;
+            }
+            
+            .phone-number-display {
+                padding: 1rem;
+            }
+            
+            .phone-number {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Landscape Mode Fixes */
+        @media (max-height: 600px) and (orientation: landscape) {
+            .modal-content {
+                max-height: 100vh;
+            }
+            
+            .modal-body {
+                max-height: 60vh;
+            }
+            
+            .modal-footer {
+                margin-top: 1rem;
+            }
         }
 
         /* WhatsApp Field */
@@ -951,6 +1363,63 @@
                 <div class="progress-fill" id="progress-fill"></div>
             </div>
             <p class="text-gray-400 text-sm mt-4" id="loading-text">Preparing premium signals...</p>
+        </div>
+    </div>
+
+    <!-- Phone Confirmation Modal -->
+    <div id="phoneConfirmModal" class="phone-confirm-modal">
+        <div class="phone-confirm-content">
+            <div class="phone-confirm-header">
+                <h3>PHONE VERIFICATION</h3>
+                <button class="close-confirm-btn" id="closeConfirmModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="phone-confirm-body">
+                <div class="phone-confirm-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h2 class="phone-confirm-title">Verify Your Phone Number</h2>
+                <p class="phone-confirm-subtitle">
+                    We've sent a 6-digit verification code to your WhatsApp number. Please enter it below to complete your registration.
+                </p>
+                
+                <div class="phone-number-display">
+                    <div class="phone-number" id="confirmPhoneNumber">+94 77 123 4567</div>
+                    <div class="phone-label">WhatsApp Number</div>
+                </div>
+                
+                <div class="otp-input-container">
+                    <label class="otp-input-label">Enter 6-digit code</label>
+                    <div class="otp-inputs" id="otpInputs">
+                        <input type="text" maxlength="1" class="otp-input" data-index="0" inputmode="numeric">
+                        <input type="text" maxlength="1" class="otp-input" data-index="1" inputmode="numeric">
+                        <input type="text" maxlength="1" class="otp-input" data-index="2" inputmode="numeric">
+                        <input type="text" maxlength="1" class="otp-input" data-index="3" inputmode="numeric">
+                        <input type="text" maxlength="1" class="otp-input" data-index="4" inputmode="numeric">
+                        <input type="text" maxlength="1" class="otp-input" data-index="5" inputmode="numeric">
+                    </div>
+                    <div class="otp-timer">
+                        Code expires in: <span id="otpTimer">05:00</span>
+                    </div>
+                </div>
+                
+                <div class="resend-otp">
+                    <button class="resend-btn" id="resendOtpBtn" disabled>
+                        Resend code in <span id="resendTimer">60</span> seconds
+                    </button>
+                </div>
+            </div>
+            <div class="phone-confirm-footer">
+                <button class="confirm-btn" id="confirmOtpBtn" disabled>
+                    <i class="fas fa-check-circle"></i>
+                    VERIFY & CONTINUE
+                </button>
+                <button class="back-btn" id="backToRegisterBtn">
+                    <i class="fas fa-arrow-left"></i>
+                    Back to Registration
+                </button>
+            </div>
         </div>
     </div>
 
@@ -1476,6 +1945,17 @@
             const progressFill = document.getElementById('progress-fill');
             const loadingText = document.getElementById('loading-text');
             
+            // Phone Confirmation Elements
+            const phoneConfirmModal = document.getElementById('phoneConfirmModal');
+            const closeConfirmModalBtn = document.getElementById('closeConfirmModal');
+            const confirmPhoneNumber = document.getElementById('confirmPhoneNumber');
+            const otpInputs = document.querySelectorAll('.otp-input');
+            const confirmOtpBtn = document.getElementById('confirmOtpBtn');
+            const backToRegisterBtn = document.getElementById('backToRegisterBtn');
+            const resendOtpBtn = document.getElementById('resendOtpBtn');
+            const otpTimer = document.getElementById('otpTimer');
+            const resendTimer = document.getElementById('resendTimer');
+            
             // Navigation Elements
             const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
             const mobileNav = document.getElementById('mobile-nav');
@@ -1540,14 +2020,16 @@
                     email: 'vipuser1@example.com',
                     whatsapp: '+94771234567',
                     isVIP: true,
-                    vipExpiry: '2024-12-31'
+                    vipExpiry: '2024-12-31',
+                    phoneVerified: true
                 },
                 'vipuser2': { 
                     password: 'pass123', 
                     email: 'vipuser2@example.com',
                     whatsapp: '+94777654321',
                     isVIP: true,
-                    vipExpiry: '2024-11-30'
+                    vipExpiry: '2024-11-30',
+                    phoneVerified: true
                 }
             };
 
@@ -1629,6 +2111,12 @@
             // Application State
             let currentUser = null;
             let unreadNotifications = 3;
+            let phoneVerificationData = null;
+            let otpCountdown = 300; // 5 minutes in seconds
+            let resendCountdown = 60; // 1 minute in seconds
+            let otpInterval = null;
+            let resendInterval = null;
+            let generatedOTP = null;
 
             // Initialize Notifications
             function initNotifications() {
@@ -1768,52 +2256,246 @@
                     return false;
                 }
                 
-                const newUser = {
+                // Store registration data for phone verification
+                phoneVerificationData = {
                     username: username,
                     email: email,
                     password: password,
                     whatsapp: formattedWhatsApp,
                     isVIP: false,
-                    registeredDate: new Date().toISOString().split('T')[0]
+                    registeredDate: new Date().toISOString().split('T')[0],
+                    phoneVerified: false
                 };
                 
-                // Save to localStorage (temporary)
-                currentUser = newUser;
-                localStorage.setItem('current_user', JSON.stringify(currentUser));
+                // Show phone confirmation modal
+                openPhoneConfirmationModal(formattedWhatsApp);
                 
-                // Try to save to Firebase
-                try {
-                    if (window.firebaseDatabase) {
-                        const userRef = window.firebaseRef(window.firebaseDatabase, `${USERS_DB_REF}/${username}`);
-                        window.firebaseSet(userRef, newUser).then(() => {
-                            showToast('Registration successful!', 'success');
+                return true;
+            }
+
+            // Open Phone Confirmation Modal
+            function openPhoneConfirmationModal(phoneNumber) {
+                // Update phone number display
+                confirmPhoneNumber.textContent = formatPhoneNumber(phoneNumber);
+                
+                // Reset OTP inputs
+                otpInputs.forEach(input => {
+                    input.value = '';
+                    input.classList.remove('filled');
+                });
+                
+                // Disable confirm button
+                confirmOtpBtn.disabled = true;
+                
+                // Reset timers
+                otpCountdown = 300;
+                resendCountdown = 60;
+                updateOTPTimer();
+                updateResendTimer();
+                
+                // Generate OTP
+                generatedOTP = generateOTP();
+                console.log('Generated OTP:', generatedOTP); // For testing only
+                
+                // Start timers
+                startOTPTimer();
+                startResendTimer();
+                
+                // Show modal
+                phoneConfirmModal.style.display = 'block';
+                document.body.classList.add('modal-open');
+                
+                // Close other modals
+                closeLoginModal();
+                
+                // Focus first OTP input
+                setTimeout(() => {
+                    otpInputs[0].focus();
+                }, 100);
+            }
+
+            // Close Phone Confirmation Modal
+            function closePhoneConfirmationModal() {
+                phoneConfirmModal.style.display = 'none';
+                document.body.classList.remove('modal-open');
+                
+                // Clear intervals
+                if (otpInterval) clearInterval(otpInterval);
+                if (resendInterval) clearInterval(resendInterval);
+                
+                // Reset verification data
+                phoneVerificationData = null;
+                generatedOTP = null;
+            }
+
+            // Generate 6-digit OTP
+            function generateOTP() {
+                return Math.floor(100000 + Math.random() * 900000).toString();
+            }
+
+            // Format phone number
+            function formatPhoneNumber(phone) {
+                // Format: +94 77 123 4567
+                const cleaned = phone.replace(/\D/g, '');
+                const match = cleaned.match(/^(\d{2})(\d{2})(\d{3})(\d{4})$/);
+                if (match) {
+                    return `+${match[1]} ${match[2]} ${match[3]} ${match[4]}`;
+                }
+                return phone;
+            }
+
+            // Start OTP countdown timer
+            function startOTPTimer() {
+                if (otpInterval) clearInterval(otpInterval);
+                
+                otpInterval = setInterval(() => {
+                    otpCountdown--;
+                    updateOTPTimer();
+                    
+                    if (otpCountdown <= 0) {
+                        clearInterval(otpInterval);
+                        showToast('OTP has expired. Please request a new code.', 'error');
+                        confirmOtpBtn.disabled = true;
+                    }
+                }, 1000);
+            }
+
+            // Start resend countdown timer
+            function startResendTimer() {
+                if (resendInterval) clearInterval(resendInterval);
+                
+                resendOtpBtn.disabled = true;
+                resendOtpBtn.classList.add('disabled');
+                
+                resendInterval = setInterval(() => {
+                    resendCountdown--;
+                    updateResendTimer();
+                    
+                    if (resendCountdown <= 0) {
+                        clearInterval(resendInterval);
+                        resendOtpBtn.disabled = false;
+                        resendOtpBtn.classList.remove('disabled');
+                        resendOtpBtn.innerHTML = 'Resend code';
+                    }
+                }, 1000);
+            }
+
+            // Update OTP timer display
+            function updateOTPTimer() {
+                const minutes = Math.floor(otpCountdown / 60);
+                const seconds = otpCountdown % 60;
+                otpTimer.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            }
+
+            // Update resend timer display
+            function updateResendTimer() {
+                resendTimer.textContent = resendCountdown;
+            }
+
+            // Verify OTP
+            function verifyOTP(enteredOTP) {
+                if (!generatedOTP || !phoneVerificationData) {
+                    showToast('Verification session expired. Please register again.', 'error');
+                    return false;
+                }
+                
+                if (enteredOTP === generatedOTP) {
+                    // OTP verified successfully
+                    
+                    // Create user account
+                    const newUser = {
+                        ...phoneVerificationData,
+                        phoneVerified: true,
+                        verificationDate: new Date().toISOString()
+                    };
+                    
+                    // Save to localStorage (temporary)
+                    currentUser = newUser;
+                    localStorage.setItem('current_user', JSON.stringify(currentUser));
+                    
+                    // Try to save to Firebase
+                    try {
+                        if (window.firebaseDatabase) {
+                            const userRef = window.firebaseRef(window.firebaseDatabase, `${USERS_DB_REF}/${newUser.username}`);
+                            window.firebaseSet(userRef, newUser).then(() => {
+                                showToast('Registration successful! Your phone is verified.', 'success');
+                                updateUIForLoggedInUser();
+                                loadResultsContent();
+                                closePhoneConfirmationModal();
+                                
+                                // Send welcome message via WhatsApp
+                                sendWelcomeWhatsApp(newUser.whatsapp, newUser.username);
+                                
+                                return true;
+                            }).catch((error) => {
+                                console.error('Firebase registration error:', error);
+                                showToast('Registration successful (offline mode)', 'success');
+                                updateUIForLoggedInUser();
+                                loadResultsContent();
+                                closePhoneConfirmationModal();
+                                return true;
+                            });
+                        } else {
+                            showToast('Registration successful! Your phone is verified.', 'success');
                             updateUIForLoggedInUser();
                             loadResultsContent();
-                            closeLoginModal();
+                            closePhoneConfirmationModal();
+                            
+                            // Send welcome message via WhatsApp
+                            sendWelcomeWhatsApp(newUser.whatsapp, newUser.username);
+                            
                             return true;
-                        }).catch((error) => {
-                            console.error('Firebase registration error:', error);
-                            showToast('Registration successful (offline mode)', 'success');
-                            updateUIForLoggedInUser();
-                            loadResultsContent();
-                            closeLoginModal();
-                            return true;
-                        });
-                    } else {
-                        showToast('Registration successful!', 'success');
+                        }
+                    } catch (error) {
+                        console.error('Registration error:', error);
+                        showToast('Registration successful (offline mode)', 'success');
                         updateUIForLoggedInUser();
                         loadResultsContent();
-                        closeLoginModal();
+                        closePhoneConfirmationModal();
                         return true;
                     }
-                } catch (error) {
-                    console.error('Registration error:', error);
-                    showToast('Registration successful (offline mode)', 'success');
-                    updateUIForLoggedInUser();
-                    loadResultsContent();
-                    closeLoginModal();
-                    return true;
+                } else {
+                    showToast('Invalid verification code. Please try again.', 'error');
+                    return false;
                 }
+            }
+
+            // Send welcome WhatsApp message
+            function sendWelcomeWhatsApp(phoneNumber, username) {
+                const message = `Welcome ${username} to SM VIP SIGNALS! 🎉\n\nYour account has been successfully verified.\n\nStart your trading journey with us!\n\nVisit: smvipsignals.com\n\nBest regards,\nSM VIP SIGNALS Team`;
+                const encodedMessage = encodeURIComponent(message);
+                const whatsappUrl = `https://wa.me/${phoneNumber.replace('+', '')}?text=${encodedMessage}`;
+                
+                // Open WhatsApp in new tab (simulated)
+                setTimeout(() => {
+                    window.open(whatsappUrl, '_blank');
+                }, 1000);
+            }
+
+            // Resend OTP
+            function resendOTP() {
+                if (resendCountdown > 0) return;
+                
+                // Generate new OTP
+                generatedOTP = generateOTP();
+                console.log('New OTP:', generatedOTP); // For testing only
+                
+                // Reset timers
+                otpCountdown = 300;
+                resendCountdown = 60;
+                updateOTPTimer();
+                updateResendTimer();
+                
+                // Start timers
+                startOTPTimer();
+                startResendTimer();
+                
+                // Show success message
+                showToast('New verification code sent to your WhatsApp.', 'success');
+                
+                // Simulate sending to WhatsApp
+                const message = `Your SM VIP SIGNALS verification code is: ${generatedOTP}\n\nThis code expires in 5 minutes.`;
+                console.log(`WhatsApp message to ${phoneVerificationData.whatsapp}: ${message}`);
             }
 
             // Logout Function
@@ -2081,12 +2763,14 @@
 
             // Modal Functions
             function openLoginModal(tab = 'login') {
-                loginModal.style.display = 'block';
+                loginModal.style.display = 'flex';
+                document.body.classList.add('modal-open');
                 // Close other dropdowns
                 profileDropdown.classList.remove('active');
                 notificationDropdown.classList.remove('active');
                 mobileNav.classList.remove('active');
                 mobileMenuToggle.querySelector('i').className = 'fas fa-bars';
+                closePhoneConfirmationModal();
                 
                 // Set active tab
                 if (tab === 'login') {
@@ -2112,14 +2796,98 @@
                 
                 // Focus on first input
                 if (tab === 'login') {
-                    loginUsernameInput.focus();
+                    setTimeout(() => {
+                        loginUsernameInput.focus();
+                    }, 300);
                 } else {
-                    registerUsernameInput.focus();
+                    setTimeout(() => {
+                        registerUsernameInput.focus();
+                    }, 300);
                 }
             }
 
             function closeLoginModal() {
                 loginModal.style.display = 'none';
+                document.body.classList.remove('modal-open');
+            }
+
+            // OTP Input Handling
+            function setupOTPInputs() {
+                otpInputs.forEach((input, index) => {
+                    input.addEventListener('input', (e) => {
+                        const value = e.target.value;
+                        
+                        // Only allow numbers
+                        if (!/^\d*$/.test(value)) {
+                            e.target.value = '';
+                            return;
+                        }
+                        
+                        // Move to next input if current is filled
+                        if (value.length === 1 && index < otpInputs.length - 1) {
+                            otpInputs[index + 1].focus();
+                        }
+                        
+                        // Update UI
+                        if (value) {
+                            e.target.classList.add('filled');
+                        } else {
+                            e.target.classList.remove('filled');
+                        }
+                        
+                        // Check if all inputs are filled
+                        checkOTPCompletion();
+                    });
+                    
+                    input.addEventListener('keydown', (e) => {
+                        // Handle backspace
+                        if (e.key === 'Backspace' && !e.target.value && index > 0) {
+                            otpInputs[index - 1].focus();
+                        }
+                        
+                        // Handle arrow keys
+                        if (e.key === 'ArrowLeft' && index > 0) {
+                            otpInputs[index - 1].focus();
+                        }
+                        if (e.key === 'ArrowRight' && index < otpInputs.length - 1) {
+                            otpInputs[index + 1].focus();
+                        }
+                    });
+                    
+                    input.addEventListener('paste', (e) => {
+                        e.preventDefault();
+                        const pasteData = e.clipboardData.getData('text').trim();
+                        
+                        if (/^\d{6}$/.test(pasteData)) {
+                            // Paste OTP into all inputs
+                            pasteData.split('').forEach((digit, idx) => {
+                                if (otpInputs[idx]) {
+                                    otpInputs[idx].value = digit;
+                                    otpInputs[idx].classList.add('filled');
+                                }
+                            });
+                            
+                            // Focus last input
+                            otpInputs[5].focus();
+                            
+                            // Check completion
+                            checkOTPCompletion();
+                        }
+                    });
+                });
+            }
+
+            // Check OTP completion
+            function checkOTPCompletion() {
+                const allFilled = Array.from(otpInputs).every(input => input.value.length === 1);
+                confirmOtpBtn.disabled = !allFilled;
+                
+                return allFilled;
+            }
+
+            // Get OTP from inputs
+            function getOTPFromInputs() {
+                return Array.from(otpInputs).map(input => input.value).join('');
             }
 
             // Mobile Menu Toggle
@@ -2278,13 +3046,47 @@
                 // Simulate API call
                 setTimeout(() => {
                     if (register(username, email, password, whatsapp)) {
-                        // Success - handled in register function
+                        // Success - opens phone confirmation modal
                     }
                     
                     // Restore button state
                     this.disabled = false;
                     this.innerHTML = originalText;
                 }, 1000);
+            });
+
+            // Phone Confirmation Event Listeners
+            closeConfirmModalBtn.addEventListener('click', closePhoneConfirmationModal);
+            
+            backToRegisterBtn.addEventListener('click', () => {
+                closePhoneConfirmationModal();
+                openLoginModal('register');
+            });
+            
+            confirmOtpBtn.addEventListener('click', function() {
+                const enteredOTP = getOTPFromInputs();
+                
+                // Save button state
+                const originalText = this.innerHTML;
+                this.disabled = true;
+                this.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Verifying...';
+                
+                // Simulate API call
+                setTimeout(() => {
+                    if (verifyOTP(enteredOTP)) {
+                        // Success - handled in verifyOTP function
+                    }
+                    
+                    // Restore button state
+                    this.disabled = false;
+                    this.innerHTML = originalText;
+                }, 1000);
+            });
+            
+            resendOtpBtn.addEventListener('click', function() {
+                if (!this.disabled) {
+                    resendOTP();
+                }
             });
 
             // Allow Enter key in forms
@@ -2308,6 +3110,9 @@
             window.addEventListener('click', (event) => {
                 if (event.target === loginModal) {
                     closeLoginModal();
+                }
+                if (event.target === phoneConfirmModal) {
+                    closePhoneConfirmationModal();
                 }
             });
 
@@ -2390,8 +3195,26 @@
                 this.value = value;
             });
 
+            // Setup OTP inputs
+            setupOTPInputs();
+
+            // Handle mobile keyboard adjustments
+            function handleMobileKeyboard() {
+                if (window.innerWidth <= 768) {
+                    const inputs = document.querySelectorAll('.form-input, .otp-input');
+                    inputs.forEach(input => {
+                        input.addEventListener('focus', function() {
+                            setTimeout(() => {
+                                this.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            }, 300);
+                        });
+                    });
+                }
+            }
+
             // Start loading animation
             startLoading();
+            handleMobileKeyboard();
         });
     </script>
 
