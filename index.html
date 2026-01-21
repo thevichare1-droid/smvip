@@ -1,0 +1,1533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SM VIP SIGNALS | Premium Trading Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- New Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=Orbitron:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Firebase SDK -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getDatabase, ref, set, get, update, remove, onValue } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+        
+        const firebaseConfig = {
+            apiKey: "AIzaSyDcFLrmoKuyiFpm48gWrOQRcC8nd6sUWio",
+            authDomain: "smvip2-8d131.firebaseapp.com",
+            databaseURL: "https://smvip2-8d131-default-rtdb.firebaseio.com",
+            projectId: "smvip2-8d131",
+            storageBucket: "smvip2-8d131.firebasestorage.app",
+            messagingSenderId: "113699989330",
+            appId: "1:113699989330:web:5e68b8160362eae509fc8b",
+            measurementId: "G-B023JGDMGJ"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+        
+        window.firebaseDatabase = database;
+        window.firebaseRef = ref;
+        window.firebaseSet = set;
+        window.firebaseGet = get;
+        window.firebaseUpdate = update;
+        window.firebaseRemove = remove;
+        window.firebaseOnValue = onValue;
+        
+        console.log('Firebase initialized successfully');
+    </script>
+    
+    <style>
+        /* Font Assignments */
+        :root {
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --font-tech: 'Orbitron', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: #ffffff;
+            color: #333333;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6, .heading-font {
+            font-family: var(--font-heading);
+        }
+
+        .tech-font {
+            font-family: var(--font-tech);
+        }
+
+        /* Red Text */
+        .red-text {
+            color: #e3342f;
+            font-weight: 700;
+        }
+
+        /* Simple Navigation */
+        .simple-nav {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            padding: 0 1.5rem;
+        }
+
+        /* Simple Button */
+        .btn-simple {
+            background: #e3342f;
+            color: white;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid #c53030;
+        }
+
+        .btn-simple:hover {
+            background: #c53030;
+            transform: translateY(-1px);
+        }
+
+        /* Simple Card */
+        .simple-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .simple-card:hover {
+            border-color: #d1d5db;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        /* Welcome Screen */
+        #welcome-screen {
+            position: fixed;
+            inset: 0;
+            background: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        /* Loading Screen */
+        #loading-screen {
+            position: fixed;
+            inset: 0;
+            background: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9998;
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            width: 300px;
+            height: 6px;
+            background: #e5e7eb;
+            border-radius: 3px;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #e3342f;
+            width: 0%;
+            transition: width 0.3s ease;
+            border-radius: 3px;
+        }
+
+        /* Fade In Animation */
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Remove gradient text effects */
+        .premium-red-text,
+        .red-gold-mix,
+        .dark-red-text {
+            background: none;
+            -webkit-background-clip: initial;
+            -webkit-text-fill-color: initial;
+            color: #e3342f;
+        }
+        
+        /* Red Accent Border */
+        .red-accent {
+            border-left: 3px solid #e3342f;
+        }
+        
+        /* Section Background */
+        .section-bg {
+            background: #f9fafb;
+            border-top: 1px solid #e5e7eb;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        /* Stats Counter Style */
+        .stat-number {
+            font-family: var(--font-tech);
+            font-weight: 700;
+            color: #e3342f;
+        }
+        
+        /* Footer Style */
+        .footer-simple {
+            background: #111827;
+            color: #f9fafb;
+            border-top: 2px solid #e3342f;
+        }
+        
+        /* Dark Red Text */
+        .dark-red-text {
+            color: #8b0000;
+            font-weight: 800;
+        }
+        
+        /* Countdown Style */
+        .countdown-text {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 10px;
+        }
+        
+        /* VIP Timer Badge */
+        .vip-timer {
+            background: linear-gradient(135deg, #e3342f, #ff6b6b);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        /* Profile Dropdown */
+        .profile-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: white;
+            min-width: 250px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1001;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+            margin-top: 10px;
+        }
+        
+        .profile-dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1002;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 0;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        
+        /* Admin Badge */
+        .admin-badge {
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        
+        /* Logout Button */
+        .logout-btn {
+            background: #f3f4f6;
+            color: #6b7280;
+            border: 1px solid #d1d5db;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .logout-btn:hover {
+            background: #ef4444;
+            color: white;
+            border-color: #dc2626;
+        }
+        
+        /* Navigation Links */
+        .nav-btn {
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 500;
+            color: #4b5563;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .nav-btn:hover {
+            color: #e3342f;
+            background: #fef2f2;
+        }
+        
+        .nav-btn.active {
+            color: #e3342f;
+            background: #fef2f2;
+            font-weight: 600;
+        }
+        
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                padding: 1rem;
+                border-bottom: 1px solid #e5e7eb;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+        
+        /* Admin Link */
+        .admin-link {
+            color: #3b82f6;
+            font-weight: 500;
+        }
+        
+        .admin-link:hover {
+            color: #1d4ed8;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Welcome Screen -->
+    <div id="welcome-screen">
+        <!-- Initial Logo Display -->
+        <div id="logo-display" class="text-center">
+            <h1 class="animate__animated animate__zoomIn text-4xl md:text-6xl tracking-widest tech-font mb-4 red-text">
+                SM VIP SIGNALS
+            </h1>
+            <p class="animate__animated animate__fadeIn text-gray-600 text-lg mb-8 max-w-md mx-auto">
+                Premium Cryptocurrency Trading Signals
+            </p>
+            <p class="text-gray-500 mb-8 max-w-lg mx-auto">
+                Get accurate Crypto Signals every day. Maximize your profits with our VIP community.
+            </p>
+            <button id="enter-btn" class="btn-simple px-8 py-4 rounded-lg text-lg font-bold heading-font animate__animated animate__pulse mb-4">
+                ENTER TRADING HUB
+            </button>
+            <p class="text-gray-400 text-sm mt-4">
+                Auto-entering in <span id="countdown">3</span> seconds...
+            </p>
+            <p class="text-gray-400 text-xs mt-2">
+                Click above to enter immediately
+            </p>
+        </div>
+    </div>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="hidden">
+        <div class="text-center">
+            <h2 class="text-3xl font-bold mb-6 heading-font dark-red-text">VIP SIGNALS HUB</h2>
+            <p class="text-gray-600 mb-8 max-w-md mx-auto">
+                Loading main trading platform... Please wait
+            </p>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            <p class="text-gray-400 text-sm mt-4" id="loading-text">Preparing premium signals...</p>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <div class="bg-red-600 p-6">
+                <h3 class="text-2xl font-bold text-white heading-font">VIP MEMBER LOGIN</h3>
+            </div>
+            <div class="p-8">
+                <div id="loginForm">
+                    <div class="space-y-5">
+                        <div>
+                            <label class="block text-gray-700 mb-2 font-medium">Username</label>
+                            <input type="text" id="loginUsername" 
+                                   class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-200"
+                                   placeholder="Enter your username">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2 font-medium">Password</label>
+                            <input type="password" id="loginPassword" 
+                                   class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-200"
+                                   placeholder="Enter your password">
+                        </div>
+                    </div>
+                    <div class="mt-8 flex gap-4">
+                        <button id="loginSubmit" class="btn-simple flex-1 py-3 rounded-lg font-bold">LOGIN</button>
+                        <button id="closeLogin" class="logout-btn flex-1 py-3 rounded-lg font-bold">CANCEL</button>
+                    </div>
+                    <div class="mt-6 text-center">
+                        <p class="text-gray-500 text-sm">Don't have an account? <a href="#pricing" class="text-red-600 font-medium hover:underline">Join VIP</a></p>
+                        <p class="text-gray-500 text-sm mt-2">
+                            <a href="admin.html" class="admin-link">Admin Login</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Website Content (Hidden until welcome screen completes) -->
+    <div id="main-website" class="hidden">
+        <!-- Navigation Bar -->
+        <nav class="simple-nav py-4 flex justify-between items-center">
+            <div class="flex items-center gap-4">
+                <div class="red-text text-2xl font-bold tracking-wider heading-font">SM VIP SIGNALS</div>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobileMenuBtn" class="mobile-menu-btn md:hidden text-gray-700">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+            
+            <!-- Navigation Links -->
+            <div id="navLinks" class="nav-links md:flex md:items-center md:gap-3">
+                <a href="#home" class="nav-btn active" data-section="home">Home</a>
+                <a href="#signals" class="nav-btn" data-section="signals">Free Signals</a>
+                <a href="#results" class="nav-btn" data-section="results">VIP Results</a>
+                <a href="#about" class="nav-btn" data-section="about">About Us</a>
+                <a href="#pricing" class="nav-btn" data-section="pricing">Pricing</a>
+                <a href="#contact" class="nav-btn" data-section="contact">Contact</a>
+                
+                <!-- Login/Profile Section -->
+                <div class="flex items-center gap-3 mt-2 md:mt-0">
+                    <div id="login-section">
+                        <button id="login-btn" class="btn-simple px-5 py-2 rounded-lg text-sm font-bold">
+                            <i class="fas fa-user mr-2"></i>LOGIN
+                        </button>
+                    </div>
+                    
+                    <div id="profile-section" class="hidden profile-dropdown">
+                        <div class="flex items-center gap-3 cursor-pointer p-2 rounded-lg hover:bg-gray-50">
+                            <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center">
+                                <i class="fas fa-user text-red-600"></i>
+                            </div>
+                            <div class="text-left">
+                                <div class="text-sm font-bold" id="profile-username">Username</div>
+                                <div class="vip-timer" id="vip-timer">
+                                    <i class="fas fa-crown"></i>
+                                    <span id="vip-days">0</span> days
+                                </div>
+                            </div>
+                            <i class="fas fa-chevron-down text-gray-500"></i>
+                        </div>
+                        
+                        <div class="dropdown-content p-4">
+                            <div class="mb-4">
+                                <div class="font-bold text-lg" id="dropdown-username">Username</div>
+                                <div class="flex items-center gap-2 mt-2">
+                                    <div class="vip-timer">
+                                        <i class="fas fa-crown"></i>
+                                        <span id="dropdown-vip-days">0</span> days remaining
+                                    </div>
+                                </div>
+                                <div class="text-gray-500 text-sm mt-2" id="dropdown-email">VIP Member</div>
+                            </div>
+                            
+                            <div class="space-y-3">
+                                <a href="#pricing" class="block p-3 rounded-lg bg-gray-50 hover:bg-red-50 text-center font-medium text-red-600">
+                                    <i class="fas fa-crown mr-2"></i>Renew VIP
+                                </a>
+                                <button id="logout-btn" class="w-full logout-btn py-3 rounded-lg font-medium">
+                                    <i class="fas fa-sign-out-alt mr-2"></i>Logout
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#pricing" class="btn-simple px-5 py-2 rounded-lg font-bold text-sm md:text-base heading-font">JOIN VIP</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Rest of the website content -->
+        <section id="home" class="pt-32 pb-20 px-6 text-center">
+            <h2 class="animate__animated animate__fadeInDown text-5xl md:text-7xl font-bold mb-6 heading-font">
+                Trade Like <span class="red-text">ELITE</span>
+            </h2>
+            <p class="animate__animated animate__fadeInUp text-gray-600 text-lg max-w-2xl mx-auto mb-10 font-medium">
+                Get accurate Crypto Signals every day. Maximize your profits with our VIP community.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-6">
+                <a href="#signals" class="btn-simple px-12 py-5 rounded-xl text-xl font-bold heading-font">FREE SIGNALS</a>
+                <a href="#pricing" class="simple-card px-12 py-5 rounded-xl text-xl font-bold border-red-300 border hover:border-red-500 transition heading-font red-text">VIP PLANS</a>
+            </div>
+        </section>
+
+        <section id="signals" class="px-6 py-16 max-w-6xl mx-auto">
+            <h3 class="text-4xl font-bold mb-10 flex items-center gap-3 heading-font">
+                <span class="w-4 h-10 bg-red-600 rounded-full"></span> 
+                <span class="red-text">LIVE TRADING SIGNALS</span>
+            </h3>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="simple-card p-7 animate__animated animate__fadeInLeft">
+                    <div class="flex justify-between items-center mb-5">
+                        <span class="text-2xl font-bold tech-font">BTC/USDT</span>
+                        <span class="bg-green-500 text-white px-4 py-2 rounded-lg text-sm font-bold heading-font">LONG POSITION</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-5 text-gray-600">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <div class="text-gray-500 text-sm">Entry Price</div>
+                            <div class="text-gray-900 text-xl font-bold tech-font">$67,200</div>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <div class="text-gray-500 text-sm">Leverage</div>
+                            <div class="text-gray-900 text-xl font-bold tech-font">20x (Cross)</div>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg red-accent">
+                            <div class="text-gray-500 text-sm">Stop Loss</div>
+                            <div class="text-gray-900 text-xl font-bold tech-font">$65,000</div>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg border-l-3 border-yellow-500">
+                            <div class="text-gray-500 text-sm">Take Profit</div>
+                            <div class="text-gray-900 text-xl font-bold tech-font">$70,500</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="simple-card p-7 border-red-200 flex flex-col justify-center items-center relative overflow-hidden">
+                    <div class="blur-sm w-full opacity-10">
+                        <div class="h-8 bg-red-100 rounded mb-3"></div>
+                        <div class="h-6 bg-red-100 rounded"></div>
+                    </div>
+                    <div class="absolute inset-0 flex flex-col justify-center items-center">
+                        <p class="red-text text-2xl font-bold mb-3 heading-font">VIP SIGNAL LOCKED</p>
+                        <a href="#pricing" class="btn-simple px-6 py-3 rounded-lg text-base font-bold">UNLOCK VIP ACCESS</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing" class="section-bg px-6 py-16">
+            <div class="max-w-6xl mx-auto">
+                <h3 class="text-4xl font-bold mb-12 text-center heading-font">
+                    <span class="red-text">VIP MEMBERSHIP</span> PLANS
+                </h3>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="simple-card p-8 text-center">
+                        <h4 class="text-2xl font-bold mb-4 text-gray-800 heading-font">BASIC</h4>
+                        <div class="text-4xl font-bold mb-6 red-text">$99<span class="text-lg text-gray-500">/month</span></div>
+                        <ul class="space-y-3 text-gray-600 mb-8">
+                            <li class="flex items-center justify-center gap-2">✓ 3 Daily Signals</li>
+                            <li class="flex items-center justify-center gap-2">✓ Basic Support</li>
+                            <li class="flex items-center justify-center gap-2">✓ Weekly Analysis</li>
+                        </ul>
+                        <button class="btn-simple w-full py-3 rounded-lg">GET STARTED</button>
+                    </div>
+                    
+                    <div class="simple-card p-8 text-center border-2 border-red-300 relative">
+                        <div class="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                            <span class="bg-red-600 text-white px-4 py-1 rounded-full text-sm font-bold">MOST POPULAR</span>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-4 red-text heading-font">PRO TRADER</h4>
+                        <div class="text-4xl font-bold mb-6 red-text">$299<span class="text-lg text-gray-500">/month</span></div>
+                        <ul class="space-y-3 text-gray-600 mb-8">
+                            <li class="flex items-center justify-center gap-2">✓ 8-10 Daily Signals</li>
+                            <li class="flex items-center justify-center gap-2">✓ 24/7 Priority Support</li>
+                            <li class="flex items-center justify-center gap-2">✓ Real-time Alerts</li>
+                            <li class="flex items-center justify-center gap-2">✓ Risk Management</li>
+                        </ul>
+                        <button class="btn-simple w-full py-3 rounded-lg">JOIN NOW</button>
+                    </div>
+                    
+                    <div class="simple-card p-8 text-center">
+                        <h4 class="text-2xl font-bold mb-4 text-gray-800 heading-font">ELITE</h4>
+                        <div class="text-4xl font-bold mb-6 red-text">$599<span class="text-lg text-gray-500">/month</span></div>
+                        <ul class="space-y-3 text-gray-600 mb-8">
+                            <li class="flex items-center justify-center gap-2">✓ Unlimited Signals</li>
+                            <li class="flex items-center justify-center gap-2">✓ 1-on-1 Coaching</li>
+                            <li class="flex items-center justify-center gap-2">✓ Portfolio Management</li>
+                            <li class="flex items-center justify-center gap-2">✓ Early Access Signals</li>
+                        </ul>
+                        <button class="btn-simple w-full py-3 rounded-lg">BECOME ELITE</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="results" class="px-6 py-16 max-w-6xl mx-auto">
+            <h3 class="text-4xl font-bold mb-12 text-center heading-font">
+                <span class="red-text">PROVEN</span> PERFORMANCE
+            </h3>
+            
+            <div class="grid md:grid-cols-4 gap-6 mb-12">
+                <div class="simple-card p-8 text-center">
+                    <div class="stat-number text-5xl mb-2">+247%</div>
+                    <div class="text-gray-600 font-medium">Monthly Average Profit</div>
+                </div>
+                <div class="simple-card p-8 text-center">
+                    <div class="stat-number text-5xl mb-2">94.7%</div>
+                    <div class="text-gray-600 font-medium">Win Rate</div>
+                </div>
+                <div class="simple-card p-8 text-center">
+                    <div class="stat-number text-5xl mb-2">1,280+</div>
+                    <div class="text-gray-600 font-medium">Successful Signals</div>
+                </div>
+                <div class="simple-card p-8 text-center">
+                    <div class="stat-number text-5xl mb-2">24/7</div>
+                    <div class="text-gray-600 font-medium">Support & Updates</div>
+                </div>
+            </div>
+
+            <!-- Performance Chart -->
+            <div class="simple-card p-8 mb-12">
+                <h4 class="text-2xl font-bold mb-6 red-text heading-font text-center">PERFORMANCE TRACK RECORD</h4>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h5 class="font-bold text-lg mb-4 text-gray-900">Monthly Performance (Last 6 Months)</h5>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-600">January 2024</span>
+                                    <span class="font-bold text-green-600">+312%</span>
+                                </div>
+                                <div class="h-3 bg-gray-200 rounded-full overflow-hidden">
+                                    <div class="h-full bg-green-500" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-600">February 2024</span>
+                                    <span class="font-bold text-green-600">+287%</span>
+                                </div>
+                                <div class="h-3 bg-gray-200 rounded-full overflow-hidden">
+                                    <div class="h-full bg-green-500" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-600">March 2024</span>
+                                    <span class="font-bold text-green-600">+265%</span>
+                                </div>
+                                <div class="h-3 bg-gray-200 rounded-full overflow-hidden">
+                                    <div class="h-full bg-green-500" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-600">April 2024</span>
+                                    <span class="font-bold text-green-600">+298%</span>
+                                </div>
+                                <div class="h-3 bg-gray-200 rounded-full overflow-hidden">
+                                    <div class="h-full bg-green-500" style="width: 88%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-600">May 2024</span>
+                                    <span class="font-bold text-green-600">+247%</span>
+                                </div>
+                                <div class="h-3 bg-gray-200 rounded-full overflow-hidden">
+                                    <div class="h-full bg-green-500" style="width: 75%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-gray-600">June 2024</span>
+                                    <span class="font-bold text-green-600">+274%</span>
+                                </div>
+                                <div class="h-3 bg-gray-200 rounded-full overflow-hidden">
+                                    <div class="h-full bg-green-500" style="width: 82%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h5 class="font-bold text-lg mb-4 text-gray-900">Signal Success Rate</h5>
+                        <div class="flex flex-col items-center justify-center h-full">
+                            <div class="relative w-48 h-48 mb-6">
+                                <!-- Circular Progress -->
+                                <svg class="w-full h-full" viewBox="0 0 100 100">
+                                    <!-- Background Circle -->
+                                    <circle cx="50" cy="50" r="45" fill="none" stroke="#e5e7eb" stroke-width="10"/>
+                                    <!-- Progress Circle -->
+                                    <circle cx="50" cy="50" r="45" fill="none" stroke="#10b981" stroke-width="10"
+                                            stroke-linecap="round"
+                                            stroke-dasharray="283"
+                                            stroke-dashoffset="283"
+                                            style="stroke-dashoffset: 15;">
+                                        <animate attributeName="stroke-dashoffset"
+                                                 from="283"
+                                                 to="15"
+                                                 dur="2s"
+                                                 fill="freeze" />
+                                    </circle>
+                                </svg>
+                                <div class="absolute inset-0 flex flex-col items-center justify-center">
+                                    <span class="text-4xl font-bold text-gray-900">94.7%</span>
+                                    <span class="text-gray-600">Success Rate</span>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 text-center">
+                                Consistent high accuracy signals across all market conditions
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trading Pair Performance -->
+            <div class="simple-card p-8">
+                <h4 class="text-2xl font-bold mb-6 red-text heading-font text-center">TOP PERFORMING TRADING PAIRS</h4>
+                
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="bg-gray-50">
+                                <th class="p-4 text-left font-bold text-gray-900">Trading Pair</th>
+                                <th class="p-4 text-left font-bold text-gray-900">Win Rate</th>
+                                <th class="p-4 text-left font-bold text-gray-900">Avg Profit</th>
+                                <th class="p-4 text-left font-bold text-gray-900">Signals</th>
+                                <th class="p-4 text-left font-bold text-gray-900">Performance</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr>
+                                <td class="p-4 font-medium text-gray-900">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">
+                                            <span class="font-bold text-orange-600">B</span>
+                                        </div>
+                                        <span>BTC/USDT</span>
+                                    </div>
+                                </td>
+                                <td class="p-4">
+                                    <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full font-bold">96.2%</span>
+                                </td>
+                                <td class="p-4 font-bold text-green-600">+315%</td>
+                                <td class="p-4 font-medium">342</td>
+                                <td class="p-4">
+                                    <div class="flex items-center">
+                                        <span class="mr-2">Excellent</span>
+                                        <div class="flex">
+                                            <i class="fas fa-star text-yellow-500"></i>
+                                            <i class="fas fa-star text-yellow-500"></i>
+                                            <i class="fas fa-star text-yellow-500"></i>
+                                            <i class="fas fa-star text-yellow-500"></i>
+                                            <i class="fas fa-star text-yellow-500"></i>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-medium text-gray-900">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                                            <span class="font-bold text-blue-600">E</span>
+                                        </div>
+                                        <span>ETH/USDT</span>
+                                    </div>
+                                </td>
+                                <td class="p-4">
+                                    <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full font-bold">93.8%</span>
+                                </td>
+                                <td class="p-4 font-bold text-green-600">+287%</td>
+                                <td class="p-4 font-medium">298</td>
+                                <td class="p-4">
+                                    <div class="flex items-center">
+                                        <span class="mr-2">Excellent</span>
+                                        <div class="flex">
+                                            <i class="fas fa-star text-yellow-500"></i>
+                                            <i class="fas fa-star text-yellow-500"></i>
+                                            <i class="fas fa-star text-yellow-500"></i>
+                                            <i class="fas fa-star text-yellow-500"></i>
+                                            <i class="fas fa-star-half-alt text-yellow-500"></i>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-medium text-gray-900">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center">
+                                            <span class="font-bold text-red-600">S</span>
+                                        </div>
+                                        <span>SOL/USDT</span>
+                                    </div>
+                                </td>
+                                <td class="p-4">
+                                    <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full font-bold">95.1%</span>
+                                </td>
+                                <td class="p-4 font-bold text-green-600">+412%</td>
+                                <td class="p-4 font-medium">187</td>
+                                <td class="p-4">
+                                    <div class="flex items-center">
+                                        <span class="mr-2">Outstanding</span>
+                                        <div class="flex">
+                                            <i class="fas fa-star text-yellow-500"></i>
+                                            <i class="fas fa-star text-yellow-500"></i>
+                                            <i class="fas fa-star text-yellow-500"></i>
+                                            <i class="fas fa-star text-yellow-500"></i>
+                                            <i class="fas fa-star text-yellow-500"></i>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-medium text-gray-900">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
+                                            <span class="font-bold text-purple-600">D</span>
+                                        </div>
+                                        <span>DOGE/USDT</span>
+                                    </div>
+                                </td>
+                                <td class="p-4">
+                                    <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full font-bold">91.5%</span>
+                                </td>
+                                <td class="p-4 font-bold text-green-600">+356%</td>
+                                <td class="p-4 font-medium">156</td>
+                                <td class="p-4">
+                                    <div class="flex items-center">
+                                        <span class="mr-2">Very Good</span>
+                                        <div class="flex">
+                                            <i class="fas fa-star text-yellow-500"></i>
+                                            <i class="fas fa-star text-yellow-500"></i>
+                                            <i class="fas fa-star text-yellow-500"></i>
+                                            <i class="fas fa-star text-yellow-500"></i>
+                                            <i class="far fa-star text-yellow-500"></i>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="mt-8 p-4 bg-red-50 rounded-lg border border-red-200">
+                    <div class="flex items-start gap-3">
+                        <div class="text-red-600 text-xl mt-1">
+                            <i class="fas fa-exclamation-circle"></i>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-lg mb-1 text-gray-900">Disclaimer</h5>
+                            <p class="text-gray-600 text-sm">
+                                Past performance is not indicative of future results. Trading cryptocurrencies carries significant risk.
+                                These results are based on backtesting and actual trading by our VIP members. Individual results may vary.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section id="contact" class="section-bg px-6 py-16">
+            <div class="max-w-4xl mx-auto">
+                <h3 class="text-4xl font-bold mb-12 text-center heading-font">
+                    <span class="red-text">CONTACT</span> OUR TEAM
+                </h3>
+                <div class="grid md:grid-cols-2 gap-10">
+                    <div class="simple-card p-8">
+                        <h4 class="text-2xl font-bold mb-6 red-text heading-font">GET IN TOUCH</h4>
+                        <div class="space-y-6">
+                            <div>
+                                <h5 class="font-bold text-lg mb-3 text-gray-900">Customer Support</h5>
+                                <p class="text-gray-600">
+                                    We're available 24/7 to answer your questions and help you get started with VIP signals.
+                                </p>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-lg mb-3 text-gray-900">Response Time</h5>
+                                <p class="text-gray-600">
+                                    Typically respond within 15 minutes during business hours (9 AM - 11 PM GMT+5:30).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="simple-card p-8">
+                        <h4 class="text-2xl font-bold mb-6 red-text heading-font">SEND MESSAGE</h4>
+                        <form id="contact-form">
+                            <div class="space-y-5">
+                                <div>
+                                    <label class="block text-gray-700 mb-2">Your Name</label>
+                                    <input type="text" required 
+                                           class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-200"
+                                           placeholder="Enter your name">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 mb-2">Email Address</label>
+                                    <input type="email" required 
+                                           class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-200"
+                                           placeholder="Enter your email">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 mb-2">Message</label>
+                                    <textarea rows="4" required 
+                                              class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-200"
+                                              placeholder="How can we help you?"></textarea>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn-simple w-full py-4 rounded-lg mt-6 font-bold">
+                                SEND MESSAGE
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="px-6 py-16 max-w-6xl mx-auto">
+            <div class="max-w-6xl mx-auto">
+                <h3 class="text-4xl font-bold mb-12 text-center heading-font">
+                    WHY <span class="red-text">CHOOSE US</span>
+                </h3>
+                <div class="grid md:grid-cols-2 gap-10">
+                    <div class="simple-card p-8">
+                        <h4 class="text-2xl font-bold mb-6 red-text heading-font">OUR EXPERTISE</h4>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Our mission is to provide professional-level trading signals and experiences to everyone. 
+                            As a team of professional traders with 5+ years of experience, we are committed to making your trading journey successful.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-3">
+                                <div class="text-red-600 text-xl mt-1">✓</div>
+                                <div>
+                                    <h5 class="font-bold text-lg mb-1 text-gray-900">Advanced Algorithm</h5>
+                                    <p class="text-gray-500 text-sm">AI-powered signal analysis for maximum accuracy</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="text-red-600 text-xl mt-1">✓</div>
+                                <div>
+                                    <h5 class="font-bold text-lg mb-1 text-gray-900">Risk Management</h5>
+                                    <p class="text-gray-500 text-sm">Professional risk assessment for every trade</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="simple-card p-8">
+                        <h4 class="text-2xl font-bold mb-6 red-text heading-font">COMMUNITY BENEFITS</h4>
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex items-center gap-3 mb-3">
+                                    <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center">
+                                        <span class="text-red-600 font-bold">T</span>
+                                    </div>
+                                    <h5 class="font-bold text-xl red-text">Telegram Community</h5>
+                                </div>
+                                <p class="text-gray-500">24/7 active trading community with real-time discussions</p>
+                            </div>
+                            <div>
+                                <div class="flex items-center gap-3 mb-3">
+                                    <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center">
+                                        <span class="text-red-600 font-bold">E</span>
+                                    </div>
+                                    <h5 class="font-bold text-xl red-text">Educational Resources</h5>
+                                </div>
+                                <p class="text-gray-500">Weekly webinars, trading guides, and market analysis</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer-simple px-6 py-12">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid md:grid-cols-4 gap-10 mb-10">
+                    <div>
+                        <h4 class="red-text text-2xl font-bold mb-6 heading-font">SM VIP SIGNALS</h4>
+                        <p class="text-gray-300 text-sm leading-relaxed">
+                            Premium cryptocurrency trading signals and education for serious traders who demand results.
+                        </p>
+                    </div>
+                    <div>
+                        <h5 class="font-bold mb-6 text-lg heading-font text-white">QUICK LINKS</h5>
+                        <ul class="space-y-3 text-gray-300">
+                            <li><a href="#home" class="hover:text-red-300 transition font-medium">Home</a></li>
+                            <li><a href="#signals" class="hover:text-red-300 transition font-medium">Free Signals</a></li>
+                            <li><a href="#pricing" class="hover:text-red-300 transition font-medium">VIP Pricing</a></li>
+                            <li><a href="#results" class="hover:text-red-300 transition font-medium">Performance</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold mb-6 text-lg heading-font text-white">CONTACT US</h5>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-center gap-2">
+                                <span class="text-red-300">✉</span>
+                                support@smvipsignals.com
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="text-red-300">📱</span>
+                                Telegram: @smvipsignals
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="text-red-300">☎</span>
+                                WhatsApp: +94 77 123 4567
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold mb-6 text-lg heading-font text-white">REGISTRATION</h5>
+                        <p class="text-gray-300 text-sm mb-4">
+                            Want to become a VIP member? Contact us for registration details and premium access.
+                        </p>
+                        <a href="#contact" class="btn-simple px-4 py-2 rounded-lg text-sm font-bold inline-block">CONTACT FOR VIP</a>
+                    </div>
+                </div>
+                <div class="pt-8 border-t border-gray-700 text-center">
+                    <p class="text-gray-400 text-sm">
+                        &copy; 2023 SM VIP SIGNALS. All trading involves risk. Past performance is not indicative of future results.
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // DOM Elements
+        const welcomeScreen = document.getElementById('welcome-screen');
+        const loadingScreen = document.getElementById('loading-screen');
+        const mainWebsite = document.getElementById('main-website');
+        const enterBtn = document.getElementById('enter-btn');
+        const progressFill = document.getElementById('progress-fill');
+        const loadingText = document.getElementById('loading-text');
+        const countdownElement = document.getElementById('countdown');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        // Login System Elements
+        const loginBtn = document.getElementById('login-btn');
+        const logoutBtn = document.getElementById('logout-btn');
+        const loginModal = document.getElementById('loginModal');
+        const closeLogin = document.getElementById('closeLogin');
+        const loginSubmit = document.getElementById('loginSubmit');
+
+        // Loading messages in English
+        const loadingMessages = [
+            "Preparing premium signals...",
+            "Connecting to VIP community...",
+            "Loading trading data...",
+            "Securing your access...",
+            "Entering main trading hub..."
+        ];
+
+        // VIP Members Database (Using Firebase)
+        const VIP_DB_KEY = 'vip_members';
+
+        // Firebase Database Reference
+        const vipMembersRef = window.firebaseRef(window.firebaseDatabase, VIP_DB_KEY);
+
+        // Initialize database
+        async function initDatabase() {
+            try {
+                console.log('Initializing Firebase database...');
+                const snapshot = await window.firebaseGet(vipMembersRef);
+                if (!snapshot.exists()) {
+                    const defaultMembers = {
+                        'vipuser1': { 
+                            password: 'pass123', 
+                            daysRemaining: 30, 
+                            createdAt: new Date().toISOString(),
+                            email: 'vipuser1@example.com',
+                            plan: 'Pro Trader'
+                        },
+                        'vipuser2': { 
+                            password: 'pass123', 
+                            daysRemaining: 15, 
+                            createdAt: new Date().toISOString(),
+                            email: 'vipuser2@example.com',
+                            plan: 'Basic'
+                        },
+                        'premiumuser': { 
+                            password: 'premium123', 
+                            daysRemaining: 7, 
+                            createdAt: new Date().toISOString(),
+                            email: 'premium@example.com',
+                            plan: 'Elite'
+                        }
+                    };
+                    await window.firebaseSet(vipMembersRef, defaultMembers);
+                    console.log('Default members created in Firebase');
+                    return defaultMembers;
+                }
+                console.log('Database already exists');
+                return snapshot.val();
+            } catch (error) {
+                console.error('Error initializing database:', error);
+                // Fallback to localStorage
+                const backupKey = 'vip_members_backup';
+                if (!localStorage.getItem(backupKey)) {
+                    const defaultBackup = {
+                        'vipuser1': { password: 'pass123', daysRemaining: 30 },
+                        'vipuser2': { password: 'pass123', daysRemaining: 15 },
+                        'premiumuser': { password: 'premium123', daysRemaining: 7 }
+                    };
+                    localStorage.setItem(backupKey, JSON.stringify(defaultBackup));
+                }
+                return JSON.parse(localStorage.getItem(backupKey) || '{}');
+            }
+        }
+
+        // Get all VIP members
+        async function getVIPMembers() {
+            try {
+                const snapshot = await window.firebaseGet(vipMembersRef);
+                if (snapshot.exists()) {
+                    return snapshot.val();
+                }
+                // Fallback to localStorage
+                const backup = localStorage.getItem('vip_members_backup');
+                return backup ? JSON.parse(backup) : {};
+            } catch (error) {
+                console.error('Error getting members from Firebase:', error);
+                // Fallback to localStorage
+                const backup = localStorage.getItem('vip_members_backup');
+                return backup ? JSON.parse(backup) : {};
+            }
+        }
+
+        // Save VIP members
+        async function saveVIPMembers(members) {
+            try {
+                await window.firebaseSet(vipMembersRef, members);
+                // Also save backup to localStorage
+                localStorage.setItem('vip_members_backup', JSON.stringify(members));
+                console.log('Saved to Firebase and local backup');
+                return true;
+            } catch (error) {
+                console.error('Error saving to Firebase:', error);
+                // Save to localStorage as fallback
+                localStorage.setItem('vip_members_backup', JSON.stringify(members));
+                console.log('Saved to local backup only');
+                return false;
+            }
+        }
+
+        // Update VIP days (decrease by 1 each day)
+        async function updateVIPDays() {
+            try {
+                const members = await getVIPMembers();
+                const today = new Date().toDateString();
+                const lastUpdate = localStorage.getItem('last_vip_update');
+                
+                if (lastUpdate !== today) {
+                    let hasChanges = false;
+                    for (const username in members) {
+                        if (members[username].daysRemaining > 0) {
+                            members[username].daysRemaining -= 1;
+                            hasChanges = true;
+                        }
+                    }
+                    
+                    if (hasChanges) {
+                        await saveVIPMembers(members);
+                        localStorage.setItem('last_vip_update', today);
+                        console.log('VIP days updated for all members');
+                    }
+                }
+            } catch (error) {
+                console.error('Error updating VIP days:', error);
+            }
+        }
+
+        // Get current user from session
+        function getCurrentUser() {
+            return JSON.parse(sessionStorage.getItem('current_user') || 'null');
+        }
+
+        // Set current user
+        function setCurrentUser(user) {
+            sessionStorage.setItem('current_user', JSON.stringify(user));
+        }
+
+        // Clear current user
+        function clearCurrentUser() {
+            sessionStorage.removeItem('current_user');
+        }
+
+        // Update UI based on login status
+        function updateLoginUI() {
+            const user = getCurrentUser();
+            const loginSection = document.getElementById('login-section');
+            const profileSection = document.getElementById('profile-section');
+            
+            if (user) {
+                // User is logged in
+                loginSection.classList.add('hidden');
+                profileSection.classList.remove('hidden');
+                
+                // Update profile info
+                document.getElementById('profile-username').textContent = user.username;
+                document.getElementById('dropdown-username').textContent = user.username;
+                document.getElementById('vip-days').textContent = user.daysRemaining;
+                document.getElementById('dropdown-vip-days').textContent = user.daysRemaining;
+                document.getElementById('dropdown-email').textContent = user.email || 'VIP Member';
+                
+                // Update VIP timer color based on days remaining
+                const vipTimer = document.getElementById('vip-timer');
+                if (user.daysRemaining <= 3) {
+                    vipTimer.style.background = 'linear-gradient(135deg, #ef4444, #f87171)';
+                } else if (user.daysRemaining <= 7) {
+                    vipTimer.style.background = 'linear-gradient(135deg, #f59e0b, #fbbf24)';
+                }
+            } else {
+                // User is not logged in
+                loginSection.classList.remove('hidden');
+                profileSection.classList.add('hidden');
+            }
+        }
+
+        // Login function
+        async function login(username, password) {
+            try {
+                const members = await getVIPMembers();
+                
+                if (members[username] && members[username].password === password) {
+                    const user = {
+                        username: username,
+                        daysRemaining: members[username].daysRemaining,
+                        email: members[username].email || `${username}@vipmember.com`,
+                        plan: members[username].plan || 'VIP Member'
+                    };
+                    
+                    setCurrentUser(user);
+                    updateLoginUI();
+                    closeModal(loginModal);
+                    alert(`✅ Welcome back, ${username}!`);
+                    return true;
+                }
+                
+                return false;
+            } catch (error) {
+                console.error('Error during login:', error);
+                alert('❌ Error connecting to server. Please try again.');
+                return false;
+            }
+        }
+
+        // Logout function
+        function logout() {
+            clearCurrentUser();
+            updateLoginUI();
+            alert('✅ Logged out successfully!');
+        }
+
+        // Modal functions
+        function openModal(modal) {
+            modal.style.display = 'block';
+        }
+
+        function closeModal(modal) {
+            modal.style.display = 'none';
+        }
+
+        // Function to enter the trading hub
+        function enterTradingHub() {
+            // Fade out welcome screen
+            welcomeScreen.style.transition = 'opacity 0.5s ease';
+            welcomeScreen.style.opacity = '0';
+            
+            // Show loading screen after fade out
+            setTimeout(() => {
+                welcomeScreen.style.display = 'none';
+                loadingScreen.classList.remove('hidden');
+                loadingScreen.style.display = 'flex';
+                
+                // Start loading progress
+                startLoading();
+            }, 500);
+        }
+
+        // Countdown timer for auto-entry
+        let countdown = 3;
+        const countdownTimer = setInterval(() => {
+            countdownElement.textContent = countdown;
+            countdown--;
+            
+            if (countdown < 0) {
+                clearInterval(countdownTimer);
+                enterTradingHub(); // Auto-enter after countdown
+            }
+        }, 1000);
+
+        // Step 1: Enter button click - show loading screen (manual entry)
+        enterBtn.addEventListener('click', () => {
+            clearInterval(countdownTimer); // Stop auto countdown
+            enterTradingHub();
+        });
+
+        // Loading progress function
+        function startLoading() {
+            let progress = 0;
+            let messageIndex = 0;
+            
+            // Update progress bar
+            const interval = setInterval(() => {
+                progress += 2;
+                progressFill.style.width = `${progress}%`;
+                
+                // Change loading message every 20%
+                if (progress % 20 === 0 && messageIndex < loadingMessages.length) {
+                    loadingText.textContent = loadingMessages[messageIndex];
+                    messageIndex++;
+                }
+                
+                // When loading is complete
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    
+                    // Fade out loading screen
+                    loadingScreen.style.transition = 'opacity 0.5s ease';
+                    loadingScreen.style.opacity = '0';
+                    
+                    // Show main website after fade out
+                    setTimeout(() => {
+                        loadingScreen.style.display = 'none';
+                        mainWebsite.classList.remove('hidden');
+                        mainWebsite.style.display = 'block';
+                        
+                        // Add fade-in effect
+                        mainWebsite.style.opacity = '0';
+                        mainWebsite.style.transition = 'opacity 0.8s ease';
+                        
+                        setTimeout(() => {
+                            mainWebsite.style.opacity = '1';
+                        }, 50);
+                        
+                        // Scroll to top
+                        window.scrollTo(0, 0);
+                        
+                        // Initialize database and update VIP days
+                        initDatabase();
+                        updateVIPDays();
+                        updateLoginUI();
+                    }, 500);
+                }
+            }, 50); // Update every 50ms
+        }
+
+        // Mobile menu toggle
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-btn').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+
+        // Login System Event Listeners
+        loginBtn.addEventListener('click', () => {
+            openModal(loginModal);
+        });
+
+        closeLogin.addEventListener('click', () => closeModal(loginModal));
+
+        loginSubmit.addEventListener('click', async () => {
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            if (!username || !password) {
+                alert('Please enter both username and password');
+                return;
+            }
+            
+            loginSubmit.disabled = true;
+            loginSubmit.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Logging in...';
+            
+            if (!await login(username, password)) {
+                alert('❌ Invalid username or password');
+            }
+            
+            loginSubmit.disabled = false;
+            loginSubmit.innerHTML = 'LOGIN';
+        });
+
+        logoutBtn.addEventListener('click', logout);
+
+        // Allow Enter key in login form
+        document.getElementById('loginPassword').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                loginSubmit.click();
+            }
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', (event) => {
+            if (event.target === loginModal) {
+                closeModal(loginModal);
+            }
+        });
+
+        // Main website navigation functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            // Navigation Button Active State
+            document.querySelectorAll('.nav-btn').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all buttons
+                    document.querySelectorAll('.nav-btn').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Smooth scroll to section
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    if (targetSection) {
+                        window.scrollTo({
+                            top: targetSection.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Highlight active section on scroll
+            window.addEventListener('scroll', () => {
+                const sections = document.querySelectorAll('section[id]');
+                const navButtons = document.querySelectorAll('.nav-btn');
+                
+                let currentSection = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 100;
+                    const sectionHeight = section.clientHeight;
+                    if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+                
+                navButtons.forEach(button => {
+                    button.classList.remove('active');
+                    if (button.getAttribute('href').substring(1) === currentSection) {
+                        button.classList.add('active');
+                    }
+                });
+            });
+
+            // Animate stats on scroll
+            const observerOptions = {
+                threshold: 0.5
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const statNumbers = entry.target.querySelectorAll('.stat-number');
+                        statNumbers.forEach(stat => {
+                            const originalText = stat.textContent;
+                            stat.textContent = '0';
+                            
+                            let target = parseInt(originalText.replace(/[^0-9]/g, ''));
+                            let current = 0;
+                            const increment = target / 50;
+                            
+                            const timer = setInterval(() => {
+                                current += increment;
+                                if (current >= target) {
+                                    current = target;
+                                    clearInterval(timer);
+                                }
+                                stat.textContent = originalText.replace(/\d+/g, Math.floor(current).toLocaleString());
+                            }, 30);
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            const resultsSection = document.getElementById('results');
+            if (resultsSection) {
+                observer.observe(resultsSection);
+            }
+
+            // Handle contact form submission
+            const contactForm = document.getElementById('contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    alert('Thank you! Your message has been sent. We will respond within 24 hours.');
+                    contactForm.reset();
+                });
+            }
+
+            // Check Firebase connection status
+            console.log('Firebase connection status:', window.firebaseDatabase ? 'Connected' : 'Not connected');
+        });
+    </script>
+</body>
+</html>

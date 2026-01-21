@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel | SM VIP SIGNALS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            background: #f3f4f6;
+        }
+        
+        .heading-font {
+            font-family: var(--font-heading);
+        }
+        
+        .red-text {
+            color: #e3342f;
+            font-weight: 700;
+        }
+        
+        .btn-simple {
+            background: #e3342f;
+            color: white;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid #c53030;
+        }
+        
+        .btn-simple:hover {
+            background: #c53030;
+            transform: translateY(-1px);
+        }
+        
+        .logout-btn {
+            background: #f3f4f6;
+            color: #6b7280;
+            border: 1px solid #d1d5db;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .logout-btn:hover {
+            background: #ef4444;
+            color: white;
+            border-color: #dc2626;
+        }
+        
+        .vip-timer {
+            background: linear-gradient(135deg, #e3342f, #ff6b6b);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .simple-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .simple-card:hover {
+            border-color: #d1d5db;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Admin Login Screen -->
+    <div id="adminLoginScreen" class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-md w-full space-y-8">
+            <div>
+                <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900 heading-font">
+                    <span class="red-text">SM VIP SIGNALS</span> ADMIN
+                </h2>
+                <p class="mt-2 text-center text-sm text-gray-600">
+                    Secure Admin Panel Access
+                </p>
+            </div>
+            <div class="simple-card p-8">
+                <div class="space-y-6">
+                    <div>
+                        <label for="adminUsername" class="block text-sm font-medium text-gray-700">
+                            Admin Username
+                        </label>
+                        <div class="mt-1">
+                            <input id="adminUsername" name="username" type="text" required 
+                                   class="appearance-none rounded-lg relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-red-500 focus:border-red-500 focus:z-10 sm:text-sm"
+                                   placeholder="Enter admin username">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="adminPassword" class="block text-sm font-medium text-gray-700">
+                            Admin Password
+                        </label>
+                        <div class="mt-1">
+                            <input id="adminPassword" name="password" type="password" required 
+                                   class="appearance-none rounded-lg relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-red-500 focus:border-red-500 focus:z-10 sm:text-sm"
+                                   placeholder="Enter admin password">
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center justify-between">
+                        <div class="text-sm">
+                            <a href="index.html" class="font-medium text-red-600 hover:text-red-500">
+                                ← Back to Main Site
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <button id="adminLoginBtn" class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 heading-font">
+                            <span class="absolute left-0 inset-y-0 flex items-center pl-3">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                            ADMIN LOGIN
+                        </button>
+                    </div>
+                    
+                    <div class="text-center">
+                        <p class="text-sm text-gray-600">
+                            Default: admin / admin123
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Panel (Hidden until login) -->
+    <div id="adminPanel" class="hidden">
+        <!-- Navigation -->
+        <nav class="bg-white shadow-lg">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-16">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 flex items-center">
+                            <h1 class="text-xl font-bold text-gray-900 heading-font">
+                                <span class="red-text">SM VIP</span> ADMIN PANEL
+                            </h1>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="flex items-center gap-4">
+                            <div class="text-right">
+                                <div class="text-sm font-medium text-gray-900" id="adminUsernameDisplay">Admin</div>
+                                <div class="text-xs text-gray-500">Administrator</div>
+                            </div>
+                            <button id="logoutAdminBtn" class="logout-btn">
+                                <i class="fas fa-sign-out-alt mr-2"></i>Logout
+                            </button>
+                            <a href="index.html" class="btn-simple px-4 py-2 rounded-lg text-sm">
+                                <i class="fas fa-home mr-2"></i>Main Site
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+            <div class="px-4 py-6 sm:px-0">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <!-- Stats Overview -->
+                    <div class="lg:col-span-3">
+                        <div class="bg-white rounded-lg shadow p-6">
+                            <h2 class="text-2xl font-bold mb-6 heading-font">VIP Members Overview</h2>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                <div class="simple-card p-6 text-center">
+                                    <div class="text-3xl font-bold red-text" id="totalMembers">0</div>
+                                    <div class="text-gray-600">Total VIP Members</div>
+                                </div>
+                                <div class="simple-card p-6 text-center">
+                                    <div class="text-3xl font-bold red-text" id="activeMembers">0</div>
+                                    <div class="text-gray-600">Active Members</div>
+                                </div>
+                                <div class="simple-card p-6 text-center">
+                                    <div class="text-3xl font-bold red-text" id="expiringSoon">0</div>
+                                    <div class="text-gray-600">Expiring Soon (≤ 3 days)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- VIP Members List -->
+                    <div class="lg:col-span-2">
+                        <div class="bg-white rounded-lg shadow p-6">
+                            <div class="flex justify-between items-center mb-6">
+                                <h2 class="text-2xl font-bold heading-font">VIP Members Management</h2>
+                                <button id="refreshMembersBtn" class="btn-simple px-4 py-2 text-sm">
+                                    <i class="fas fa-sync-alt mr-2"></i>Refresh
+                                </button>
+                            </div>
+                            
+                            <div class="overflow-x-auto">
+                                <table class="min-w-full divide-y divide-gray-200">
+                                    <thead>
+                                        <tr>
+                                            <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Username
+                                            </th>
+                                            <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                VIP Status
+                                            </th>
+                                            <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Days Remaining
+                                            </th>
+                                            <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Actions
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="vipMembersTable" class="bg-white divide-y divide-gray-200">
+                                        <!-- VIP members will be loaded here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Add/Edit Member Form -->
+                    <div class="lg:col-span-1">
+                        <div class="bg-white rounded-lg shadow p-6">
+                            <h2 class="text-2xl font-bold mb-6 heading-font">Add/Edit Member</h2>
+                            
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                                        Username
+                                    </label>
+                                    <input type="text" id="memberUsername" 
+                                           class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-200">
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                                        Password
+                                    </label>
+                                    <input type="text" id="memberPassword" 
+                                           class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-200">
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                                        VIP Days
+                                    </label>
+                                    <input type="number" id="memberDays" 
+                                           class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-200" 
+                                           placeholder="Enter number of days">
+                                </div>
+                                
+                                <div class="grid grid-cols-2 gap-3 pt-4">
+                                    <button id="addUpdateMemberBtn" class="btn-simple py-3 rounded-lg">
+                                        <i class="fas fa-save mr-2"></i>Save Member
+                                    </button>
+                                    <button id="deleteMemberBtn" class="logout-btn py-3 rounded-lg">
+                                        <i class="fas fa-trash mr-2"></i>Delete
+                                    </button>
+                                </div>
+                                
+                                <div class="pt-6">
+                                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                                        <div class="flex">
+                                            <div class="flex-shrink-0">
+                                                <i class="fas fa-exclamation-triangle text-yellow-400"></i>
+                                            </div>
+                                            <div class="ml-3">
+                                                <p class="text-sm text-yellow-700">
+                                                    <strong>Note:</strong> Changes are saved to browser's local storage. For production, connect to a database.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Admin credentials
+        const ADMIN_CREDENTIALS = {
+            username: 'admin',
+            password: 'admin123'
+        };
+
+        // VIP Database Key
+        const VIP_DB_KEY = 'sm_vip_members';
+
+        // DOM Elements
+        const adminLoginScreen = document.getElementById('adminLoginScreen');
+        const adminPanel = document.getElementById('adminPanel');
+        const adminLoginBtn = document.getElementById('adminLoginBtn');
+        const logoutAdminBtn = document.getElementById('logoutAdminBtn');
+        const adminUsernameInput = document.getElementById('adminUsername');
+        const adminPasswordInput = document.getElementById('adminPassword');
+        const adminUsernameDisplay = document.getElementById('adminUsernameDisplay');
+        const vipMembersTable = document.getElementById('vipMembersTable');
+        const refreshMembersBtn = document.getElementById('refreshMembersBtn');
+        const addUpdateMemberBtn = document.getElementById('addUpdateMemberBtn');
+        const deleteMemberBtn = document.getElementById('deleteMemberBtn');
+        const memberUsernameInput = document.getElementById('memberUsername');
+        const memberPasswordInput = document.getElementById('memberPassword');
+        const memberDaysInput = document.getElementById('memberDays');
+        const totalMembersElement = document.getElementById('totalMembers');
+        const activeMembersElement = document.getElementById('activeMembers');
+        const expiringSoonElement = document.getElementById('expiringSoon');
+
+        // Initialize default members if not exists
+        function initDatabase() {
+            if (!localStorage.getItem(VIP_DB_KEY)) {
+                const defaultMembers = {
+                    'vipuser1': { password: 'pass123', daysRemaining: 30 },
+                    'vipuser2': { password: 'pass123', daysRemaining: 15 },
+                    'premiumuser': { password: 'premium123', daysRemaining: 7 }
+                };
+                localStorage.setItem(VIP_DB_KEY, JSON.stringify(defaultMembers));
+            }
+        }
+
+        // Get all VIP members
+        function getVIPMembers() {
+            return JSON.parse(localStorage.getItem(VIP_DB_KEY) || '{}');
+        }
+
+        // Save VIP members
+        function saveVIPMembers(members) {
+            localStorage.setItem(VIP_DB_KEY, JSON.stringify(members));
+        }
+
+        // Update VIP days (decrease by 1 each day)
+        function updateVIPDays() {
+            const members = getVIPMembers();
+            const today = new Date().toDateString();
+            const lastUpdate = localStorage.getItem('last_vip_update');
+            
+            if (lastUpdate !== today) {
+                for (const username in members) {
+                    if (members[username].daysRemaining > 0) {
+                        members[username].daysRemaining -= 1;
+                    }
+                }
+                saveVIPMembers(members);
+                localStorage.setItem('last_vip_update', today);
+            }
+        }
+
+        // Load VIP members into table
+        function loadVIPMembers() {
+            const members = getVIPMembers();
+            vipMembersTable.innerHTML = '';
+            
+            let totalMembers = 0;
+            let activeMembers = 0;
+            let expiringSoon = 0;
+            
+            for (const username in members) {
+                totalMembers++;
+                const member = members[username];
+                const isActive = member.daysRemaining > 0;
+                
+                if (isActive) activeMembers++;
+                if (member.daysRemaining <= 3 && member.daysRemaining > 0) expiringSoon++;
+                
+                // Determine status color
+                let statusColor = 'bg-green-100 text-green-800';
+                let statusText = 'Active';
+                
+                if (member.daysRemaining <= 0) {
+                    statusColor = 'bg-gray-100 text-gray-800';
+                    statusText = 'Expired';
+                } else if (member.daysRemaining <= 3) {
+                    statusColor = 'bg-red-100 text-red-800';
+                    statusText = 'Expiring Soon';
+                } else if (member.daysRemaining <= 7) {
+                    statusColor = 'bg-yellow-100 text-yellow-800';
+                    statusText = 'Active';
+                }
+                
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm font-medium text-gray-900">${username}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${statusColor}">
+                            ${statusText}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        <div class="vip-timer">
+                            <i class="fas fa-crown"></i>
+                            <span>${member.daysRemaining} days</span>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                        <button class="edit-member-btn text-red-600 hover:text-red-900 mr-3" data-username="${username}">
+                            <i class="fas fa-edit mr-1"></i>Edit
+                        </button>
+                    </td>
+                `;
+                vipMembersTable.appendChild(row);
+            }
+            
+            // Update stats
+            totalMembersElement.textContent = totalMembers;
+            activeMembersElement.textContent = activeMembers;
+            expiringSoonElement.textContent = expiringSoon;
+            
+            // Add event listeners to edit buttons
+            document.querySelectorAll('.edit-member-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const username = this.getAttribute('data-username');
+                    const members = getVIPMembers();
+                    const member = members[username];
+                    
+                    memberUsernameInput.value = username;
+                    memberPasswordInput.value = member.password;
+                    memberDaysInput.value = member.daysRemaining;
+                });
+            });
+        }
+
+        // Admin login
+        adminLoginBtn.addEventListener('click', () => {
+            const username = adminUsernameInput.value.trim();
+            const password = adminPasswordInput.value;
+            
+            if (username === ADMIN_CREDENTIALS.username && password === ADMIN_CREDENTIALS.password) {
+                adminLoginScreen.classList.add('hidden');
+                adminPanel.classList.remove('hidden');
+                adminUsernameDisplay.textContent = username;
+                
+                // Initialize and load data
+                initDatabase();
+                updateVIPDays();
+                loadVIPMembers();
+                
+                alert('Admin login successful!');
+            } else {
+                alert('Invalid admin credentials!');
+            }
+        });
+
+        // Logout admin
+        logoutAdminBtn.addEventListener('click', () => {
+            if (confirm('Are you sure you want to logout?')) {
+                adminPanel.classList.add('hidden');
+                adminLoginScreen.classList.remove('hidden');
+                
+                // Clear form
+                adminUsernameInput.value = '';
+                adminPasswordInput.value = '';
+                memberUsernameInput.value = '';
+                memberPasswordInput.value = '';
+                memberDaysInput.value = '';
+            }
+        });
+
+        // Refresh members list
+        refreshMembersBtn.addEventListener('click', () => {
+            updateVIPDays();
+            loadVIPMembers();
+            alert('Members list refreshed!');
+        });
+
+        // Add/Update member
+        addUpdateMemberBtn.addEventListener('click', () => {
+            const username = memberUsernameInput.value.trim();
+            const password = memberPasswordInput.value.trim();
+            const days = parseInt(memberDaysInput.value);
+            
+            if (!username || !password || isNaN(days)) {
+                alert('Please fill all fields correctly');
+                return;
+            }
+            
+            const members = getVIPMembers();
+            members[username] = {
+                password: password,
+                daysRemaining: days
+            };
+            
+            saveVIPMembers(members);
+            loadVIPMembers();
+            alert(`Member ${username} ${members[username] ? 'updated' : 'added'} successfully!`);
+            
+            // Clear form
+            memberUsernameInput.value = '';
+            memberPasswordInput.value = '';
+            memberDaysInput.value = '';
+        });
+
+        // Delete member
+        deleteMemberBtn.addEventListener('click', () => {
+            const username = memberUsernameInput.value.trim();
+            
+            if (!username) {
+                alert('Please select a member to delete');
+                return;
+            }
+            
+            if (username === 'admin') {
+                alert('Cannot delete admin account');
+                return;
+            }
+            
+            if (confirm(`Are you sure you want to delete ${username}?`)) {
+                const members = getVIPMembers();
+                delete members[username];
+                saveVIPMembers(members);
+                loadVIPMembers();
+                
+                // Clear form
+                memberUsernameInput.value = '';
+                memberPasswordInput.value = '';
+                memberDaysInput.value = '';
+                
+                alert(`Member ${username} deleted successfully!`);
+            }
+        });
+
+        // Allow Enter key to submit login
+        adminPasswordInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                adminLoginBtn.click();
+            }
+        });
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            initDatabase();
+        });
+    </script>
+</body>
+</html>
