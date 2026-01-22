@@ -2025,6 +2025,213 @@
             color: #6b7280;
             margin-top: 0.5rem;
         }
+
+        /* Free Signals Admin Section */
+        .admin-section {
+            background: linear-gradient(135deg, #fef2f2, #fff5f5);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid #e3342f;
+            margin-top: 1.5rem;
+        }
+
+        .admin-section h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #e3342f;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .admin-btn {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .admin-btn:hover {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 100, 235, 0.3);
+        }
+
+        /* Free Signals Table */
+        .signals-table-container {
+            overflow-x: auto;
+            margin-top: 2rem;
+        }
+
+        .signals-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .signals-table th {
+            background: linear-gradient(135deg, #e3342f, #c53030);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .signals-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .signal-status {
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .status-active {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .status-expired {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .status-pending {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .signal-profit {
+            font-weight: 700;
+            font-family: var(--font-tech);
+        }
+
+        .profit-up {
+            color: #10b981;
+        }
+
+        .profit-down {
+            color: #ef4444;
+        }
+
+        .no-signals {
+            text-align: center;
+            padding: 3rem;
+            color: #6b7280;
+        }
+
+        /* Password Display Modal */
+        .password-modal {
+            display: none;
+            position: fixed;
+            z-index: 2001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .password-modal-content {
+            background-color: white;
+            margin: 15% auto;
+            padding: 0;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+            animation: slideUp 0.4s ease;
+        }
+
+        .password-modal-header {
+            background: linear-gradient(135deg, #10b981, #059669);
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .password-modal-header h3 {
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .password-modal-body {
+            padding: 2rem;
+        }
+
+        .password-display {
+            background: #f0fdf4;
+            border: 2px dashed #10b981;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+
+        .password-text {
+            font-family: var(--font-tech);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #065f46;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+            word-break: break-all;
+        }
+
+        .password-warning {
+            color: #ef4444;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            padding: 0.75rem;
+            background: #fef2f2;
+            border-radius: 8px;
+            border-left: 4px solid #ef4444;
+        }
+
+        .copy-password-btn {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .copy-password-btn:hover {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            transform: translateY(-2px);
+        }
+
+        .copy-success {
+            color: #10b981;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -2098,6 +2305,48 @@
                     <i class="fas fa-arrow-left"></i>
                     Back to Registration
                 </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Password Display Modal -->
+    <div id="passwordModal" class="password-modal">
+        <div class="password-modal-content">
+            <div class="password-modal-header">
+                <h3>YOUR ACCOUNT PASSWORD</h3>
+            </div>
+            <div class="password-modal-body">
+                <p class="text-gray-700 mb-4">
+                    Your registration is successful! Here is your auto-generated password. Please save it securely.
+                </p>
+                
+                <div class="password-display">
+                    <p class="text-gray-600 mb-2">Your Password:</p>
+                    <div class="password-text" id="generatedPassword">SMVIP@2024#001</div>
+                    <p class="text-gray-500 text-sm">This password has also been sent to your WhatsApp</p>
+                </div>
+                
+                <div class="password-warning">
+                    <i class="fas fa-exclamation-triangle mr-2"></i>
+                    IMPORTANT: Save this password! You will need it to login. It will not be shown again.
+                </div>
+                
+                <div class="text-center">
+                    <button class="copy-password-btn" id="copyPasswordBtn">
+                        <i class="fas fa-copy"></i>
+                        Copy Password
+                    </button>
+                    <div class="copy-success" id="copySuccess">
+                        <i class="fas fa-check-circle"></i> Password copied to clipboard!
+                    </div>
+                </div>
+                
+                <div class="mt-6 pt-6 border-t border-gray-200">
+                    <button class="btn-modern w-full" id="closePasswordModalBtn">
+                        <i class="fas fa-check"></i>
+                        I HAVE SAVED MY PASSWORD
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -2388,10 +2637,12 @@
                         </div>
                         <div class="form-group">
                             <label class="form-label">Password</label>
-                            <input type="password" id="registerPassword" 
+                            <input type="text" id="registerPassword" 
                                    class="form-input"
-                                   placeholder="Password will be auto-generated" 
-                                   readonly>
+                                   placeholder="Auto-generated password" 
+                                   readonly
+                                   style="background-color: #f0fdf4; color: #065f46; font-weight: 600;">
+                            <p class="text-xs text-gray-500 mt-1">Password will be auto-generated and sent to your WhatsApp</p>
                         </div>
                         <div class="form-group whatsapp-field">
                             <label class="form-label">WhatsApp Number</label>
@@ -2486,63 +2737,42 @@
             </div>
         </section>
 
-        <!-- Free Signals Section -->
+        <!-- Free Signals Section - UPDATED WITH LOGIN ICON -->
         <section id="signals" class="px-6 py-16 max-w-6xl mx-auto">
             <h3 class="text-4xl font-bold mb-10 flex items-center gap-3 heading-font">
                 <span class="w-4 h-10 bg-red-600 rounded-full"></span> 
                 <span class="red-text">FREE TRADING SIGNALS</span>
             </h3>
             
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="simple-card p-7 animate__animated animate__fadeInLeft">
-                    <div class="flex justify-between items-center mb-5">
-                        <span class="text-2xl font-bold tech-font">BTC/USDT</span>
-                        <span class="bg-green-500 text-white px-4 py-2 rounded-lg text-sm font-bold heading-font">LONG POSITION</span>
-                    </div>
-                    <div class="grid grid-cols-2 gap-5 text-gray-600">
-                        <div class="bg-gray-50 p-4 rounded-lg">
-                            <div class="text-gray-500 text-sm">Entry Price</div>
-                            <div class="text-gray-900 text-xl font-bold tech-font">$67,200</div>
-                        </div>
-                        <div class="bg-gray-50 p-4 rounded-lg">
-                            <div class="text-gray-500 text-sm">Leverage</div>
-                            <div class="text-gray-900 text-xl font-bold tech-font">20x (Cross)</div>
-                        </div>
-                        <div class="bg-gray-50 p-4 rounded-lg red-accent">
-                            <div class="text-gray-500 text-sm">Stop Loss</div>
-                            <div class="text-gray-900 text-xl font-bold tech-font">$65,000</div>
-                        </div>
-                        <div class="bg-gray-50 p-4 rounded-lg border-l-3 border-yellow-500">
-                            <div class="text-gray-500 text-sm">Take Profit</div>
-                            <div class="text-gray-900 text-xl font-bold tech-font">$70,500</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="simple-card p-7 animate__animated animate__fadeInRight">
-                    <div class="flex justify-between items-center mb-5">
-                        <span class="text-2xl font-bold tech-font">ETH/USDT</span>
-                        <span class="bg-red-500 text-white px-4 py-2 rounded-lg text-sm font-bold heading-font">SHORT POSITION</span>
-                    </div>
-                    <div class="grid grid-cols-2 gap-5 text-gray-600">
-                        <div class="bg-gray-50 p-4 rounded-lg">
-                            <div class="text-gray-500 text-sm">Entry Price</div>
-                            <div class="text-gray-900 text-xl font-bold tech-font">$3,250</div>
-                        </div>
-                        <div class="bg-gray-50 p-4 rounded-lg">
-                            <div class="text-gray-500 text-sm">Leverage</div>
-                            <div class="text-gray-900 text-xl font-bold tech-font">15x (Cross)</div>
-                        </div>
-                        <div class="bg-gray-50 p-4 rounded-lg red-accent">
-                            <div class="text-gray-500 text-sm">Stop Loss</div>
-                            <div class="text-gray-900 text-xl font-bold tech-font">$3,400</div>
-                        </div>
-                        <div class="bg-gray-50 p-4 rounded-lg border-l-3 border-yellow-500">
-                            <div class="text-gray-500 text-sm">Take Profit</div>
-                            <div class="text-gray-900 text-xl font-bold tech-font">$3,000</div>
-                        </div>
-                    </div>
-                </div>
+            
+            <!-- Signals Table -->
+            <div class="signals-table-container">
+                <table class="signals-table" id="freeSignalsTable">
+                    <thead>
+                        <tr>
+                            <th>Pair</th>
+                            <th>Type</th>
+                            <th>Entry Price</th>
+                            <th>Stop Loss</th>
+                            <th>Take Profit</th>
+                            <th>Leverage</th>
+                            <th>Status</th>
+                            <th>Profit/Loss</th>
+                        </tr>
+                    </thead>
+                    <tbody id="signalsTableBody">
+                        <!-- Signals will be loaded from Firebase -->
+                        <tr>
+                            <td colspan="8" class="no-signals">
+                                <div class="py-8">
+                                    <i class="fas fa-signal text-4xl text-gray-300 mb-4"></i>
+                                    <p class="text-gray-500">No free signals available at the moment.</p>
+                                    <p class="text-gray-400 text-sm mt-2">Check back soon for new trading opportunities!</p>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </section>
 
@@ -2608,36 +2838,79 @@
             </div>
         </section>
 
-        <!-- About Section -->
-        <section id="about" class="section-bg px-6 py-16">
-            <div class="max-w-6xl mx-auto">
-                <h3 class="text-4xl font-bold mb-10 text-center heading-font">
-                    <span class="red-text">ABOUT</span> US
-                </h3>
-                <div class="simple-card p-8">
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <div>
-                            <h4 class="text-2xl font-bold mb-4 heading-font">Who We Are</h4>
-                            <p class="text-gray-600 mb-4">
-                                SM VIP SIGNALS is a premium crypto trading signals provider with over 5 years of experience in the cryptocurrency markets.
-                            </p>
-                            <p class="text-gray-600 mb-4">
-                                Our team consists of professional traders and analysts who provide accurate trading signals for Bitcoin, Ethereum, and other major cryptocurrencies.
-                            </p>
-                        </div>
-                        <div>
-                            <h4 class="text-2xl font-bold mb-4 heading-font">Our Mission</h4>
-                            <p class="text-gray-600 mb-4">
-                                To help traders maximize their profits with high-quality, accurate trading signals and comprehensive market analysis.
-                            </p>
-                            <p class="text-gray-600">
-                                We provide real-time signals, risk management strategies, and 24/7 support to our VIP members.
-                            </p>
-                        </div>
+<!-- About Section -->
+<section id="about" class="section-bg px-6 py-16">
+    <div class="max-w-6xl mx-auto">
+        <h3 class="text-4xl font-bold mb-10 text-center heading-font">
+            <span class="red-text">ABOUT</span> US
+        </h3>
+        <div class="simple-card p-8">
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h4 class="text-2xl font-bold mb-4 heading-font">Who We Are</h4>
+                    <p class="text-gray-600 mb-4">
+                        SM VIP SIGNALS is a premium crypto trading signals provider with over 5 years of experience in the cryptocurrency markets.
+                    </p>
+                    <p class="text-gray-600 mb-4">
+                        Our team consists of professional traders and analysts who provide accurate trading signals for Bitcoin, Ethereum, and other major cryptocurrencies.
+                    </p>
+                    
+                    <!-- WhatsApp Group Link Added -->
+                    <div class="mt-6 p-4 bg-green-50 border border-green-200 rounded-lg">
+                        <h5 class="text-lg font-bold mb-2 text-green-800">
+                            <i class="fab fa-whatsapp mr-2"></i>Join Our WhatsApp Community
+                        </h5>
+                        <p class="text-green-700 mb-3">
+                            Get real-time signals, market updates, and community support
+                        </p>
+                        <a href="https://chat.whatsapp.com/J3H5s4OHP10KXTnstvWRqt" 
+                           target="_blank" 
+                           class="inline-flex items-center gap-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+                            <i class="fab fa-whatsapp"></i>
+                            Join WhatsApp Group
+                        </a>
+                        <p class="text-sm text-green-600 mt-2">
+                            Click above to join our premium trading community
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-2xl font-bold mb-4 heading-font">Our Mission</h4>
+                    <p class="text-gray-600 mb-4">
+                        To help traders maximize their profits with high-quality, accurate trading signals and comprehensive market analysis.
+                    </p>
+                    <p class="text-gray-600">
+                        We provide real-time signals, risk management strategies, and 24/7 support to our VIP members.
+                    </p>
+                    
+                    <!-- Admin Contact Information -->
+                    <div class="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                        <h5 class="text-lg font-bold mb-2 text-blue-800">
+                            <i class="fas fa-headset mr-2"></i>Admin Contact
+                        </h5>
+                        <p class="text-blue-700 mb-2">
+                            For inquiries and support, contact our admins:
+                        </p>
+                        <ul class="space-y-2">
+                            <li class="flex items-center gap-2">
+                                <i class="fab fa-whatsapp text-green-600"></i>
+                                <a href="https://wa.me/721787970" target="_blank" class="text-blue-600 hover:underline">
+                                    Admin 1: +94 71 217 8797 0
+                                </a>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fab fa-whatsapp text-green-600"></i>
+                                <a href="https://wa.me/713171006" target="_blank" class="text-blue-600 hover:underline">
+                                    Admin 2: +94 71 317 1006
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 
         <!-- MASH SOLUTIONS Footer -->
         <footer class="mash-footer">
@@ -2730,6 +3003,8 @@
     <script>
         // Main Application JavaScript
         document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM fully loaded and parsed');
+            
             // DOM Elements
             const loadingScreen = document.getElementById('loading-screen');
             const mainWebsite = document.getElementById('main-website');
@@ -2802,6 +3077,16 @@
             // Results Content
             const resultsContent = document.getElementById('results-content');
             
+            // Password Modal Elements
+            const passwordModal = document.getElementById('passwordModal');
+            const generatedPasswordElement = document.getElementById('generatedPassword');
+            const copyPasswordBtn = document.getElementById('copyPasswordBtn');
+            const copySuccessElement = document.getElementById('copySuccess');
+            const closePasswordModalBtn = document.getElementById('closePasswordModalBtn');
+            
+            // Free Signals Elements
+            const signalsTableBody = document.getElementById('signalsTableBody');
+            
             // Loading messages
             const loadingMessages = [
                 "Preparing premium signals...",
@@ -2819,22 +3104,22 @@
             const SUBSCRIPTIONS_DB_REF = 'subscriptions';
             const RESULTS_DB_REF = 'monthly_results';
             const PACKAGE_SETTINGS_DB_REF = 'package_settings';
+            const FREE_SIGNALS_DB_REF = 'free_signals';
             
-            // Package prices (default values)
-            let packagePrices = {
-                basic: { price: 99, days: 30 },
-                pro: { price: 299, days: 30 },
-                elite: { price: 599, days: 30 },
-                '3months': { price: 120, days: 90 },
-                lifetime: { price: 300, days: 'lifetime' }
-            };
+// Package prices (default values)
+let packagePrices = {
+    basic: { price: 10, days: 30 },       // 1 Month = $10
+    pro: { price: 299, days: 30 },        // Keep existing
+    elite: { price: 599, days: 30 },      // Keep existing
+    '3months': { price: 15, days: 90 },   // 3 Month = $15
+    lifetime: { price: 40, days: 'lifetime' }  // Lifetime = $40
+};
 
             // Test VIP Users (will be replaced with Firebase)
             const TEST_VIP_USERS = {
                 'vipuser1': { 
                     password: 'SMVIP@2024#001', 
                     email: 'vipuser1@example.com',
-                    // WhatsApp number changed to 10 digits without spaces
                     whatsapp: '+94771234567',
                     isVIP: true,
                     vipExpiry: '2024-12-31',
@@ -2843,7 +3128,6 @@
                 'vipuser2': { 
                     password: 'SMVIP@2024#002', 
                     email: 'vipuser2@example.com',
-                    // WhatsApp number changed to 10 digits without spaces
                     whatsapp: '+94777654321',
                     isVIP: true,
                     vipExpiry: '2024-11-30',
@@ -2900,18 +3184,19 @@
             let notifications = [];
             let offers = [];
             let announcements = [];
+            let freeSignals = [];
             let phoneVerificationData = null;
             let otpCountdown = 300; // 5 minutes in seconds
             let resendCountdown = 60; // 1 minute in seconds
             let otpInterval = null;
             let resendInterval = null;
             let generatedOTP = null;
-            let notificationListeners = [];
+            let currentGeneratedPassword = null;
 
             // Firebase Functions
             function initializeFirebase() {
                 if (!window.firebaseDatabase) {
-                    console.log('Firebase not initialized');
+                    console.log('Firebase not initialized - using fallback mode');
                     return false;
                 }
                 return true;
@@ -2932,8 +3217,8 @@
                         const data = snapshot.val();
                         packagePrices = {
                             basic: data['1month'] || packagePrices.basic,
-                            pro: { price: 299, days: 30 }, // Default PRO price
-                            elite: { price: 599, days: 30 }, // Default ELITE price
+                            pro: { price: 299, days: 30 },
+                            elite: { price: 599, days: 30 },
                             '3months': data['3months'] || packagePrices['3months'],
                             lifetime: data['lifetime'] || packagePrices.lifetime
                         };
@@ -2957,6 +3242,138 @@
                 if (elitePriceElement) {
                     elitePriceElement.innerHTML = `$${packagePrices.elite.price}<span class="text-lg text-gray-500">/month</span>`;
                 }
+            }
+
+            // Load Free Signals from Firebase
+            async function loadFreeSignals() {
+                if (!initializeFirebase()) {
+                    // Load default free signals
+                    freeSignals = getDefaultFreeSignals();
+                    displayFreeSignals();
+                    return;
+                }
+
+                try {
+                    const signalsRef = window.firebaseRef(window.firebaseDatabase, FREE_SIGNALS_DB_REF);
+                    const snapshot = await window.firebaseGet(signalsRef);
+                    
+                    if (snapshot.exists()) {
+                        const data = snapshot.val();
+                        freeSignals = Object.values(data).filter(signal => 
+                            signal.isActive && (!signal.expiresAt || new Date(signal.expiresAt) > new Date())
+                        );
+                        
+                        // Sort by created date (newest first)
+                        freeSignals.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+                    } else {
+                        freeSignals = getDefaultFreeSignals();
+                    }
+                    
+                    displayFreeSignals();
+                } catch (error) {
+                    console.error('Error loading free signals:', error);
+                    freeSignals = getDefaultFreeSignals();
+                    displayFreeSignals();
+                }
+            }
+
+            // Get Default Free Signals (fallback)
+            function getDefaultFreeSignals() {
+                return [
+                    {
+                        id: 'signal1',
+                        pair: 'BTC/USDT',
+                        type: 'LONG',
+                        entryPrice: '$67,200',
+                        stopLoss: '$65,000',
+                        takeProfit: '$70,500',
+                        leverage: '20x',
+                        status: 'active',
+                        profitLoss: '+3.2%',
+                        createdAt: new Date().toISOString(),
+                        expiresAt: new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString(),
+                        isActive: true,
+                        postedBy: 'Admin'
+                    },
+                    {
+                        id: 'signal2',
+                        pair: 'ETH/USDT',
+                        type: 'SHORT',
+                        entryPrice: '$3,250',
+                        stopLoss: '$3,400',
+                        takeProfit: '$3,000',
+                        leverage: '15x',
+                        status: 'active',
+                        profitLoss: '+2.8%',
+                        createdAt: new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString(),
+                        expiresAt: new Date(Date.now() + 22 * 60 * 60 * 1000).toISOString(),
+                        isActive: true,
+                        postedBy: 'Admin'
+                    }
+                ];
+            }
+
+            // Display Free Signals
+            function displayFreeSignals() {
+                if (!signalsTableBody) return;
+                
+                signalsTableBody.innerHTML = '';
+                
+                if (freeSignals.length === 0) {
+                    signalsTableBody.innerHTML = `
+                        <tr>
+                            <td colspan="8" class="no-signals">
+                                <div class="py-8">
+                                    <i class="fas fa-signal text-4xl text-gray-300 mb-4"></i>
+                                    <p class="text-gray-500">No free signals available at the moment.</p>
+                                    <p class="text-gray-400 text-sm mt-2">Check back soon for new trading opportunities!</p>
+                                </div>
+                            </td>
+                        </tr>
+                    `;
+                    return;
+                }
+                
+                freeSignals.forEach(signal => {
+                    const row = document.createElement('tr');
+                    
+                    // Determine status class
+                    let statusClass = 'status-pending';
+                    let statusText = 'Pending';
+                    
+                    if (signal.status === 'active') {
+                        statusClass = 'status-active';
+                        statusText = 'Active';
+                    } else if (signal.status === 'expired') {
+                        statusClass = 'status-expired';
+                        statusText = 'Expired';
+                    }
+                    
+                    // Determine profit/loss class
+                    let profitClass = 'profit-up';
+                    if (signal.profitLoss.startsWith('-')) {
+                        profitClass = 'profit-down';
+                    }
+                    
+                    row.innerHTML = `
+                        <td class="font-bold tech-font">${signal.pair}</td>
+                        <td>
+                            <span class="${signal.type === 'LONG' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'} px-3 py-1 rounded-full text-xs font-bold">
+                                ${signal.type}
+                            </span>
+                        </td>
+                        <td class="font-medium">${signal.entryPrice}</td>
+                        <td class="font-medium text-red-600">${signal.stopLoss}</td>
+                        <td class="font-medium text-green-600">${signal.takeProfit}</td>
+                        <td class="tech-font font-bold">${signal.leverage}</td>
+                        <td>
+                            <span class="signal-status ${statusClass}">${statusText}</span>
+                        </td>
+                        <td class="signal-profit ${profitClass}">${signal.profitLoss}</td>
+                    `;
+                    
+                    signalsTableBody.appendChild(row);
+                });
             }
 
             // Load Announcements from Firebase
@@ -3162,19 +3579,6 @@
                         icon: 'fa-chart-line',
                         iconColor: 'bg-green-100 text-green-600',
                         link: '#signals'
-                    },
-                    {
-                        id: '3',
-                        title: 'Welcome to SM VIP SIGNALS',
-                        message: 'Start your trading journey with our free signals',
-                        type: 'info',
-                        createdAt: new Date(Date.now() - 10 * 60 * 1000).toISOString(),
-                        expiresAt: null,
-                        isActive: true,
-                        unread: true,
-                        icon: 'fa-info-circle',
-                        iconColor: 'bg-blue-100 text-blue-600',
-                        link: '#home'
                     }
                 ];
             }
@@ -3227,26 +3631,6 @@
                         featured: false,
                         buttonText: 'GET 30% DISCOUNT',
                         whatsappMessage: 'Hi, I want to claim the 30% discount on Quarterly PRO plan.'
-                    },
-                    {
-                        id: 'offer3',
-                        title: 'Referral Bonus',
-                        description: 'Get 1 month free for every 3 referrals',
-                        originalPrice: packagePrices.pro.price,
-                        offerPrice: 0,
-                        currency: '$',
-                        features: [
-                            'Free VIP month for 3 successful referrals',
-                            'No limits on referrals',
-                            'Instant activation',
-                            'Works with all plans',
-                            'No expiry on earned months'
-                        ],
-                        expiresAt: null,
-                        isActive: true,
-                        featured: false,
-                        buttonText: 'LEARN MORE',
-                        whatsappMessage: 'Hi, I want to learn more about the referral program.'
                     }
                 ];
             }
@@ -3505,9 +3889,15 @@
             function checkLoginStatus() {
                 const userData = localStorage.getItem('current_user');
                 if (userData) {
-                    currentUser = JSON.parse(userData);
-                    updateUIForLoggedInUser();
-                    loadResultsContent();
+                    try {
+                        currentUser = JSON.parse(userData);
+                        updateUIForLoggedInUser();
+                        loadResultsContent();
+                    } catch (e) {
+                        console.error('Error parsing user data:', e);
+                        localStorage.removeItem('current_user');
+                        loadResultsContent();
+                    }
                 } else {
                     loadResultsContent();
                 }
@@ -3576,7 +3966,7 @@
                 return false;
             }
 
-            // Register Function - UPDATED FOR AUTO-GENERATED PASSWORD
+            // Register Function - AUTO-GENERATED PASSWORD
             function register(username, email, whatsapp) {
                 // Validate inputs
                 if (!username || !email || !whatsapp) {
@@ -3596,6 +3986,10 @@
                 
                 // Generate strong password
                 const generatedPassword = generateStrongPassword();
+                currentGeneratedPassword = generatedPassword;
+                
+                // Auto-fill the password field in the form
+                registerPasswordInput.value = generatedPassword;
                 
                 // Check if user already exists in test users
                 if (TEST_VIP_USERS[username]) {
@@ -3762,6 +4156,9 @@
                     currentUser = newUser;
                     localStorage.setItem('current_user', JSON.stringify(currentUser));
                     
+                    // Show password to user
+                    showPasswordModal(currentGeneratedPassword);
+                    
                     // Try to save to Firebase
                     try {
                         if (window.firebaseDatabase) {
@@ -3771,7 +4168,6 @@
                                 sendPasswordWhatsApp(newUser.whatsapp, newUser.username, newUser.password);
                                 
                                 showToast('Registration successful! Your phone is verified.', 'success');
-                                showToast('Password has been sent to your WhatsApp.', 'info');
                                 
                                 updateUIForLoggedInUser();
                                 loadResultsContent();
@@ -3788,7 +4184,6 @@
                                 sendPasswordWhatsApp(newUser.whatsapp, newUser.username, newUser.password);
                                 
                                 showToast('Registration successful (offline mode)', 'success');
-                                showToast('Password has been sent to your WhatsApp.', 'info');
                                 
                                 updateUIForLoggedInUser();
                                 loadResultsContent();
@@ -3800,7 +4195,6 @@
                             sendPasswordWhatsApp(newUser.whatsapp, newUser.username, newUser.password);
                             
                             showToast('Registration successful! Your phone is verified.', 'success');
-                            showToast('Password has been sent to your WhatsApp.', 'info');
                             
                             updateUIForLoggedInUser();
                             loadResultsContent();
@@ -3818,7 +4212,6 @@
                         sendPasswordWhatsApp(newUser.whatsapp, newUser.username, newUser.password);
                         
                         showToast('Registration successful (offline mode)', 'success');
-                        showToast('Password has been sent to your WhatsApp.', 'info');
                         
                         updateUIForLoggedInUser();
                         loadResultsContent();
@@ -3829,6 +4222,34 @@
                     showToast('Invalid verification code. Please try again.', 'error');
                     return false;
                 }
+            }
+
+            // Show Password Modal
+            function showPasswordModal(password) {
+                generatedPasswordElement.textContent = password;
+                passwordModal.style.display = 'block';
+                document.body.classList.add('modal-open');
+            }
+
+            // Close Password Modal Function
+            function closePasswordModalFunction() {
+                passwordModal.style.display = 'none';
+                document.body.classList.remove('modal-open');
+                currentGeneratedPassword = null;
+            }
+
+            // Copy Password to Clipboard
+            function copyPasswordToClipboard() {
+                const password = generatedPasswordElement.textContent;
+                navigator.clipboard.writeText(password).then(() => {
+                    copySuccessElement.style.display = 'block';
+                    setTimeout(() => {
+                        copySuccessElement.style.display = 'none';
+                    }, 3000);
+                }).catch(err => {
+                    console.error('Failed to copy password: ', err);
+                    showToast('Failed to copy password', 'error');
+                });
             }
 
             // Send password via WhatsApp
@@ -3875,10 +4296,6 @@
                 
                 // Show success message
                 showToast('New verification code sent to your WhatsApp.', 'success');
-                
-                // Simulate sending to WhatsApp
-                const message = `Your SM VIP SIGNALS verification code is: ${generatedOTP}\n\nThis code expires in 5 minutes.`;
-                console.log(`WhatsApp message to ${phoneVerificationData.whatsapp}: ${message}`);
             }
 
             // Logout Function
@@ -4136,6 +4553,7 @@
                             loadAnnouncements();
                             loadNotifications();
                             loadOffers();
+                            loadFreeSignals();
                             checkLoginStatus();
                             updateNotificationBadge();
                             
@@ -4150,6 +4568,7 @@
 
             // Modal Functions
             function openLoginModal(tab = 'login') {
+                console.log('Opening login modal with tab:', tab);
                 loginModal.style.display = 'flex';
                 document.body.classList.add('modal-open');
                 // Close other dropdowns
@@ -4158,6 +4577,7 @@
                 mobileNav.classList.remove('active');
                 mobileMenuToggle.querySelector('i').className = 'fas fa-bars';
                 closePhoneConfirmationModal();
+                closePasswordModalFunction();
                 
                 // Set active tab
                 if (tab === 'login') {
@@ -4173,6 +4593,7 @@
                     
                     // Auto-generate password for registration
                     const generatedPassword = generateStrongPassword();
+                    currentGeneratedPassword = generatedPassword;
                     registerPasswordInput.value = generatedPassword;
                 }
                 
@@ -4196,6 +4617,7 @@
             }
 
             function closeLoginModal() {
+                console.log('Closing login modal');
                 loginModal.style.display = 'none';
                 document.body.classList.remove('modal-open');
             }
@@ -4334,8 +4756,20 @@
                 mobileMenuToggle.querySelector('i').className = 'fas fa-bars';
             });
 
-            dropdownLoginBtn.addEventListener('click', () => openLoginModal('login'));
-            mobileLoginBtn.addEventListener('click', () => openLoginModal('login'));
+            // FIXED: Navigation bar login buttons - Now properly open the login modal
+            dropdownLoginBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('Desktop profile dropdown login button clicked');
+                openLoginModal('login');
+            });
+
+            mobileLoginBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('Mobile menu login button clicked');
+                openLoginModal('login');
+            });
             
             dropdownLogoutBtn.addEventListener('click', logout);
             mobileLogoutBtn.addEventListener('click', logout);
@@ -4398,6 +4832,7 @@
                 
                 // Auto-generate password
                 const generatedPassword = generateStrongPassword();
+                currentGeneratedPassword = generatedPassword;
                 registerPasswordInput.value = generatedPassword;
             });
 
@@ -4458,21 +4893,37 @@
                     return;
                 }
                 
-                // Save button state
-                const originalText = this.innerHTML;
-                this.disabled = true;
-                this.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Registering...';
+                // Format WhatsApp number
+                const formattedWhatsApp = '+94' + cleanedWhatsApp;
                 
-                // Simulate API call
-                setTimeout(() => {
-                    if (register(username, email, whatsapp)) {
-                        // Success - opens phone confirmation modal
-                    }
-                    
-                    // Restore button state
-                    this.disabled = false;
-                    this.innerHTML = originalText;
-                }, 1000);
+                // Generate strong password
+                const generatedPassword = generateStrongPassword();
+                currentGeneratedPassword = generatedPassword;
+                
+                // Auto-fill the password field in the form
+                registerPasswordInput.value = generatedPassword;
+                
+                // Check if user already exists in test users
+                if (TEST_VIP_USERS[username]) {
+                    showToast('Username already exists', 'error');
+                    return false;
+                }
+                
+                // Store registration data for phone verification
+                phoneVerificationData = {
+                    username: username,
+                    email: email,
+                    password: generatedPassword,
+                    whatsapp: formattedWhatsApp,
+                    isVIP: false,
+                    registeredDate: new Date().toISOString().split('T')[0],
+                    phoneVerified: false
+                };
+                
+                // Show phone confirmation modal
+                openPhoneConfirmationModal(formattedWhatsApp);
+                
+                return true;
             });
 
             // Phone Confirmation Event Listeners
@@ -4509,6 +4960,10 @@
                 }
             });
 
+            // Password Modal Event Listeners
+            copyPasswordBtn.addEventListener('click', copyPasswordToClipboard);
+            closePasswordModalBtn.addEventListener('click', closePasswordModalFunction);
+
             // Allow Enter key in forms
             loginPasswordInput.addEventListener('keypress', (e) => {
                 if (e.key === 'Enter') {
@@ -4527,6 +4982,9 @@
                 }
                 if (event.target === phoneConfirmModal) {
                     closePhoneConfirmationModal();
+                }
+                if (event.target === passwordModal) {
+                    closePasswordModalFunction();
                 }
             });
 
@@ -4686,6 +5144,33 @@
             startLoading();
             handleMobileKeyboard();
 
+            // Setup real-time free signals listener
+            function setupRealtimeFreeSignals() {
+                if (!initializeFirebase()) return;
+                
+                const signalsRef = window.firebaseRef(window.firebaseDatabase, FREE_SIGNALS_DB_REF);
+                
+                window.firebaseOnValue(signalsRef, (snapshot) => {
+                    if (snapshot.exists()) {
+                        const data = snapshot.val();
+                        const newSignals = Object.values(data).filter(signal => 
+                            signal.isActive && (!signal.expiresAt || new Date(signal.expiresAt) > new Date())
+                        );
+                        
+                        // Sort by created date (newest first)
+                        newSignals.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+                        
+                        freeSignals = newSignals;
+                        displayFreeSignals();
+                        
+                        // Show notification for new signals
+                        if (newSignals.length > 0 && freeSignals.length > newSignals.length) {
+                            showToast('New free signal available!', 'info');
+                        }
+                    }
+                });
+            }
+
             // Setup real-time announcements listener
             function setupRealtimeAnnouncements() {
                 if (!initializeFirebase()) return;
@@ -4812,6 +5297,7 @@
 
             // Setup real-time listeners after a delay
             setTimeout(() => {
+                setupRealtimeFreeSignals();
                 setupRealtimeAnnouncements();
                 setupRealtimeNotifications();
                 setupRealtimeOffers();
@@ -4843,18 +5329,23 @@
             measurementId: "G-B023JGDMGJ"
         };
 
-        const app = initializeApp(firebaseConfig);
-        const database = getDatabase(app);
-        
-        window.firebaseDatabase = database;
-        window.firebaseRef = ref;
-        window.firebaseSet = set;
-        window.firebaseGet = get;
-        window.firebaseUpdate = update;
-        window.firebaseRemove = remove;
-        window.firebaseOnValue = onValue;
-        
-        console.log('Firebase initialized successfully');
+        try {
+            const app = initializeApp(firebaseConfig);
+            const database = getDatabase(app);
+            
+            window.firebaseDatabase = database;
+            window.firebaseRef = ref;
+            window.firebaseSet = set;
+            window.firebaseGet = get;
+            window.firebaseUpdate = update;
+            window.firebaseRemove = remove;
+            window.firebaseOnValue = onValue;
+            
+            console.log('Firebase initialized successfully');
+        } catch (error) {
+            console.error('Firebase initialization error:', error);
+            console.log('Running in fallback mode (offline)');
+        }
     </script>
 </body>
 </html>
