@@ -26,6 +26,7 @@
             color: #333333;
             overflow-x: hidden;
             -webkit-tap-highlight-color: transparent;
+            font-size: 16px; /* Base font size */
         }
 
         h1, h2, h3, h4, h5, h6, .heading-font {
@@ -36,13 +37,49 @@
             font-family: var(--font-tech);
         }
 
+        /* Improved Responsive Font Sizes */
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            line-height: 1.2;
+        }
+        
+        h2 {
+            font-size: clamp(1.75rem, 4vw, 2.75rem);
+            line-height: 1.3;
+        }
+        
+        h3 {
+            font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+            line-height: 1.4;
+        }
+        
+        h4 {
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+            line-height: 1.4;
+        }
+        
+        p, .text-base {
+            font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+            line-height: 1.6;
+        }
+        
+        .text-sm {
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
+            line-height: 1.5;
+        }
+        
+        .text-xs {
+            font-size: clamp(0.75rem, 1.8vw, 0.85rem);
+            line-height: 1.4;
+        }
+
         /* Red Text */
         .red-text {
             color: #e3342f;
             font-weight: 700;
         }
 
-        /* Modern Navigation Bar */
+        /* Modern Navigation Bar - IMPROVED */
         .modern-nav {
             background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
@@ -58,7 +95,7 @@
         .nav-container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 1rem;
         }
 
         .nav-content {
@@ -66,6 +103,7 @@
             justify-content: space-between;
             align-items: center;
             height: 70px;
+            min-height: 70px;
         }
 
         .nav-logo {
@@ -73,6 +111,7 @@
             align-items: center;
             gap: 12px;
             text-decoration: none;
+            flex-shrink: 0;
         }
 
         .logo-icon {
@@ -85,21 +124,25 @@
             justify-content: center;
             color: white;
             font-size: 1.2rem;
+            flex-shrink: 0;
         }
 
         .logo-text {
             font-family: var(--font-heading);
             font-weight: 800;
-            font-size: 1.5rem;
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
             background: linear-gradient(135deg, #e3342f, #8b0000);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            white-space: nowrap;
         }
 
         .nav-center {
             display: flex;
             align-items: center;
-            gap: 2rem;
+            gap: 1.5rem;
+            margin: 0 auto;
+            padding: 0 1rem;
         }
 
         .nav-link {
@@ -111,6 +154,8 @@
             border-radius: 8px;
             transition: all 0.3s ease;
             position: relative;
+            white-space: nowrap;
+            font-size: 0.95rem;
         }
 
         .nav-link:hover {
@@ -135,10 +180,27 @@
             border-radius: 3px;
         }
 
+        /* NAVIGATION ICONS - PROPER SIZING */
+        .nav-link i, 
+        .mobile-nav-link i,
+        .btn-modern i,
+        .btn-modern-outline i,
+        .dropdown-item i,
+        .notification-badge i {
+            font-size: 0.9rem;
+            width: 16px;
+            text-align: center;
+        }
+
+        .nav-link i {
+            margin-right: 6px;
+        }
+
         .nav-right {
             display: flex;
             align-items: center;
-            gap: 1.5rem;
+            gap: 1rem;
+            flex-shrink: 0;
         }
 
         /* Modern Button */
@@ -155,7 +217,8 @@
             gap: 0.5rem;
             transition: all 0.3s ease;
             box-shadow: 0 4px 12px rgba(227, 52, 47, 0.2);
-            font-size: 0.9rem;
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
+            white-space: nowrap;
         }
 
         .btn-modern:hover {
@@ -175,7 +238,8 @@
             gap: 0.5rem;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-size: 0.9rem;
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
+            white-space: nowrap;
         }
 
         .btn-modern-outline:hover {
@@ -234,6 +298,7 @@
             color: white;
             font-weight: 600;
             font-size: 1rem;
+            flex-shrink: 0;
         }
 
         .profile-info {
@@ -245,7 +310,8 @@
         .profile-name {
             font-weight: 600;
             color: #1f2937;
-            font-size: 0.9rem;
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
+            white-space: nowrap;
         }
 
         .vip-badge {
@@ -253,11 +319,12 @@
             color: #7c2d12;
             padding: 0.2rem 0.6rem;
             border-radius: 20px;
-            font-size: 0.7rem;
+            font-size: clamp(0.7rem, 1.8vw, 0.8rem);
             font-weight: 600;
             display: flex;
             align-items: center;
             gap: 0.25rem;
+            white-space: nowrap;
         }
 
         /* Dropdown Menu */
@@ -326,7 +393,7 @@
             border-top: 1px solid #e5e7eb;
         }
 
-        /* Mobile Menu */
+        /* Mobile Menu Button */
         .mobile-menu-btn {
             display: none;
             background: none;
@@ -339,6 +406,7 @@
             border-radius: 8px;
             align-items: center;
             justify-content: center;
+            flex-shrink: 0;
         }
 
         .mobile-menu-btn:hover {
@@ -386,6 +454,7 @@
             display: flex;
             align-items: center;
             gap: 1rem;
+            font-size: 1rem;
         }
 
         .mobile-nav-link:hover,
@@ -422,38 +491,12 @@
             gap: 0.5rem;
         }
 
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .nav-center {
-                display: none;
-            }
-            
-            .nav-right .profile-dropdown-modern:not(.mobile-profile),
-            .nav-right .notification-badge:not(.mobile-notification) {
-                display: none;
-            }
-            
-            .mobile-menu-btn {
-                display: flex;
-            }
-            
-            .nav-container {
-                padding: 0 1.5rem;
-            }
-        }
-
-        @media (min-width: 1025px) {
-            .mobile-nav {
-                display: none;
-            }
-        }
-
         /* Notification Dropdown */
         .notification-dropdown {
             position: absolute;
             top: calc(100% + 10px);
             right: 0;
-            width: 320px;
+            width: 380px;
             background: white;
             border-radius: 12px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
@@ -509,6 +552,29 @@
             margin-right: 0.75rem;
         }
 
+        /* Offer Notification Styles */
+        .notification-item.offer {
+            border-left: 4px solid #f59e0b;
+        }
+
+        .notification-item.signal {
+            border-left: 4px solid #10b981;
+        }
+
+        .notification-item.urgent {
+            border-left: 4px solid #ef4444;
+        }
+
+        .offer-badge {
+            background: linear-gradient(135deg, #f59e0b, #fbbf24);
+            color: #7c2d12;
+            padding: 0.2rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-left: auto;
+        }
+
         /* Main Website Content */
         #main-website {
             margin-top: 70px;
@@ -529,7 +595,7 @@
         }
 
         .progress-bar {
-            width: 300px;
+            width: min(300px, 90%);
             height: 6px;
             background: #e5e7eb;
             border-radius: 3px;
@@ -593,7 +659,7 @@
 
         .phone-confirm-header h3 {
             color: white;
-            font-size: 1.5rem;
+            font-size: clamp(1.3rem, 4vw, 1.5rem);
             font-weight: 700;
             margin: 0;
         }
@@ -621,7 +687,7 @@
 
         .phone-confirm-body {
             flex: 1;
-            padding: 2rem;
+            padding: clamp(1rem, 4vw, 2rem);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -630,21 +696,21 @@
         }
 
         .phone-confirm-icon {
-            width: 100px;
-            height: 100px;
+            width: clamp(80px, 20vw, 100px);
+            height: clamp(80px, 20vw, 100px);
             background: linear-gradient(135deg, #e3342f, #f56565);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 3rem;
-            margin-bottom: 2rem;
+            font-size: clamp(2rem, 6vw, 3rem);
+            margin-bottom: clamp(1rem, 4vw, 2rem);
             box-shadow: 0 10px 30px rgba(227, 52, 47, 0.3);
         }
 
         .phone-confirm-title {
-            font-size: 1.8rem;
+            font-size: clamp(1.5rem, 4vw, 1.8rem);
             font-weight: 700;
             margin-bottom: 0.5rem;
             text-align: center;
@@ -654,23 +720,24 @@
         .phone-confirm-subtitle {
             color: #6b7280;
             text-align: center;
-            margin-bottom: 2rem;
-            max-width: 400px;
+            margin-bottom: clamp(1rem, 4vw, 2rem);
+            max-width: min(400px, 90%);
+            font-size: clamp(0.9rem, 3vw, 1rem);
         }
 
         .phone-number-display {
             background: #f9fafb;
             border: 2px solid #e5e7eb;
             border-radius: 12px;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
+            padding: clamp(1rem, 3vw, 1.5rem);
+            margin-bottom: clamp(1rem, 4vw, 2rem);
             text-align: center;
             width: 100%;
-            max-width: 400px;
+            max-width: min(400px, 90%);
         }
 
         .phone-number {
-            font-size: 1.8rem;
+            font-size: clamp(1.3rem, 4vw, 1.8rem);
             font-weight: 700;
             color: #1f2937;
             font-family: var(--font-tech);
@@ -679,14 +746,14 @@
 
         .phone-label {
             color: #6b7280;
-            font-size: 0.9rem;
+            font-size: clamp(0.8rem, 2.5vw, 0.9rem);
             margin-top: 0.5rem;
         }
 
         .otp-input-container {
             width: 100%;
-            max-width: 400px;
-            margin-bottom: 2rem;
+            max-width: min(400px, 90%);
+            margin-bottom: clamp(1rem, 4vw, 2rem);
         }
 
         .otp-input-label {
@@ -695,22 +762,23 @@
             color: #374151;
             font-weight: 500;
             text-align: center;
+            font-size: clamp(0.9rem, 3vw, 1rem);
         }
 
         .otp-inputs {
             display: flex;
             justify-content: center;
-            gap: 10px;
+            gap: clamp(5px, 2vw, 10px);
             margin-bottom: 1rem;
         }
 
         .otp-input {
-            width: 50px;
-            height: 60px;
+            width: clamp(40px, 12vw, 50px);
+            height: clamp(50px, 15vw, 60px);
             border: 2px solid #d1d5db;
             border-radius: 10px;
             text-align: center;
-            font-size: 1.8rem;
+            font-size: clamp(1.3rem, 4vw, 1.8rem);
             font-weight: 700;
             font-family: var(--font-tech);
             background: #f9fafb;
@@ -734,7 +802,7 @@
         .otp-timer {
             text-align: center;
             color: #6b7280;
-            font-size: 0.9rem;
+            font-size: clamp(0.8rem, 2.5vw, 0.9rem);
             margin-bottom: 1.5rem;
         }
 
@@ -745,7 +813,7 @@
 
         .resend-otp {
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: clamp(1rem, 4vw, 2rem);
         }
 
         .resend-btn {
@@ -754,7 +822,7 @@
             color: #3b82f6;
             cursor: pointer;
             font-weight: 500;
-            font-size: 0.95rem;
+            font-size: clamp(0.85rem, 2.5vw, 0.95rem);
             transition: color 0.2s ease;
         }
 
@@ -785,7 +853,7 @@
             padding: 1rem;
             border-radius: 12px;
             font-weight: 600;
-            font-size: 1rem;
+            font-size: clamp(0.95rem, 3vw, 1rem);
             cursor: pointer;
             transition: all 0.3s ease;
             display: flex;
@@ -812,7 +880,7 @@
             padding: 1rem;
             border-radius: 12px;
             font-weight: 600;
-            font-size: 1rem;
+            font-size: clamp(0.95rem, 3vw, 1rem);
             cursor: pointer;
             transition: all 0.3s ease;
         }
@@ -862,27 +930,27 @@
 
         .modal-header {
             background: linear-gradient(135deg, #e3342f, #c53030);
-            padding: 1.75rem;
+            padding: clamp(1.25rem, 4vw, 1.75rem);
             text-align: center;
             flex-shrink: 0;
         }
 
         .modal-header h3 {
             color: white;
-            font-size: 1.5rem;
+            font-size: clamp(1.3rem, 4vw, 1.5rem);
             font-weight: 700;
             margin: 0;
         }
 
         .modal-body {
-            padding: 2rem;
+            padding: clamp(1.25rem, 4vw, 2rem);
             overflow-y: auto;
             -webkit-overflow-scrolling: touch;
             flex: 1;
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: clamp(1rem, 3vw, 1.5rem);
         }
 
         .form-label {
@@ -890,15 +958,15 @@
             margin-bottom: 0.5rem;
             color: #374151;
             font-weight: 500;
-            font-size: 0.9rem;
+            font-size: clamp(0.85rem, 2.5vw, 0.9rem);
         }
 
         .form-input {
             width: 100%;
-            padding: 0.875rem 1rem;
+            padding: clamp(0.75rem, 2.5vw, 0.875rem) 1rem;
             border: 1.5px solid #d1d5db;
             border-radius: 10px;
-            font-size: 1rem;
+            font-size: clamp(0.95rem, 3vw, 1rem);
             transition: all 0.3s ease;
             background: #f9fafb;
             box-sizing: border-box;
@@ -915,28 +983,28 @@
         .modal-footer {
             display: flex;
             gap: 1rem;
-            margin-top: 2rem;
+            margin-top: clamp(1rem, 4vw, 2rem);
             flex-shrink: 0;
         }
 
         .modal-footer .btn-modern {
             flex: 1;
             justify-content: center;
-            padding: 0.875rem;
-            font-size: 1rem;
+            padding: clamp(0.75rem, 2.5vw, 0.875rem);
+            font-size: clamp(0.95rem, 3vw, 1rem);
         }
 
         .modal-footer .btn-modern-outline {
             flex: 1;
             justify-content: center;
-            padding: 0.875rem;
-            font-size: 1rem;
+            padding: clamp(0.75rem, 2.5vw, 0.875rem);
+            font-size: clamp(0.95rem, 3vw, 1rem);
         }
 
         .modal-links {
             text-align: center;
-            margin-top: 1.5rem;
-            padding-top: 1.5rem;
+            margin-top: clamp(1rem, 3vw, 1.5rem);
+            padding-top: clamp(1rem, 3vw, 1.5rem);
             border-top: 1px solid #e5e7eb;
             flex-shrink: 0;
         }
@@ -944,7 +1012,7 @@
         .modal-links a {
             color: #6b7280;
             text-decoration: none;
-            font-size: 0.875rem;
+            font-size: clamp(0.8rem, 2.5vw, 0.875rem);
             transition: color 0.2s ease;
         }
 
@@ -963,7 +1031,7 @@
 
         /* Register Modal */
         .register-tab, .login-tab {
-            padding: 1rem;
+            padding: clamp(0.75rem, 2.5vw, 1rem);
             background: none;
             border: none;
             font-weight: 600;
@@ -972,7 +1040,7 @@
             border-bottom: 3px solid transparent;
             transition: all 0.3s ease;
             flex: 1;
-            font-size: 1rem;
+            font-size: clamp(0.95rem, 3vw, 1rem);
         }
 
         .register-tab.active, .login-tab.active {
@@ -1105,6 +1173,23 @@
             .phone-number {
                 font-size: 1.5rem;
             }
+            
+            .nav-container {
+                padding: 0 0.75rem;
+            }
+            
+            .nav-right {
+                gap: 0.75rem;
+            }
+            
+            .btn-modern, .btn-modern-outline {
+                padding: 0.5rem 1rem;
+            }
+            
+            .notification-dropdown {
+                width: 320px;
+                right: -10px;
+            }
         }
 
         /* Landscape Mode Fixes */
@@ -1122,13 +1207,13 @@
             }
         }
 
-        /* WhatsApp Field */
+        /* WhatsApp Field - UPDATED FOR 10 DIGITS WITHOUT SPACES */
         .whatsapp-field {
             position: relative;
         }
 
         .whatsapp-field .form-input {
-            padding-left: 3rem;
+            padding-left: 4rem; /* For country code */
         }
 
         .whatsapp-prefix {
@@ -1138,6 +1223,7 @@
             transform: translateY(-50%);
             color: #666;
             font-weight: 500;
+            font-size: clamp(0.95rem, 3vw, 1rem);
         }
 
         /* Results Locked */
@@ -1161,12 +1247,12 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 3rem;
+            padding: clamp(1.5rem, 4vw, 3rem);
             border-radius: 12px;
         }
 
         .lock-icon {
-            font-size: 3rem;
+            font-size: clamp(2rem, 6vw, 3rem);
             color: #e3342f;
             margin-bottom: 1rem;
         }
@@ -1213,7 +1299,7 @@
             font-weight: 600;
             transition: all 0.3s ease;
             border: none;
-            padding: 0.75rem 1.5rem;
+            padding: clamp(0.75rem, 2.5vw, 0.75rem) clamp(1rem, 3vw, 1.5rem);
             border-radius: 10px;
             display: inline-flex;
             align-items: center;
@@ -1221,7 +1307,7 @@
             gap: 0.5rem;
             text-decoration: none;
             cursor: pointer;
-            font-size: 0.9rem;
+            font-size: clamp(0.85rem, 2.5vw, 0.9rem);
         }
 
         .btn-simple:hover {
@@ -1263,7 +1349,7 @@
             color: white;
             padding: 0.25rem 0.75rem;
             border-radius: 20px;
-            font-size: 0.75rem;
+            font-size: clamp(0.7rem, 2vw, 0.75rem);
             font-weight: 600;
             display: inline-flex;
             align-items: center;
@@ -1275,15 +1361,15 @@
             position: fixed;
             bottom: 30px;
             right: 30px;
-            width: 60px;
-            height: 60px;
+            width: clamp(50px, 10vw, 60px);
+            height: clamp(50px, 10vw, 60px);
             background: #25D366;
             color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 28px;
+            font-size: clamp(24px, 5vw, 28px);
             box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
             z-index: 1000;
             transition: all 0.3s ease;
@@ -1347,6 +1433,598 @@
             background: #fee2e2;
             color: #991b1b;
         }
+        
+        /* RESPONSIVE NAVIGATION IMPROVEMENTS */
+        @media (max-width: 1200px) {
+            .nav-center {
+                gap: 1rem;
+            }
+            
+            .nav-link {
+                padding: 0.5rem 0.75rem;
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 1024px) {
+            .nav-center {
+                display: none;
+            }
+            
+            .nav-right .profile-dropdown-modern:not(.mobile-profile),
+            .nav-right .notification-badge:not(.mobile-notification) {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: flex;
+            }
+            
+            .nav-container {
+                padding: 0 1rem;
+            }
+        }
+        
+        @media (max-width: 900px) {
+            .logo-text {
+                font-size: 1.2rem;
+            }
+            
+            .logo-icon {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+        }
+        
+        @media (min-width: 1025px) {
+            .mobile-nav {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .nav-content {
+                height: 60px;
+                min-height: 60px;
+            }
+            
+            .modern-nav {
+                padding: 0;
+            }
+            
+            .mobile-nav {
+                top: 60px;
+                max-height: calc(100vh - 60px);
+            }
+            
+            #main-website {
+                margin-top: 60px;
+            }
+            
+            .logo-text {
+                font-size: 1.1rem;
+            }
+            
+            .logo-icon {
+                width: 32px;
+                height: 32px;
+            }
+            
+            .nav-right {
+                gap: 0.5rem;
+            }
+        }
+        
+        @media (max-width: 380px) {
+            .logo-text {
+                display: none;
+            }
+            
+            .nav-logo {
+                gap: 8px;
+            }
+            
+            .logo-icon {
+                width: 30px;
+                height: 30px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* OFFERS SECTION STYLES */
+        .offers-section {
+            background: linear-gradient(135deg, #fef2f2, #fff5f5);
+            border-top: 1px solid #fee2e2;
+            border-bottom: 1px solid #fee2e2;
+        }
+
+        .offer-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(227, 52, 47, 0.15);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .offer-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(227, 52, 47, 0.25);
+            border-color: #e3342f;
+        }
+
+        .offer-card.featured {
+            border: 2px solid #f59e0b;
+        }
+
+        .offer-header {
+            background: linear-gradient(135deg, #e3342f, #c53030);
+            padding: 1.5rem;
+            color: white;
+            position: relative;
+        }
+
+        .offer-badge {
+            background: linear-gradient(135deg, #f59e0b, #fbbf24);
+            color: #7c2d12;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+        }
+
+        .offer-timer {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 12px;
+            margin-top: 0.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--font-tech);
+        }
+
+        .timer-numbers {
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .offer-body {
+            padding: 2rem;
+        }
+
+        .offer-price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #e3342f;
+            margin-bottom: 0.5rem;
+        }
+
+        .offer-price span {
+            font-size: 1rem;
+            color: #6b7280;
+        }
+
+        .offer-features {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .offer-features li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .offer-features i {
+            color: #10b981;
+        }
+
+        .claim-btn {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+
+        .claim-btn:hover {
+            background: linear-gradient(135deg, #059669, #047857);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.3);
+        }
+
+        .offer-expired {
+            background: #6b7280;
+            cursor: not-allowed;
+        }
+
+        .offer-expired:hover {
+            background: #6b7280;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .offer-countdown {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .countdown-item {
+            text-align: center;
+            background: white;
+            padding: 0.75rem;
+            border-radius: 10px;
+            min-width: 60px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .countdown-number {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #e3342f;
+            font-family: var(--font-tech);
+        }
+
+        .countdown-label {
+            font-size: 0.75rem;
+            color: #6b7280;
+            margin-top: 0.25rem;
+        }
+
+        /* MASH SOLUTIONS Footer Styles */
+        .mash-footer {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: #f9fafb;
+            padding: 3rem 0 1.5rem;
+            margin-top: 3rem;
+            border-top: 2px solid #3b82f6;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        @media (max-width: 992px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 1.5rem;
+        }
+
+        .mash-animation {
+            position: relative;
+            width: 40px;
+            height: 40px;
+        }
+
+        .mash-icon {
+            font-size: 1.8rem;
+            color: #3b82f6;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .mash-sparkle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #60a5fa;
+            border-radius: 50%;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        .mash-sparkle:nth-child(2) {
+            top: -5px;
+            left: 50%;
+            animation-delay: 0.5s;
+        }
+
+        .mash-sparkle:nth-child(3) {
+            top: 50%;
+            right: -5px;
+            animation-delay: 1s;
+        }
+
+        .mash-sparkle:nth-child(4) {
+            bottom: -5px;
+            left: 50%;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0.3; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        .footer-logo .logo-text {
+            font-family: var(--font-heading);
+            font-weight: 800;
+            font-size: 1.4rem;
+            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .footer-description {
+            color: #cbd5e1;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: #cbd5e1;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: #3b82f6;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .footer-heading {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            color: white;
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 30px;
+            height: 2px;
+            background: #3b82f6;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-link {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .footer-link:hover {
+            color: #60a5fa;
+            transform: translateX(5px);
+        }
+
+        .footer-contact {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-contact li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            color: #cbd5e1;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .footer-contact i {
+            color: #3b82f6;
+            margin-top: 3px;
+            min-width: 20px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom a {
+            color: #60a5fa;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-bottom a:hover {
+            color: #93c5fd;
+            text-decoration: underline;
+        }
+
+        .newsletter-form {
+            margin-top: 1rem;
+        }
+
+        .newsletter-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: white;
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .newsletter-input::placeholder {
+            color: #94a3b8;
+        }
+
+        .newsletter-btn {
+            width: 100%;
+            padding: 0.75rem;
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-btn:hover {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            transform: translateY(-2px);
+        }
+
+        .services-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 0.5rem;
+        }
+
+        .service-tag {
+            background: rgba(59, 130, 246, 0.2);
+            color: #93c5fd;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        /* Announcements Styles */
+        .announcements-section {
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            border-top: 1px solid #bae6fd;
+            border-bottom: 1px solid #bae6fd;
+        }
+
+        .announcement-card {
+            border-left: 4px solid;
+            animation: slideIn 0.3s ease;
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .announcement-urgent {
+            border-left-color: #ef4444;
+            background: #fef2f2;
+        }
+
+        .announcement-important {
+            border-left-color: #f59e0b;
+            background: #fffbeb;
+        }
+
+        .announcement-normal {
+            border-left-color: #3b82f6;
+            background: #eff6ff;
+        }
+
+        .announcement-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+
+        .badge-urgent {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: white;
+        }
+
+        .badge-important {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+        }
+
+        .badge-normal {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: white;
+        }
+
+        .announcement-date {
+            font-size: 0.85rem;
+            color: #6b7280;
+            margin-top: 0.5rem;
+        }
     </style>
 </head>
 <body>
@@ -1385,7 +2063,8 @@
                 </p>
                 
                 <div class="phone-number-display">
-                    <div class="phone-number" id="confirmPhoneNumber">+94 77 123 4567</div>
+                    <!-- WhatsApp number changed to single digits -->
+                    <div class="phone-number" id="confirmPhoneNumber">+94 77 777 7777</div>
                     <div class="phone-label">WhatsApp Number</div>
                 </div>
                 
@@ -1423,7 +2102,7 @@
         </div>
     </div>
 
-    <!-- Modern Navigation Bar -->
+    <!-- Modern Navigation Bar - IMPROVED -->
     <nav class="modern-nav">
         <div class="nav-container">
             <div class="nav-content">
@@ -1440,6 +2119,14 @@
                     <a href="#home" class="nav-link active" data-section="home">
                         <i class="fas fa-home mr-2"></i>
                         Home
+                    </a>
+                    <a href="#offers" class="nav-link" data-section="offers">
+                        <i class="fas fa-gift mr-2"></i>
+                        Special Offers
+                    </a>
+                    <a href="#announcements" class="nav-link" data-section="announcements">
+                        <i class="fas fa-bullhorn mr-2"></i>
+                        Announcements
                     </a>
                     <a href="#signals" class="nav-link" data-section="signals">
                         <i class="fas fa-signal mr-2"></i>
@@ -1466,7 +2153,7 @@
                         <button class="btn-modern-outline" id="notification-btn">
                             <i class="fas fa-bell"></i>
                         </button>
-                        <span class="badge-count" id="notification-count">3</span>
+                        <span class="badge-count" id="notification-count">0</span>
                         
                         <!-- Notification Dropdown -->
                         <div class="notification-dropdown" id="notification-dropdown">
@@ -1478,7 +2165,7 @@
                                 <!-- Notifications will be populated by JavaScript -->
                             </div>
                             <div class="notification-header">
-                                <a href="#" class="text-sm text-red-600 font-medium">View all notifications</a>
+                                <a href="#offers" class="text-sm text-red-600 font-medium">View all offers</a>
                             </div>
                         </div>
                     </div>
@@ -1522,6 +2209,10 @@
                                     <i class="fas fa-sign-in-alt"></i>
                                     <span>Login</span>
                                 </button>
+                                <a href="#offers" class="dropdown-item">
+                                    <i class="fas fa-gift"></i>
+                                    <span>Special Offers</span>
+                                </a>
                                 <button class="dropdown-item" id="dropdown-renew-vip">
                                     <i class="fas fa-crown"></i>
                                     <span>Renew VIP</span>
@@ -1559,6 +2250,14 @@
                     <i class="fas fa-home"></i>
                     Home
                 </a>
+                <a href="#offers" class="mobile-nav-link" data-section="offers">
+                    <i class="fas fa-gift"></i>
+                    Special Offers
+                </a>
+                <a href="#announcements" class="mobile-nav-link" data-section="announcements">
+                    <i class="fas fa-bullhorn"></i>
+                    Announcements
+                </a>
                 <a href="#signals" class="mobile-nav-link" data-section="signals">
                     <i class="fas fa-signal"></i>
                     Free Signals
@@ -1583,7 +2282,7 @@
                     <button class="btn-modern-outline w-full" id="mobile-notification-btn">
                         <i class="fas fa-bell"></i>
                         Notifications
-                        <span class="badge-count">3</span>
+                        <span class="badge-count">0</span>
                     </button>
                 </div>
                 
@@ -1613,6 +2312,10 @@
                             <i class="fas fa-sign-in-alt"></i>
                             Login
                         </button>
+                        <a href="#offers" class="btn-modern-outline w-full text-center">
+                            <i class="fas fa-gift"></i>
+                            View Offers
+                        </a>
                         <button class="logout-btn w-full hidden" id="mobile-logout-btn">
                             <i class="fas fa-sign-out-alt"></i>
                             Logout
@@ -1687,21 +2390,20 @@
                             <label class="form-label">Password</label>
                             <input type="password" id="registerPassword" 
                                    class="form-input"
-                                   placeholder="Create a password">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Confirm Password</label>
-                            <input type="password" id="registerConfirmPassword" 
-                                   class="form-input"
-                                   placeholder="Confirm your password">
+                                   placeholder="Password will be auto-generated" 
+                                   readonly>
                         </div>
                         <div class="form-group whatsapp-field">
                             <label class="form-label">WhatsApp Number</label>
                             <div class="whatsapp-prefix">+94</div>
+                            <!-- UPDATED: Now accepts 10 digits without spaces -->
                             <input type="tel" id="registerWhatsApp" 
                                    class="form-input"
-                                   placeholder="77 123 4567"
-                                   maxlength="9">
+                                   placeholder="771234567"
+                                   maxlength="10"
+                                   pattern="[0-9]{10}"
+                                   title="Please enter a 10-digit WhatsApp number (without spaces)">
+                            <p class="text-xs text-gray-500 mt-1">Enter 10-digit number without spaces (eg: 771234567)</p>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -1722,7 +2424,8 @@
     </div>
 
     <!-- WhatsApp Float Button -->
-    <a href="https://wa.me/94771234567" target="_blank" class="whatsapp-float">
+    <!-- WhatsApp number changed to single digits -->
+    <a href="https://wa.me/94777777777" target="_blank" class="whatsapp-float">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -1737,8 +2440,49 @@
                 Get accurate Crypto Signals every day. Maximize your profits with our VIP community.
             </p>
             <div class="flex flex-col md:flex-row justify-center gap-6">
+                <a href="#offers" class="simple-card px-12 py-5 rounded-xl text-xl font-bold heading-font bg-gradient-to-r from-yellow-400 to-orange-500 text-white">
+                    <i class="fas fa-gift mr-3"></i>SPECIAL OFFERS
+                </a>
                 <a href="#signals" class="btn-simple px-12 py-5 rounded-xl text-xl font-bold heading-font">FREE SIGNALS</a>
                 <a href="#pricing" class="simple-card px-12 py-5 rounded-xl text-xl font-bold border-red-300 border hover:border-red-500 transition heading-font red-text">VIP PLANS</a>
+            </div>
+        </section>
+
+        <!-- Announcements Section -->
+        <section id="announcements" class="announcements-section px-6 py-12">
+            <div class="max-w-6xl mx-auto">
+                <h3 class="text-3xl font-bold mb-6 heading-font">
+                    <i class="fas fa-bullhorn mr-3 red-text"></i>Latest Announcements
+                </h3>
+                <div id="announcements-container" class="space-y-4">
+                    <!-- Announcements will be loaded from Firebase -->
+                    <div class="text-center text-gray-500 py-8">
+                        <i class="fas fa-newspaper text-4xl mb-4"></i>
+                        <p>No announcements yet. Check back soon!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Special Offers Section -->
+        <section id="offers" class="offers-section px-6 py-16">
+            <div class="max-w-6xl mx-auto">
+                <h3 class="text-4xl font-bold mb-10 flex items-center gap-3 heading-font text-center">
+                    <span class="w-4 h-10 bg-yellow-500 rounded-full"></span> 
+                    <span class="text-yellow-600">LIMITED TIME OFFERS</span>
+                </h3>
+                
+                <div id="offers-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Offers will be loaded from Firebase -->
+                </div>
+
+                <div class="mt-12 text-center">
+                    <p class="text-gray-600 mb-6">Want to receive exclusive offers directly?</p>
+                    <button class="btn-modern" id="subscribe-offers-btn">
+                        <i class="fas fa-bell"></i>
+                        SUBSCRIBE FOR OFFERS
+                    </button>
+                </div>
             </div>
         </section>
 
@@ -1825,7 +2569,7 @@
                 <div class="grid md:grid-cols-3 gap-8">
                     <div class="simple-card p-8 text-center">
                         <h4 class="text-2xl font-bold mb-4 text-gray-800 heading-font">BASIC</h4>
-                        <div class="text-4xl font-bold mb-6 red-text">$99<span class="text-lg text-gray-500">/month</span></div>
+                        <div class="text-4xl font-bold mb-6 red-text" id="basic-price">$99<span class="text-lg text-gray-500">/month</span></div>
                         <ul class="space-y-3 text-gray-600 mb-8">
                             <li class="flex items-center justify-center gap-2">✓ 3 Daily Signals</li>
                             <li class="flex items-center justify-center gap-2">✓ Basic Support</li>
@@ -1839,7 +2583,7 @@
                             <span class="bg-red-600 text-white px-4 py-1 rounded-full text-sm font-bold">MOST POPULAR</span>
                         </div>
                         <h4 class="text-2xl font-bold mb-4 red-text heading-font">PRO TRADER</h4>
-                        <div class="text-4xl font-bold mb-6 red-text">$299<span class="text-lg text-gray-500">/month</span></div>
+                        <div class="text-4xl font-bold mb-6 red-text" id="pro-price">$299<span class="text-lg text-gray-500">/month</span></div>
                         <ul class="space-y-3 text-gray-600 mb-8">
                             <li class="flex items-center justify-center gap-2">✓ 8-10 Daily Signals</li>
                             <li class="flex items-center justify-center gap-2">✓ 24/7 Priority Support</li>
@@ -1851,7 +2595,7 @@
                     
                     <div class="simple-card p-8 text-center">
                         <h4 class="text-2xl font-bold mb-4 text-gray-800 heading-font">ELITE</h4>
-                        <div class="text-4xl font-bold mb-6 red-text">$599<span class="text-lg text-gray-500">/month</span></div>
+                        <div class="text-4xl font-bold mb-6 red-text" id="elite-price">$599<span class="text-lg text-gray-500">/month</span></div>
                         <ul class="space-y-3 text-gray-600 mb-8">
                             <li class="flex items-center justify-center gap-2">✓ Unlimited Signals</li>
                             <li class="flex items-center justify-center gap-2">✓ 1-on-1 Coaching</li>
@@ -1895,42 +2639,89 @@
             </div>
         </section>
 
-        <!-- Footer -->
-        <footer class="footer-simple px-6 py-12">
-            <div class="max-w-6xl mx-auto">
-                <div class="grid md:grid-cols-4 gap-8">
+        <!-- MASH SOLUTIONS Footer -->
+        <footer class="mash-footer">
+            <div class="footer-container">
+                <div class="footer-grid">
                     <div>
-                        <h4 class="text-xl font-bold mb-4 heading-font text-white">SM VIP SIGNALS</h4>
-                        <p class="text-gray-300">Premium crypto trading signals and analysis for serious traders.</p>
+                        <div class="footer-logo">
+                            <div class="mash-animation">
+                                <i class="fas fa-lightbulb mash-icon"></i>
+                                <div class="mash-sparkle"></div>
+                                <div class="mash-sparkle"></div>
+                                <div class="mash-sparkle"></div>
+                            </div>
+                            <span class="logo-text">MASH SOLUTIONS</span>
+                        </div>
+                        <p class="footer-description">
+                            Your trusted partner for innovative digital solutions. We specialize in web development, 
+                            digital marketing, and business automation services to help your business thrive in the digital age.
+                        </p>
+                        <div class="social-links">
+                            <a href="https://www.facebook.com/share/1B2M56GifP/?mibextid=wwXIfrFb" target="_blank" class="social-link">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.instagram.com/mashsolutions26?igsh=MTJteW43ZDlqYXR0YQ==" target="_blank" class="social-link">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://wa.me/94750700961" target="_blank" class="social-link">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/company/mash-solutions" target="_blank" class="social-link">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
                     </div>
+                    
                     <div>
-                        <h4 class="text-xl font-bold mb-4 heading-font text-white">Quick Links</h4>
-                        <ul class="space-y-2">
-                            <li><a href="#home" class="text-gray-300 hover:text-white">Home</a></li>
-                            <li><a href="#signals" class="text-gray-300 hover:text-white">Free Signals</a></li>
-                            <li><a href="#results" class="text-gray-300 hover:text-white">VIP Results</a></li>
-                            <li><a href="#pricing" class="text-gray-300 hover:text-white">Pricing</a></li>
+                        <h4 class="footer-heading">Quick Links</h4>
+                        <ul class="footer-links">
+                            <li><a href="https://mashsolutions.com" class="footer-link">Home</a></li>
+                            <li><a href="https://mashsolutions.com/about" class="footer-link">About Us</a></li>
+                            <li><a href="https://mashsolutions.com/services" class="footer-link">Services</a></li>
+                            <li><a href="https://mashsolutions.com/portfolio" class="footer-link">Portfolio</a></li>
+                            <li><a href="https://mashsolutions.com/contact" class="footer-link">Contact Us</a></li>
                         </ul>
                     </div>
+                    
                     <div>
-                        <h4 class="text-xl font-bold mb-4 heading-font text-white">Contact</h4>
-                        <ul class="space-y-2">
-                            <li class="text-gray-300">Email: support@smvipsignals.com</li>
-                            <li class="text-gray-300">WhatsApp: +94 77 123 4567</li>
-                            <li class="text-gray-300">Telegram: @smvipsignals</li>
+                        <h4 class="footer-heading">Our Services</h4>
+                        <ul class="footer-links">
+                            <li><a href="https://mashsolutions.com/web-development" class="footer-link">Web Development</a></li>
+                            <li><a href="https://mashsolutions.com/digital-marketing" class="footer-link">Digital Marketing</a></li>
+                            <li><a href="https://mashsolutions.com/ecommerce" class="footer-link">E-commerce Solutions</a></li>
+                            <li><a href="https://mashsolutions.com/seo" class="footer-link">SEO Services</a></li>
+                            <li><a href="https://mashsolutions.com/social-media" class="footer-link">Social Media Management</a></li>
                         </ul>
+                        <div class="services-list">
+                            <span class="service-tag">Web Design</span>
+                            <span class="service-tag">Branding</span>
+                            <span class="service-tag">Hosting</span>
+                            <span class="service-tag">Support</span>
+                        </div>
                     </div>
+                    
                     <div>
-                        <h4 class="text-xl font-bold mb-4 heading-font text-white">Legal</h4>
-                        <ul class="space-y-2">
-                            <li><a href="#" class="text-gray-300 hover:text-white">Terms of Service</a></li>
-                            <li><a href="#" class="text-gray-300 hover:text-white">Privacy Policy</a></li>
-                            <li><a href="#" class="text-gray-300 hover:text-white">Disclaimer</a></li>
+                        <h4 class="footer-heading">Contact Info</h4>
+                        <ul class="footer-contact">
+                            <li><i class="fas fa-map-marker-alt"></i> Digital Hub, Colombo, Sri Lanka</li>
+                            <li><i class="fas fa-phone"></i> +94 75 070 0961</li>
+                            <li><i class="fas fa-envelope"></i> info@mashsolutions.com</li>
+                            <li><i class="fas fa-clock"></i> Mon-Fri: 9:00 AM - 6:00 PM</li>
                         </ul>
+                        <div class="newsletter-form">
+                            <input type="email" class="newsletter-input" placeholder="Your email address">
+                            <button class="newsletter-btn">Subscribe to Updates</button>
+                        </div>
                     </div>
                 </div>
-                <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                    <p>&copy; 2024 SM VIP SIGNALS. All rights reserved.</p>
+                
+                <div class="footer-bottom">
+                    <p>&copy; 2024 MASH SOLUTIONS. All rights reserved. | 
+                    <a href="https://mashsolutions.com/privacy">Privacy Policy</a> | 
+                    <a href="https://mashsolutions.com/terms">Terms of Service</a> | 
+                    <a href="https://mashsolutions.com/sitemap">Sitemap</a></p>
+                    <p class="mt-2">Partnered with <strong>SM VIP SIGNALS</strong> for premium trading solutions.</p>
                 </div>
             </div>
         </footer>
@@ -1985,8 +2776,19 @@
             const registerUsernameInput = document.getElementById('registerUsername');
             const registerEmailInput = document.getElementById('registerEmail');
             const registerPasswordInput = document.getElementById('registerPassword');
-            const registerConfirmPasswordInput = document.getElementById('registerConfirmPassword');
             const registerWhatsAppInput = document.getElementById('registerWhatsApp');
+            
+            // Offers Elements
+            const offersContainer = document.getElementById('offers-container');
+            const subscribeOffersBtn = document.getElementById('subscribe-offers-btn');
+            
+            // Announcements Elements
+            const announcementsContainer = document.getElementById('announcements-container');
+            
+            // Pricing Elements
+            const basicPriceElement = document.getElementById('basic-price');
+            const proPriceElement = document.getElementById('pro-price');
+            const elitePriceElement = document.getElementById('elite-price');
             
             // Buttons
             const joinVipBtn = document.getElementById('join-vip-btn');
@@ -2009,23 +2811,39 @@
                 "Entering main trading hub..."
             ];
 
-            // Firebase Database Reference
+            // Firebase Database References
             const USERS_DB_REF = 'users';
+            const NOTIFICATIONS_DB_REF = 'notifications';
+            const OFFERS_DB_REF = 'offers';
+            const ANNOUNCEMENTS_DB_REF = 'announcements';
+            const SUBSCRIPTIONS_DB_REF = 'subscriptions';
             const RESULTS_DB_REF = 'monthly_results';
+            const PACKAGE_SETTINGS_DB_REF = 'package_settings';
             
+            // Package prices (default values)
+            let packagePrices = {
+                basic: { price: 99, days: 30 },
+                pro: { price: 299, days: 30 },
+                elite: { price: 599, days: 30 },
+                '3months': { price: 120, days: 90 },
+                lifetime: { price: 300, days: 'lifetime' }
+            };
+
             // Test VIP Users (will be replaced with Firebase)
             const TEST_VIP_USERS = {
                 'vipuser1': { 
-                    password: 'pass123', 
+                    password: 'SMVIP@2024#001', 
                     email: 'vipuser1@example.com',
+                    // WhatsApp number changed to 10 digits without spaces
                     whatsapp: '+94771234567',
                     isVIP: true,
                     vipExpiry: '2024-12-31',
                     phoneVerified: true
                 },
                 'vipuser2': { 
-                    password: 'pass123', 
+                    password: 'SMVIP@2024#002', 
                     email: 'vipuser2@example.com',
+                    // WhatsApp number changed to 10 digits without spaces
                     whatsapp: '+94777654321',
                     isVIP: true,
                     vipExpiry: '2024-11-30',
@@ -2077,72 +2895,553 @@
                 }
             ];
 
-            // Notifications Data
-            const notifications = [
-                {
-                    id: 1,
-                    title: 'New BTC Signal Released',
-                    message: 'Bitcoin buy signal with 20x leverage',
-                    time: '5 minutes ago',
-                    icon: 'fa-chart-line',
-                    iconColor: 'bg-green-100 text-green-600',
-                    unread: true
-                },
-                {
-                    id: 2,
-                    title: 'New VIP Member Joined',
-                    message: 'Welcome John Doe to Pro Trader plan',
-                    time: '1 hour ago',
-                    icon: 'fa-user-plus',
-                    iconColor: 'bg-blue-100 text-blue-600',
-                    unread: true
-                },
-                {
-                    id: 3,
-                    title: 'Market Alert: High Volatility',
-                    message: 'Increased volatility expected in BTC market',
-                    time: '3 hours ago',
-                    icon: 'fa-exclamation-triangle',
-                    iconColor: 'bg-yellow-100 text-yellow-600',
-                    unread: true
-                }
-            ];
-
             // Application State
             let currentUser = null;
-            let unreadNotifications = 3;
+            let notifications = [];
+            let offers = [];
+            let announcements = [];
             let phoneVerificationData = null;
             let otpCountdown = 300; // 5 minutes in seconds
             let resendCountdown = 60; // 1 minute in seconds
             let otpInterval = null;
             let resendInterval = null;
             let generatedOTP = null;
+            let notificationListeners = [];
+
+            // Firebase Functions
+            function initializeFirebase() {
+                if (!window.firebaseDatabase) {
+                    console.log('Firebase not initialized');
+                    return false;
+                }
+                return true;
+            }
+
+            // Load Package Settings from Firebase
+            async function loadPackageSettings() {
+                if (!initializeFirebase()) {
+                    updatePricingUI();
+                    return;
+                }
+
+                try {
+                    const settingsRef = window.firebaseRef(window.firebaseDatabase, PACKAGE_SETTINGS_DB_REF);
+                    const snapshot = await window.firebaseGet(settingsRef);
+                    
+                    if (snapshot.exists()) {
+                        const data = snapshot.val();
+                        packagePrices = {
+                            basic: data['1month'] || packagePrices.basic,
+                            pro: { price: 299, days: 30 }, // Default PRO price
+                            elite: { price: 599, days: 30 }, // Default ELITE price
+                            '3months': data['3months'] || packagePrices['3months'],
+                            lifetime: data['lifetime'] || packagePrices.lifetime
+                        };
+                    }
+                    
+                    updatePricingUI();
+                } catch (error) {
+                    console.error('Error loading package settings:', error);
+                    updatePricingUI();
+                }
+            }
+
+            // Update pricing UI
+            function updatePricingUI() {
+                if (basicPriceElement) {
+                    basicPriceElement.innerHTML = `$${packagePrices.basic.price}<span class="text-lg text-gray-500">/month</span>`;
+                }
+                if (proPriceElement) {
+                    proPriceElement.innerHTML = `$${packagePrices.pro.price}<span class="text-lg text-gray-500">/month</span>`;
+                }
+                if (elitePriceElement) {
+                    elitePriceElement.innerHTML = `$${packagePrices.elite.price}<span class="text-lg text-gray-500">/month</span>`;
+                }
+            }
+
+            // Load Announcements from Firebase
+            async function loadAnnouncements() {
+                if (!initializeFirebase()) {
+                    announcements = getDefaultAnnouncements();
+                    displayAnnouncements();
+                    return;
+                }
+
+                try {
+                    const announcementsRef = window.firebaseRef(window.firebaseDatabase, ANNOUNCEMENTS_DB_REF);
+                    const snapshot = await window.firebaseGet(announcementsRef);
+                    
+                    if (snapshot.exists()) {
+                        const data = snapshot.val();
+                        announcements = Object.entries(data)
+                            .map(([key, value]) => ({ key, ...value }))
+                            .filter(announcement => 
+                                announcement.isActive !== false && 
+                                (!announcement.expiresAt || new Date(announcement.expiresAt) > new Date())
+                            )
+                            .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+                    } else {
+                        announcements = getDefaultAnnouncements();
+                    }
+                    
+                    displayAnnouncements();
+                } catch (error) {
+                    console.error('Error loading announcements:', error);
+                    announcements = getDefaultAnnouncements();
+                    displayAnnouncements();
+                }
+            }
+
+            // Get Default Announcements (fallback)
+            function getDefaultAnnouncements() {
+                return [
+                    {
+                        key: '1',
+                        title: 'Welcome to SM VIP SIGNALS',
+                        message: 'Welcome to our premium trading community. Start your journey with our free signals and upgrade to VIP for exclusive benefits.',
+                        priority: 'normal',
+                        timestamp: new Date().toISOString(),
+                        postedBy: 'Admin',
+                        isActive: true
+                    }
+                ];
+            }
+
+            // Display Announcements
+            function displayAnnouncements() {
+                if (!announcementsContainer) return;
+                
+                announcementsContainer.innerHTML = '';
+                
+                if (announcements.length === 0) {
+                    announcementsContainer.innerHTML = `
+                        <div class="text-center text-gray-500 py-8">
+                            <i class="fas fa-newspaper text-4xl mb-4"></i>
+                            <p>No announcements yet. Check back soon!</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                announcements.forEach(announcement => {
+                    const announcementElement = document.createElement('div');
+                    const priorityClass = `announcement-${announcement.priority}`;
+                    const badgeClass = `badge-${announcement.priority}`;
+                    const badgeText = announcement.priority.charAt(0).toUpperCase() + announcement.priority.slice(1);
+                    
+                    const date = new Date(announcement.timestamp);
+                    const formattedDate = date.toLocaleDateString('en-US', {
+                        weekday: 'long',
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit'
+                    });
+                    
+                    announcementElement.className = `announcement-card ${priorityClass}`;
+                    announcementElement.innerHTML = `
+                        <div class="flex justify-between items-start mb-3">
+                            <h4 class="text-lg font-bold text-gray-900">${announcement.title}</h4>
+                            <span class="announcement-badge ${badgeClass}">${badgeText}</span>
+                        </div>
+                        <p class="text-gray-700 mb-3">${announcement.message}</p>
+                        <div class="flex justify-between items-center">
+                            <span class="announcement-date">
+                                <i class="fas fa-clock mr-1"></i>${formattedDate}
+                            </span>
+                            <span class="text-sm text-gray-600">
+                                <i class="fas fa-user mr-1"></i>${announcement.postedBy || 'Admin'}
+                            </span>
+                        </div>
+                    `;
+                    
+                    announcementsContainer.appendChild(announcementElement);
+                });
+            }
+
+            // Load Notifications from Firebase
+            async function loadNotifications() {
+                if (!initializeFirebase()) {
+                    // Load default notifications
+                    notifications = getDefaultNotifications();
+                    initNotifications();
+                    return;
+                }
+
+                try {
+                    const notificationsRef = window.firebaseRef(window.firebaseDatabase, NOTIFICATIONS_DB_REF);
+                    const snapshot = await window.firebaseGet(notificationsRef);
+                    
+                    if (snapshot.exists()) {
+                        const data = snapshot.val();
+                        notifications = Object.values(data).filter(notification => 
+                            notification.isActive && (!notification.expiresAt || new Date(notification.expiresAt) > new Date())
+                        );
+                        
+                        // Sort by created date (newest first)
+                        notifications.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+                    } else {
+                        notifications = getDefaultNotifications();
+                    }
+                    
+                    initNotifications();
+                    updateNotificationBadge();
+                } catch (error) {
+                    console.error('Error loading notifications:', error);
+                    notifications = getDefaultNotifications();
+                    initNotifications();
+                }
+            }
+
+            // Load Offers from Firebase
+            async function loadOffers() {
+                if (!initializeFirebase()) {
+                    // Load default offers
+                    offers = getDefaultOffers();
+                    displayOffers();
+                    return;
+                }
+
+                try {
+                    const offersRef = window.firebaseRef(window.firebaseDatabase, OFFERS_DB_REF);
+                    const snapshot = await window.firebaseGet(offersRef);
+                    
+                    if (snapshot.exists()) {
+                        const data = snapshot.val();
+                        offers = Object.values(data).filter(offer => 
+                            offer.isActive && (!offer.expiresAt || new Date(offer.expiresAt) > new Date())
+                        );
+                        
+                        // Sort by featured first, then by expiry date
+                        offers.sort((a, b) => {
+                            if (a.featured && !b.featured) return -1;
+                            if (!a.featured && b.featured) return 1;
+                            if (a.expiresAt && b.expiresAt) {
+                                return new Date(a.expiresAt) - new Date(b.expiresAt);
+                            }
+                            return 0;
+                        });
+                    } else {
+                        offers = getDefaultOffers();
+                    }
+                    
+                    displayOffers();
+                } catch (error) {
+                    console.error('Error loading offers:', error);
+                    offers = getDefaultOffers();
+                    displayOffers();
+                }
+            }
+
+            // Get Default Notifications (fallback)
+            function getDefaultNotifications() {
+                return [
+                    {
+                        id: '1',
+                        title: 'New VIP Offer Available!',
+                        message: 'Get 50% discount on PRO plan for first month',
+                        type: 'offer',
+                        createdAt: new Date().toISOString(),
+                        expiresAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(),
+                        isActive: true,
+                        unread: true,
+                        icon: 'fa-gift',
+                        iconColor: 'bg-yellow-100 text-yellow-600',
+                        link: '#offers'
+                    },
+                    {
+                        id: '2',
+                        title: 'New BTC Signal Released',
+                        message: 'Bitcoin buy signal with 20x leverage',
+                        type: 'signal',
+                        createdAt: new Date(Date.now() - 5 * 60 * 1000).toISOString(),
+                        expiresAt: null,
+                        isActive: true,
+                        unread: true,
+                        icon: 'fa-chart-line',
+                        iconColor: 'bg-green-100 text-green-600',
+                        link: '#signals'
+                    },
+                    {
+                        id: '3',
+                        title: 'Welcome to SM VIP SIGNALS',
+                        message: 'Start your trading journey with our free signals',
+                        type: 'info',
+                        createdAt: new Date(Date.now() - 10 * 60 * 1000).toISOString(),
+                        expiresAt: null,
+                        isActive: true,
+                        unread: true,
+                        icon: 'fa-info-circle',
+                        iconColor: 'bg-blue-100 text-blue-600',
+                        link: '#home'
+                    }
+                ];
+            }
+
+            // Get Default Offers (fallback)
+            function getDefaultOffers() {
+                const now = new Date();
+                const tomorrow = new Date(now);
+                tomorrow.setDate(tomorrow.getDate() + 1);
+                const nextWeek = new Date(now);
+                nextWeek.setDate(nextWeek.getDate() + 7);
+
+                return [
+                    {
+                        id: 'offer1',
+                        title: 'New Member Special',
+                        description: '50% OFF on your first VIP subscription',
+                        originalPrice: packagePrices.pro.price,
+                        offerPrice: Math.round(packagePrices.pro.price * 0.5 * 100) / 100,
+                        currency: '$',
+                        features: [
+                            '8-10 Daily Signals',
+                            '24/7 Priority Support',
+                            'Real-time Alerts',
+                            'Risk Management',
+                            '1 Month VIP Access'
+                        ],
+                        expiresAt: tomorrow.toISOString(),
+                        isActive: true,
+                        featured: true,
+                        buttonText: 'CLAIM 50% OFF',
+                        whatsappMessage: 'Hi, I want to claim the 50% OFF New Member Special offer for VIP subscription.'
+                    },
+                    {
+                        id: 'offer2',
+                        title: 'Quarterly Plan Discount',
+                        description: 'Save 30% on 3-month PRO plan',
+                        originalPrice: packagePrices.pro.price * 3,
+                        offerPrice: Math.round(packagePrices.pro.price * 3 * 0.7 * 100) / 100,
+                        currency: '$',
+                        features: [
+                            '3 Months VIP Access',
+                            'All PRO features included',
+                            'Priority Support',
+                            'Monthly Performance Report',
+                            'Risk Management Tools'
+                        ],
+                        expiresAt: nextWeek.toISOString(),
+                        isActive: true,
+                        featured: false,
+                        buttonText: 'GET 30% DISCOUNT',
+                        whatsappMessage: 'Hi, I want to claim the 30% discount on Quarterly PRO plan.'
+                    },
+                    {
+                        id: 'offer3',
+                        title: 'Referral Bonus',
+                        description: 'Get 1 month free for every 3 referrals',
+                        originalPrice: packagePrices.pro.price,
+                        offerPrice: 0,
+                        currency: '$',
+                        features: [
+                            'Free VIP month for 3 successful referrals',
+                            'No limits on referrals',
+                            'Instant activation',
+                            'Works with all plans',
+                            'No expiry on earned months'
+                        ],
+                        expiresAt: null,
+                        isActive: true,
+                        featured: false,
+                        buttonText: 'LEARN MORE',
+                        whatsappMessage: 'Hi, I want to learn more about the referral program.'
+                    }
+                ];
+            }
+
+            // Display Offers
+            function displayOffers() {
+                if (!offersContainer) return;
+                
+                offersContainer.innerHTML = '';
+                
+                if (offers.length === 0) {
+                    offersContainer.innerHTML = `
+                        <div class="col-span-full text-center py-12">
+                            <div class="text-gray-400 text-6xl mb-4">
+                                <i class="fas fa-gift"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-gray-600 mb-2">No Active Offers</h4>
+                            <p class="text-gray-500">Check back later for special promotions!</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                offers.forEach(offer => {
+                    const offerElement = document.createElement('div');
+                    offerElement.className = `offer-card ${offer.featured ? 'featured' : ''}`;
+                    
+                    // Calculate time remaining
+                    let timeRemaining = '';
+                    let countdownHtml = '';
+                    
+                    if (offer.expiresAt) {
+                        const expires = new Date(offer.expiresAt);
+                        const now = new Date();
+                        const diff = expires - now;
+                        
+                        if (diff > 0) {
+                            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                            
+                            timeRemaining = `Expires in: ${days}d ${hours}h ${minutes}m`;
+                            
+                            countdownHtml = `
+                                <div class="offer-timer">
+                                    <i class="fas fa-clock"></i>
+                                    <div class="timer-numbers">
+                                        ${days.toString().padStart(2, '0')}:${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}
+                                    </div>
+                                </div>
+                            `;
+                        } else {
+                            timeRemaining = 'Offer Expired';
+                        }
+                    }
+                    
+                    const isExpired = offer.expiresAt && new Date(offer.expiresAt) < new Date();
+                    
+                    offerElement.innerHTML = `
+                        ${offer.featured ? '<div class="offer-badge">FEATURED</div>' : ''}
+                        <div class="offer-header">
+                            <h4 class="text-xl font-bold">${offer.title}</h4>
+                            <p class="text-sm opacity-90 mt-1">${offer.description}</p>
+                            ${countdownHtml}
+                        </div>
+                        <div class="offer-body">
+                            <div class="offer-price">
+                                ${offer.offerPrice === 0 ? 'FREE' : `${offer.currency}${offer.offerPrice}`}
+                                ${offer.originalPrice > offer.offerPrice ? 
+                                    `<span class="text-sm line-through text-gray-500 ml-2">${offer.currency}${offer.originalPrice}</span>` : 
+                                    ''}
+                            </div>
+                            
+                            <ul class="offer-features">
+                                ${offer.features.map(feature => `
+                                    <li><i class="fas fa-check-circle"></i> ${feature}</li>
+                                `).join('')}
+                            </ul>
+                            
+                            <button class="claim-btn ${isExpired ? 'offer-expired' : ''}" 
+                                    data-offer-id="${offer.id}"
+                                    ${isExpired ? 'disabled' : ''}>
+                                <i class="fas fa-${isExpired ? 'clock' : 'gift'}"></i>
+                                ${isExpired ? 'OFFER EXPIRED' : offer.buttonText}
+                            </button>
+                            
+                            ${timeRemaining ? `<p class="text-center text-sm text-gray-500 mt-3">${timeRemaining}</p>` : ''}
+                        </div>
+                    `;
+                    
+                    offersContainer.appendChild(offerElement);
+                    
+                    // Add click event to claim button
+                    const claimBtn = offerElement.querySelector('.claim-btn');
+                    if (claimBtn && !isExpired) {
+                        claimBtn.addEventListener('click', () => claimOffer(offer));
+                    }
+                });
+            }
+
+            // Claim Offer Function
+            function claimOffer(offer) {
+                if (!currentUser) {
+                    showToast('Please login to claim this offer', 'warning');
+                    openLoginModal('login');
+                    return;
+                }
+                
+                const whatsappNumber = currentUser.whatsapp || '94777777777';
+                const encodedMessage = encodeURIComponent(offer.whatsappMessage);
+                const whatsappUrl = `https://wa.me/${whatsappNumber.replace('+', '')}?text=${encodedMessage}`;
+                
+                // Open WhatsApp
+                window.open(whatsappUrl, '_blank');
+                
+                // Show success message
+                showToast(`Offer claimed! Opening WhatsApp to complete your request.`, 'success');
+                
+                // Track offer claim in Firebase
+                if (initializeFirebase()) {
+                    const claimData = {
+                        userId: currentUser.username,
+                        offerId: offer.id,
+                        claimedAt: new Date().toISOString(),
+                        userWhatsApp: currentUser.whatsapp,
+                        offerTitle: offer.title
+                    };
+                    
+                    const claimRef = window.firebaseRef(window.firebaseDatabase, `offer_claims/${offer.id}_${currentUser.username}_${Date.now()}`);
+                    window.firebaseSet(claimRef, claimData).catch(error => {
+                        console.error('Error tracking offer claim:', error);
+                    });
+                }
+            }
 
             // Initialize Notifications
             function initNotifications() {
                 const notificationList = document.getElementById('notification-list');
+                if (!notificationList) return;
+                
                 notificationList.innerHTML = '';
+                
+                if (notifications.length === 0) {
+                    notificationList.innerHTML = `
+                        <div class="text-center py-8">
+                            <i class="fas fa-bell-slash text-gray-300 text-3xl mb-3"></i>
+                            <p class="text-gray-500">No notifications yet</p>
+                        </div>
+                    `;
+                    return;
+                }
                 
                 notifications.forEach(notification => {
                     const notificationItem = document.createElement('div');
-                    notificationItem.className = `notification-item ${notification.unread ? 'unread' : ''}`;
+                    notificationItem.className = `notification-item ${notification.type} ${notification.unread ? 'unread' : ''}`;
+                    
+                    // Determine icon based on type
+                    let icon = 'fa-bell';
+                    let iconColor = 'bg-gray-100 text-gray-600';
+                    
+                    if (notification.type === 'offer') {
+                        icon = 'fa-gift';
+                        iconColor = 'bg-yellow-100 text-yellow-600';
+                    } else if (notification.type === 'signal') {
+                        icon = 'fa-chart-line';
+                        iconColor = 'bg-green-100 text-green-600';
+                    } else if (notification.type === 'urgent') {
+                        icon = 'fa-exclamation-triangle';
+                        iconColor = 'bg-red-100 text-red-600';
+                    }
+                    
                     notificationItem.innerHTML = `
                         <div class="flex items-start gap-3">
-                            <div class="notification-icon ${notification.iconColor}">
-                                <i class="fas ${notification.icon}"></i>
+                            <div class="notification-icon ${iconColor}">
+                                <i class="fas ${notification.icon || icon}"></i>
                             </div>
                             <div class="flex-1">
                                 <p class="font-medium text-gray-800">${notification.title}</p>
                                 <p class="text-sm text-gray-600 mt-1">${notification.message}</p>
-                                <p class="text-xs text-gray-500 mt-2">${notification.time}</p>
+                                <p class="text-xs text-gray-500 mt-2">${formatTimeAgo(new Date(notification.createdAt))}</p>
                             </div>
                             ${notification.unread ? '<div class="w-2 h-2 bg-red-500 rounded-full mt-2"></div>' : ''}
+                            ${notification.type === 'offer' ? '<span class="offer-badge">OFFER</span>' : ''}
                         </div>
                     `;
                     
+                    // Add click event
                     notificationItem.addEventListener('click', () => {
                         notification.unread = false;
                         updateNotificationBadge();
+                        
+                        if (notification.link) {
+                            window.location.hash = notification.link;
+                        }
+                        
                         notificationDropdown.classList.remove('active');
                     });
                     
@@ -2150,13 +3449,56 @@
                 });
             }
 
+            // Format time ago
+            function formatTimeAgo(date) {
+                const now = new Date();
+                const diffMs = now - date;
+                const diffMins = Math.floor(diffMs / 60000);
+                const diffHours = Math.floor(diffMs / 3600000);
+                const diffDays = Math.floor(diffMs / 86400000);
+                
+                if (diffMins < 1) return 'Just now';
+                if (diffMins < 60) return `${diffMins} minute${diffMins > 1 ? 's' : ''} ago`;
+                if (diffHours < 24) return `${diffHours} hour${diffHours > 1 ? 's' : ''} ago`;
+                if (diffDays < 7) return `${diffDays} day${diffDays > 1 ? 's' : ''} ago`;
+                
+                return date.toLocaleDateString();
+            }
+
             // Update Notification Badge
             function updateNotificationBadge() {
-                unreadNotifications = notifications.filter(n => n.unread).length;
-                document.getElementById('notification-count').textContent = unreadNotifications;
+                const unreadCount = notifications.filter(n => n.unread).length;
+                document.getElementById('notification-count').textContent = unreadCount;
                 document.querySelectorAll('.badge-count').forEach(badge => {
-                    badge.textContent = unreadNotifications;
+                    badge.textContent = unreadCount;
                 });
+            }
+
+            // Generate strong password
+            function generateStrongPassword() {
+                const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                const lowercase = 'abcdefghijklmnopqrstuvwxyz';
+                const numbers = '0123456789';
+                const symbols = '!@#$%^&*()_+-=[]{}|;:,.<>?';
+                
+                let password = '';
+                
+                // Ensure at least one character from each category
+                password += uppercase.charAt(Math.floor(Math.random() * uppercase.length));
+                password += lowercase.charAt(Math.floor(Math.random() * lowercase.length));
+                password += numbers.charAt(Math.floor(Math.random() * numbers.length));
+                password += symbols.charAt(Math.floor(Math.random() * symbols.length));
+                
+                // Fill the rest with random characters
+                const allChars = uppercase + lowercase + numbers + symbols;
+                for (let i = 0; i < 8; i++) {
+                    password += allChars.charAt(Math.floor(Math.random() * allChars.length));
+                }
+                
+                // Shuffle the password
+                password = password.split('').sort(() => Math.random() - 0.5).join('');
+                
+                return password;
             }
 
             // Check if user is logged in
@@ -2234,21 +3576,26 @@
                 return false;
             }
 
-            // Register Function
-            function register(username, email, password, whatsapp) {
+            // Register Function - UPDATED FOR AUTO-GENERATED PASSWORD
+            function register(username, email, whatsapp) {
                 // Validate inputs
-                if (!username || !email || !password || !whatsapp) {
+                if (!username || !email || !whatsapp) {
                     showToast('Please fill all fields', 'error');
                     return false;
                 }
                 
-                if (password.length < 6) {
-                    showToast('Password must be at least 6 characters', 'error');
+                // Validate WhatsApp number (10 digits without spaces)
+                const cleanedWhatsApp = whatsapp.replace(/\D/g, '');
+                if (cleanedWhatsApp.length !== 10) {
+                    showToast('Please enter a valid 10-digit WhatsApp number', 'error');
                     return false;
                 }
                 
                 // Format WhatsApp number
-                const formattedWhatsApp = '+94' + whatsapp.replace(/\D/g, '');
+                const formattedWhatsApp = '+94' + cleanedWhatsApp;
+                
+                // Generate strong password
+                const generatedPassword = generateStrongPassword();
                 
                 // Check if user already exists in test users
                 if (TEST_VIP_USERS[username]) {
@@ -2260,7 +3607,7 @@
                 phoneVerificationData = {
                     username: username,
                     email: email,
-                    password: password,
+                    password: generatedPassword,
                     whatsapp: formattedWhatsApp,
                     isVIP: false,
                     registeredDate: new Date().toISOString().split('T')[0],
@@ -2333,13 +3680,15 @@
                 return Math.floor(100000 + Math.random() * 900000).toString();
             }
 
-            // Format phone number
+            // Format phone number for display
             function formatPhoneNumber(phone) {
-                // Format: +94 77 123 4567
+                // Format: +94 77 777 7777 (for 10-digit number: +94 77 123 4567)
                 const cleaned = phone.replace(/\D/g, '');
-                const match = cleaned.match(/^(\d{2})(\d{2})(\d{3})(\d{4})$/);
-                if (match) {
-                    return `+${match[1]} ${match[2]} ${match[3]} ${match[4]}`;
+                if (cleaned.length === 12) { // +94 77 123 4567
+                    const match = cleaned.match(/^(\d{2})(\d{2})(\d{3})(\d{4})$/);
+                    if (match) {
+                        return `+${match[1]} ${match[2]} ${match[3]} ${match[4]}`;
+                    }
                 }
                 return phone;
             }
@@ -2418,7 +3767,12 @@
                         if (window.firebaseDatabase) {
                             const userRef = window.firebaseRef(window.firebaseDatabase, `${USERS_DB_REF}/${newUser.username}`);
                             window.firebaseSet(userRef, newUser).then(() => {
+                                // Send password via WhatsApp
+                                sendPasswordWhatsApp(newUser.whatsapp, newUser.username, newUser.password);
+                                
                                 showToast('Registration successful! Your phone is verified.', 'success');
+                                showToast('Password has been sent to your WhatsApp.', 'info');
+                                
                                 updateUIForLoggedInUser();
                                 loadResultsContent();
                                 closePhoneConfirmationModal();
@@ -2429,14 +3783,25 @@
                                 return true;
                             }).catch((error) => {
                                 console.error('Firebase registration error:', error);
+                                
+                                // Send password via WhatsApp even if Firebase fails
+                                sendPasswordWhatsApp(newUser.whatsapp, newUser.username, newUser.password);
+                                
                                 showToast('Registration successful (offline mode)', 'success');
+                                showToast('Password has been sent to your WhatsApp.', 'info');
+                                
                                 updateUIForLoggedInUser();
                                 loadResultsContent();
                                 closePhoneConfirmationModal();
                                 return true;
                             });
                         } else {
+                            // Send password via WhatsApp
+                            sendPasswordWhatsApp(newUser.whatsapp, newUser.username, newUser.password);
+                            
                             showToast('Registration successful! Your phone is verified.', 'success');
+                            showToast('Password has been sent to your WhatsApp.', 'info');
+                            
                             updateUIForLoggedInUser();
                             loadResultsContent();
                             closePhoneConfirmationModal();
@@ -2448,7 +3813,13 @@
                         }
                     } catch (error) {
                         console.error('Registration error:', error);
+                        
+                        // Send password via WhatsApp
+                        sendPasswordWhatsApp(newUser.whatsapp, newUser.username, newUser.password);
+                        
                         showToast('Registration successful (offline mode)', 'success');
+                        showToast('Password has been sent to your WhatsApp.', 'info');
+                        
                         updateUIForLoggedInUser();
                         loadResultsContent();
                         closePhoneConfirmationModal();
@@ -2460,6 +3831,18 @@
                 }
             }
 
+            // Send password via WhatsApp
+            function sendPasswordWhatsApp(phoneNumber, username, password) {
+                const message = `🎉 Registration Successful!\n\nYour SM VIP SIGNALS account has been created.\n\n📋 Account Details:\nUsername: ${username}\nPassword: ${password}\n\n🔒 Please save this password securely!\n\nDo not share this password with anyone.\n\n📱 Login: smvipsignals.com\n\nBest regards,\nSM VIP SIGNALS Team`;
+                const encodedMessage = encodeURIComponent(message);
+                const whatsappUrl = `https://wa.me/${phoneNumber.replace('+', '')}?text=${encodedMessage}`;
+                
+                // Open WhatsApp in new tab to send password
+                setTimeout(() => {
+                    window.open(whatsappUrl, '_blank');
+                }, 1000);
+            }
+
             // Send welcome WhatsApp message
             function sendWelcomeWhatsApp(phoneNumber, username) {
                 const message = `Welcome ${username} to SM VIP SIGNALS! 🎉\n\nYour account has been successfully verified.\n\nStart your trading journey with us!\n\nVisit: smvipsignals.com\n\nBest regards,\nSM VIP SIGNALS Team`;
@@ -2469,7 +3852,7 @@
                 // Open WhatsApp in new tab (simulated)
                 setTimeout(() => {
                     window.open(whatsappUrl, '_blank');
-                }, 1000);
+                }, 3000); // Delay to ensure password message is sent first
             }
 
             // Resend OTP
@@ -2620,13 +4003,15 @@
                     `;
                     
                     // Add event listeners to buttons
-                    document.getElementById('results-login-btn')?.addEventListener('click', () => {
-                        openLoginModal('login');
-                    });
-                    
-                    document.getElementById('results-register-btn')?.addEventListener('click', () => {
-                        openLoginModal('register');
-                    });
+                    setTimeout(() => {
+                        document.getElementById('results-login-btn')?.addEventListener('click', () => {
+                            openLoginModal('login');
+                        });
+                        
+                        document.getElementById('results-register-btn')?.addEventListener('click', () => {
+                            openLoginModal('register');
+                        });
+                    }, 100);
                     
                 } else if (!currentUser.isVIP) {
                     // Show locked results for free users
@@ -2705,11 +4090,10 @@
             function showToast(message, type = 'info') {
                 // Create toast element
                 const toast = document.createElement('div');
-                toast.className = `fixed top-24 right-6 z-50 px-6 py-3 rounded-lg shadow-lg text-white font-medium animate__animated animate__fadeInRight ${
-                    type === 'success' ? 'bg-green-500' : 
-                    type === 'error' ? 'bg-red-500' : 
-                    type === 'warning' ? 'bg-yellow-500' : 'bg-blue-500'
-                }`;
+                toast.className = `fixed top-24 right-6 z-50 px-6 py-3 rounded-lg shadow-lg text-white font-medium animate__animated animate__fadeInRight ${                            type === 'success' ? 'bg-green-500' : 
+                            type === 'error' ? 'bg-red-500' : 
+                            type === 'warning' ? 'bg-yellow-500' : 'bg-blue-500'
+                        }`;
                 toast.textContent = message;
                 
                 document.body.appendChild(toast);
@@ -2748,7 +4132,10 @@
                             mainWebsite.classList.remove('hidden');
                             
                             // Initialize app
-                            initNotifications();
+                            loadPackageSettings();
+                            loadAnnouncements();
+                            loadNotifications();
+                            loadOffers();
                             checkLoginStatus();
                             updateNotificationBadge();
                             
@@ -2783,6 +4170,10 @@
                     loginTabBtn.classList.remove('active');
                     registerForm.classList.remove('hidden');
                     loginForm.classList.add('hidden');
+                    
+                    // Auto-generate password for registration
+                    const generatedPassword = generateStrongPassword();
+                    registerPasswordInput.value = generatedPassword;
                 }
                 
                 // Clear forms
@@ -2790,8 +4181,6 @@
                 loginPasswordInput.value = '';
                 registerUsernameInput.value = '';
                 registerEmailInput.value = '';
-                registerPasswordInput.value = '';
-                registerConfirmPasswordInput.value = '';
                 registerWhatsAppInput.value = '';
                 
                 // Focus on first input
@@ -2956,6 +4345,43 @@
                 profileDropdown.classList.remove('active');
             });
 
+            // Subscribe for Offers Button
+            subscribeOffersBtn.addEventListener('click', function() {
+                if (!currentUser) {
+                    showToast('Please login to subscribe for offers', 'warning');
+                    openLoginModal('login');
+                    return;
+                }
+                
+                // Subscribe user for offers
+                const userEmail = currentUser.email || currentUser.username + '@example.com';
+                
+                if (initializeFirebase()) {
+                    const subscriptionRef = window.firebaseRef(window.firebaseDatabase, `${SUBSCRIPTIONS_DB_REF}/${currentUser.username}`);
+                    const subscriptionData = {
+                        email: userEmail,
+                        whatsapp: currentUser.whatsapp,
+                        subscribedAt: new Date().toISOString(),
+                        preferences: {
+                            offers: true,
+                            signals: true,
+                            news: true
+                        }
+                    };
+                    
+                    window.firebaseSet(subscriptionRef, subscriptionData)
+                        .then(() => {
+                            showToast('Successfully subscribed for exclusive offers!', 'success');
+                        })
+                        .catch(error => {
+                            console.error('Error subscribing:', error);
+                            showToast('Subscribed for offers!', 'success');
+                        });
+                } else {
+                    showToast('Subscribed for exclusive offers!', 'success');
+                }
+            });
+
             // Tab Switching
             loginTabBtn.addEventListener('click', () => {
                 loginTabBtn.classList.add('active');
@@ -2969,6 +4395,10 @@
                 loginTabBtn.classList.remove('active');
                 registerForm.classList.remove('hidden');
                 loginForm.classList.add('hidden');
+                
+                // Auto-generate password
+                const generatedPassword = generateStrongPassword();
+                registerPasswordInput.value = generatedPassword;
             });
 
             switchToRegister.addEventListener('click', (e) => {
@@ -3010,31 +4440,21 @@
                 }, 1000);
             });
 
-            // Register Form Submission
+            // Register Form Submission - AUTO-GENERATED PASSWORD
             registerSubmitBtn.addEventListener('click', function() {
                 const username = registerUsernameInput.value.trim();
                 const email = registerEmailInput.value.trim();
-                const password = registerPasswordInput.value.trim();
-                const confirmPassword = registerConfirmPasswordInput.value.trim();
                 const whatsapp = registerWhatsAppInput.value.trim();
                 
-                if (!username || !email || !password || !confirmPassword || !whatsapp) {
+                if (!username || !email || !whatsapp) {
                     showToast('Please fill all fields', 'error');
                     return;
                 }
                 
-                if (password.length < 6) {
-                    showToast('Password must be at least 6 characters', 'error');
-                    return;
-                }
-                
-                if (password !== confirmPassword) {
-                    showToast('Passwords do not match', 'error');
-                    return;
-                }
-                
-                if (!/^\d{9}$/.test(whatsapp.replace(/\D/g, ''))) {
-                    showToast('Please enter a valid WhatsApp number (9 digits)', 'error');
+                // Validate WhatsApp number (10 digits without spaces)
+                const cleanedWhatsApp = whatsapp.replace(/\D/g, '');
+                if (cleanedWhatsApp.length !== 10) {
+                    showToast('Please enter a valid 10-digit WhatsApp number', 'error');
                     return;
                 }
                 
@@ -3045,7 +4465,7 @@
                 
                 // Simulate API call
                 setTimeout(() => {
-                    if (register(username, email, password, whatsapp)) {
+                    if (register(username, email, whatsapp)) {
                         // Success - opens phone confirmation modal
                     }
                     
@@ -3093,12 +4513,6 @@
             loginPasswordInput.addEventListener('keypress', (e) => {
                 if (e.key === 'Enter') {
                     loginSubmitBtn.click();
-                }
-            });
-
-            registerConfirmPasswordInput.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') {
-                    registerSubmitBtn.click();
                 }
             });
 
@@ -3179,19 +4593,17 @@
                 });
             });
 
-            // WhatsApp number formatting
+            // WhatsApp number input - NO FORMATTING, just digits
             registerWhatsAppInput.addEventListener('input', function(e) {
+                // Remove all non-digit characters
                 let value = this.value.replace(/\D/g, '');
-                if (value.length > 9) value = value.substring(0, 9);
                 
-                // Format as XXX XXX XXX
-                if (value.length > 3) {
-                    value = value.substring(0, 3) + ' ' + value.substring(3);
-                }
-                if (value.length > 7) {
-                    value = value.substring(0, 7) + ' ' + value.substring(7);
+                // Limit to 10 digits only
+                if (value.length > 10) {
+                    value = value.substring(0, 10);
                 }
                 
+                // Set the value back without any formatting
                 this.value = value;
             });
 
@@ -3212,9 +4624,206 @@
                 }
             }
 
+            // Footer link navigation
+            document.querySelectorAll('.footer-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href && href.startsWith('#')) {
+                        e.preventDefault();
+                        const targetId = href.substring(1);
+                        const targetElement = document.getElementById(targetId);
+                        
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 80,
+                                behavior: 'smooth'
+                            });
+                            
+                            // Update active nav link
+                            document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(navLink => {
+                                navLink.classList.remove('active');
+                                if (navLink.getAttribute('href') === href) {
+                                    navLink.classList.add('active');
+                                }
+                            });
+                        }
+                    }
+                });
+            });
+
+            // Footer newsletter subscription
+            document.querySelector('.newsletter-btn')?.addEventListener('click', function() {
+                const emailInput = document.querySelector('.newsletter-input');
+                const email = emailInput.value.trim();
+                
+                if (!email) {
+                    showToast('Please enter your email address', 'error');
+                    return;
+                }
+                
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                    showToast('Please enter a valid email address', 'error');
+                    return;
+                }
+                
+                // Save button state
+                const originalText = this.innerHTML;
+                this.disabled = true;
+                this.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Subscribing...';
+                
+                // Simulate API call
+                setTimeout(() => {
+                    showToast('Successfully subscribed to MASH SOLUTIONS newsletter!', 'success');
+                    emailInput.value = '';
+                    
+                    // Restore button state
+                    this.disabled = false;
+                    this.innerHTML = originalText;
+                }, 1000);
+            });
+
             // Start loading animation
             startLoading();
             handleMobileKeyboard();
+
+            // Setup real-time announcements listener
+            function setupRealtimeAnnouncements() {
+                if (!initializeFirebase()) return;
+                
+                const announcementsRef = window.firebaseRef(window.firebaseDatabase, ANNOUNCEMENTS_DB_REF);
+                
+                window.firebaseOnValue(announcementsRef, (snapshot) => {
+                    if (snapshot.exists()) {
+                        const data = snapshot.val();
+                        const newAnnouncements = Object.entries(data)
+                            .map(([key, value]) => ({ key, ...value }))
+                            .filter(announcement => 
+                                announcement.isActive !== false && 
+                                (!announcement.expiresAt || new Date(announcement.expiresAt) > new Date())
+                            )
+                            .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+                        
+                        announcements = newAnnouncements;
+                        displayAnnouncements();
+                        
+                        // Show notification for new announcements
+                        if (newAnnouncements.length > 0 && announcements.length > newAnnouncements.length) {
+                            showToast('New announcement posted!', 'info');
+                        }
+                    }
+                });
+            }
+
+            // Setup real-time notifications listener
+            function setupRealtimeNotifications() {
+                if (!initializeFirebase()) return;
+                
+                const notificationsRef = window.firebaseRef(window.firebaseDatabase, NOTIFICATIONS_DB_REF);
+                
+                window.firebaseOnValue(notificationsRef, (snapshot) => {
+                    if (snapshot.exists()) {
+                        const data = snapshot.val();
+                        const newNotifications = Object.values(data).filter(notification => 
+                            notification.isActive && (!notification.expiresAt || new Date(notification.expiresAt) > new Date())
+                        );
+                        
+                        // Sort by created date (newest first)
+                        newNotifications.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+                        
+                        // Check for new notifications
+                        const oldIds = notifications.map(n => n.id);
+                        const newNotificationsCount = newNotifications.filter(n => !oldIds.includes(n.id)).length;
+                        
+                        if (newNotificationsCount > 0) {
+                            showToast(`You have ${newNotificationsCount} new notification${newNotificationsCount > 1 ? 's' : ''}`, 'info');
+                        }
+                        
+                        notifications = newNotifications;
+                        initNotifications();
+                        updateNotificationBadge();
+                    }
+                });
+            }
+
+            // Setup real-time offers listener
+            function setupRealtimeOffers() {
+                if (!initializeFirebase()) return;
+                
+                const offersRef = window.firebaseRef(window.firebaseDatabase, OFFERS_DB_REF);
+                
+                window.firebaseOnValue(offersRef, (snapshot) => {
+                    if (snapshot.exists()) {
+                        const data = snapshot.val();
+                        const newOffers = Object.values(data).filter(offer => 
+                            offer.isActive && (!offer.expiresAt || new Date(offer.expiresAt) > new Date())
+                        );
+                        
+                        // Sort by featured first, then by expiry date
+                        newOffers.sort((a, b) => {
+                            if (a.featured && !b.featured) return -1;
+                            if (!a.featured && b.featured) return 1;
+                            if (a.expiresAt && b.expiresAt) {
+                                return new Date(a.expiresAt) - new Date(b.expiresAt);
+                            }
+                            return 0;
+                        });
+                        
+                        offers = newOffers;
+                        displayOffers();
+                    }
+                });
+            }
+
+            // Setup real-time package settings listener
+            function setupRealtimePackageSettings() {
+                if (!initializeFirebase()) return;
+                
+                const settingsRef = window.firebaseRef(window.firebaseDatabase, PACKAGE_SETTINGS_DB_REF);
+                
+                window.firebaseOnValue(settingsRef, (snapshot) => {
+                    if (snapshot.exists()) {
+                        const data = snapshot.val();
+                        packagePrices = {
+                            basic: data['1month'] || packagePrices.basic,
+                            pro: { price: 299, days: 30 },
+                            elite: { price: 599, days: 30 },
+                            '3months': data['3months'] || packagePrices['3months'],
+                            lifetime: data['lifetime'] || packagePrices.lifetime
+                        };
+                        
+                        updatePricingUI();
+                        
+                        // Update offers if prices changed
+                        if (offers.length > 0) {
+                            offers.forEach(offer => {
+                                if (offer.originalPrice === packagePrices.pro.price * 3) {
+                                    offer.originalPrice = packagePrices.pro.price * 3;
+                                    offer.offerPrice = Math.round(packagePrices.pro.price * 3 * 0.7 * 100) / 100;
+                                } else if (offer.originalPrice === packagePrices.pro.price) {
+                                    offer.originalPrice = packagePrices.pro.price;
+                                    offer.offerPrice = Math.round(packagePrices.pro.price * 0.5 * 100) / 100;
+                                }
+                            });
+                            displayOffers();
+                        }
+                    }
+                });
+            }
+
+            // Setup real-time listeners after a delay
+            setTimeout(() => {
+                setupRealtimeAnnouncements();
+                setupRealtimeNotifications();
+                setupRealtimeOffers();
+                setupRealtimePackageSettings();
+            }, 2000);
+
+            // Auto-refresh offers countdown every minute
+            setInterval(() => {
+                if (offers.length > 0) {
+                    displayOffers();
+                }
+            }, 60000);
         });
     </script>
 
